@@ -1,0 +1,13 @@
+{
+  "name": "Work Base",
+  "short_name": "Work Base",
+  "start_url": "./",
+  "scope": "./",
+  "display": "fullscreen",
+  "display_override": ["fullscreen", "standalone"],
+  "background_color": "#13131a",
+  "theme_color": "#13131a",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

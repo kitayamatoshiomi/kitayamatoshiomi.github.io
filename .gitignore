@@ -3,3 +3,4 @@ Thumbs.db
 desktop.ini
 _preview*.html
 .claude/
+__pycache__/

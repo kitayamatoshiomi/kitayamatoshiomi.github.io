@@ -1,39 +1,46 @@
 # Work Base（ベースサイト）
 
-仕事の起点になる 1 画面。「Work Cosmos」と「編集中」の統合・進化版。
-中央の発光体から放射状にツールのノードが伸びる構図（参考：reznikov_engineering）。
+北山さんの仕事の基地。よく使うものが 1 画面に集まり、必要な情報（通知）が流れ込んでくる場所。
+ゆくゆくは中央下の対話窓からオリジナル AI につながる想定。
 
-- **自前でデータを持たない**：表示はすべて外部サービス。ノードはクリックで各サイトを新規タブで開くだけ。
-- **予定・タスクは眺めるだけ**：右上「予定 & メモ」パネルに Google カレンダー（agenda 表示）と Notion へのボタン。書き込みは各サービスで。
-- **時計・日付・曜日**：サイト自身で描画（外部依存なし）。
-- **編集中フォルダ検索**：中央の検索窓に先生名・書名を入れて Enter → Google ドライブの「編集中」直下をフォルダ検索。
-- **動きは読み込み時だけ**：イントロのドロー演出のあとは静止（Surface の CPU 負荷に配慮）。
-- **メモ**：左下。この端末の localStorage に保存（同期しない）。
+## 画面構成（v2）
 
-## 構成
+| 位置 | 中身 |
+|---|---|
+| 中央 | Work Cosmos（力学グラフ）。常にゆっくり回転し、中心から信号が流れ続ける。星クリックでツールを開く |
+| 左上 | Notion「今週の作業板」の完了済みタスク数。クリックで Notion へ |
+| 右上 | 教育・出版ニュース（タブ切替）。毎時自動更新 |
+| 左下 | よく使う Google（Gmail が一番上）＋「編集中」フォルダ検索 |
+| 右下 | Amazon ランキング・honto・他社出版社 |
+| 中央下 | 対話窓（今は形だけ）。星の名前を打つと光る／「〜を開いて」で開く／「全画面」「リセット」 |
+
+全画面：上部の ⛶ ボタン、F キー、背景ダブルクリック。
+Chrome で「アプリとしてインストール」すると全画面のアプリとして起動できる（Surface 向け）。
+
+## ファイル
 
 | ファイル | 役割 |
 |---|---|
-| `index.html` | 本体（自己完結・1ファイル） |
-
-## 中身の差し替え
-
-`index.html` の `CONFIG` ブロック（`<script>` 冒頭）だけ直せば変更できます。
-
-| 定数 | 意味 | 現在値 |
-|---|---|---|
-| `EDIT_PARENT` | Google ドライブ「編集中」フォルダ ID | 設定済み |
-| `CAL_SRC` | 埋め込むカレンダーのアドレス | `kitayama@toyokan.co.jp`（要確認） |
-| `NOTION_BOARD` / `NOTION_TASKS` | Notion 作業板・タスクメモの URL | 仮（`notion.so` トップ） |
-| `GROUPS` / `TOOLS` | ノードのグループとツール一覧 | Work Cosmos v19 から移植（28 個 / 6 グループ） |
+| `index.html` | 本体（ツール一覧は `<script>` 冒頭の `TOOLS` を直す） |
+| `data/news.json` | ニュース（自動生成） |
+| `data/notion.json` | 完了数（自動生成。`history` に日ごとの件数） |
+| `scripts/update.py` | 上 2 つを作るスクリプト（標準ライブラリのみ） |
+| `.github/workflows/update.yml` | GitHub Actions で毎時 `update.py` を実行してコミット |
+| `manifest.webmanifest` / `icon.svg` | アプリとしてインストールする用 |
 
 ## 公開（GitHub Pages）
 
-リポジトリ：`kitayamatoshiomi-sudo`（アカウント）
+- リポジトリ：`kitayamatoshiomi/kitayamatoshiomi.github.io` → URL は https://kitayamatoshiomi.github.io/
+- 公開サイトなので誰でも見られる。載っているのはツールの URL（Drive フォルダ ID を含む）と完了件数のみ。Drive 側の共有は「制限付き」のままにしておくこと。
 
-- ユーザーサイト `kitayamatoshiomi-sudo.github.io` にすると URL が最短。
-- Pages は既定で誰でも閲覧可。並べる URL は「知られても問題ないもの」に限る
-  （ドライブ／シートのフォルダ ID は載るが、フォルダ側の共有を「制限付き」にしておけば中身は見えない）。
+## Notion 完了数を自動更新するには（1 回だけ）
+
+1. https://www.notion.so/my-integrations で「新しいインテグレーション」（内部）を作り、シークレットをコピー
+2. Notion の「📋 今週の作業板」ページ右上 … →「接続」→ 作ったインテグレーションを追加
+3. GitHub のリポジトリ → Settings → Secrets and variables → Actions → New repository secret
+   名前 `NOTION_TOKEN`、値にシークレットを貼る
+
+設定するまでは、9/21 時点の件数（485）が表示されたまま。
 
 ## 開発ログ
 

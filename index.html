@@ -2,448 +2,812 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Work Base</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%23070b16'/><circle cx='32' cy='32' r='8' fill='%23bfe6ff'/><g stroke='%234a6fa5' stroke-width='1.5' opacity='.8' fill='none'><path d='M32 32 L15 16'/><path d='M32 32 L50 15'/><path d='M32 32 L14 48'/><path d='M32 32 L50 49'/></g><circle cx='15' cy='16' r='3.4' fill='%236cc0a0'/><circle cx='50' cy='15' r='3.4' fill='%234fb5c8'/><circle cx='14' cy='48' r='3.4' fill='%23a58fd0'/><circle cx='50' cy='49' r='3.4' fill='%23d8b45a'/></svg>">
+<meta name="description" content="北山の仕事の基地。中央に Work Cosmos、四隅に Notion の完了数・教育と出版のニュース・よく使うドライブ・市場と出版社。">
+<meta name="theme-color" content="#13131a">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
 <style>
-  :root{
-    --bg0:#0f1830; --bg1:#0a0f1f; --bg2:#05070f;
-    --ink:#dfe8f6; --dim:#8595b4; --faint:#5b6a8c;
-    --line:#2c3e63;
-    --g-base:#6cc0a0; --g-prog:#4fb5c8; --g-market:#d8b45a;
-    --g-comp:#a58fd0; --g-office:#6f97e0; --g-other:#d98f88;
-    --core:#bfe6ff;
-    --enfont:"Chakra Petch",system-ui,sans-serif;
-    --jpfont:"Zen Kaku Gothic New",system-ui,sans-serif;
+  :root {
+    --bg: #13131a;
+    --card: rgba(24, 25, 34, .66);
+    --line: rgba(255, 255, 255, .075);
+    --line-2: rgba(255, 255, 255, .13);
+    --text: #b8bccb;
+    --dim: #7c8095;
+    --faint: #5c5f70;
+    --head: #dfe2ec;
+    --gold: #eccd6e;
+    --accent: #58c7d3;
+    --cw: clamp(250px, 21vw, 340px);
+    --gap: 16px;
   }
-  *{box-sizing:border-box}
-  html,body{margin:0;height:100%}
-  body{
-    background:radial-gradient(ellipse 90% 70% at 50% 40%,var(--bg0),var(--bg1) 42%,var(--bg2) 100%);
-    color:var(--ink);font-family:var(--enfont);overflow:hidden;
-    -webkit-font-smoothing:antialiased;
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: "Zen Kaku Gothic New", system-ui, sans-serif; font-size: 13px;
+    overflow: hidden; -webkit-font-smoothing: antialiased;
   }
-  #stage{position:fixed;inset:0}
-  svg#net{position:absolute;inset:0;width:100%;height:100%}
+  a { color: inherit; text-decoration: none; }
+  button, input { font: inherit; color: inherit; }
 
-  /* ---- links ---- */
-  .link{fill:none;stroke-linecap:round}
-  .spoke{stroke-width:1.8;opacity:.7}
-  .twig{stroke-width:1;opacity:.5}
-  svg#net.intro .link{stroke-dasharray:var(--len);stroke-dashoffset:var(--len);
-    animation:draw .9s ease forwards;animation-delay:var(--d)}
-  @keyframes draw{to{stroke-dashoffset:0}}
+  #view { position: fixed; inset: 0; display: block; cursor: grab; touch-action: none; }
+  #view.grab { cursor: grabbing; }
+  #view.node { cursor: pointer; }
 
-  /* ---- nodes ---- */
-  .node{cursor:pointer}
-  .node circle.dot{transition:r .18s ease,filter .18s ease}
-  .node .en{font-size:10.5px;letter-spacing:.06em;fill:var(--faint);
-    pointer-events:none;transition:fill .18s ease}
-  .hub .en{font-size:12px;letter-spacing:.14em;fill:var(--dim);text-transform:uppercase}
-  .node:focus{outline:none}
-  .node:focus circle.dot{stroke:#fff;stroke-width:1.4}
-
-  svg#net.intro .node{opacity:0;animation:pop .5s ease forwards;animation-delay:var(--d)}
-  @keyframes pop{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:scale(1)}}
-  .node{transform-box:fill-box;transform-origin:center}
-
-  /* hover / lit state (after intro) */
-  svg#net.ready .node:hover circle.dot,
-  svg#net.ready .node.lit circle.dot{r:var(--rlit);filter:url(#glow)}
-  svg#net.ready .node:hover .en,
-  svg#net.ready .node.lit .en{fill:var(--ink)}
-  svg#net.ready.dim .node:not(.lit){opacity:.28;transition:opacity .2s}
-  svg#net.ready.dim .link:not(.lit){opacity:.08;transition:opacity .2s}
-  svg#net.ready .link{transition:opacity .2s,stroke-width .2s}
-  svg#net.ready .link.lit{stroke-width:2.2;opacity:.95}
-
-  /* ---- core overlay ---- */
-  #core{position:absolute;left:50%;top:41%;transform:translate(-50%,-50%);
-    text-align:center;pointer-events:none;width:min(80vw,420px)}
-  #clock{font-weight:300;font-size:clamp(26px,4.4vw,44px);letter-spacing:.1em;
-    color:#eaf4ff;text-shadow:0 0 22px rgba(150,205,255,.4)}
-  #date{margin-top:1px;font-size:clamp(10px,1.3vw,12px);letter-spacing:.34em;
-    color:var(--dim);text-transform:uppercase}
-  #search{margin-top:16px;pointer-events:auto;display:flex;justify-content:center}
-  #search input{
-    width:min(76vw,320px);background:rgba(9,14,28,.9);
-    border:1px solid #33477199;border-radius:999px;color:var(--ink);
-    padding:9px 16px;font-family:var(--jpfont);font-size:13px;outline:none;
-    box-shadow:0 0 0 1px rgba(120,170,255,.05),0 8px 30px rgba(0,0,0,.4)}
-  #search input:focus{border-color:#4d74b8;box-shadow:0 0 0 3px rgba(90,150,240,.14)}
-  #search input::placeholder{color:var(--faint)}
-  #qlinks{margin-top:9px;font-size:11px;letter-spacing:.02em;
-    font-family:var(--jpfont);color:var(--faint);pointer-events:auto}
-  #qlinks a{color:var(--dim);text-decoration:none;border-bottom:1px solid transparent}
-  #qlinks a:hover{color:var(--ink);border-bottom-color:var(--faint)}
-  #qlinks span{margin:0 7px;opacity:.4}
-
-  /* ---- tooltip ---- */
-  #tip{position:absolute;pointer-events:none;font-family:var(--jpfont);
-    font-size:12px;color:var(--ink);background:rgba(10,16,32,.92);
-    border:1px solid #2b3a5e;border-radius:7px;padding:4px 9px;white-space:nowrap;
-    opacity:0;transform:translateY(3px);transition:opacity .13s,transform .13s;
-    box-shadow:0 6px 22px rgba(0,0,0,.45);z-index:5}
-  #tip.on{opacity:1;transform:translateY(0)}
-  #tip b{font-weight:500}
-  #tip i{font-style:normal;color:var(--faint);margin-left:7px;font-size:10.5px}
-
-  /* ---- side panel ---- */
-  #peekbtn{position:absolute;top:16px;right:16px;z-index:6;
-    background:rgba(12,20,40,.72);border:1px solid #2c3e63;border-radius:8px;
-    color:var(--dim);font-family:var(--jpfont);font-size:12px;letter-spacing:.06em;
-    padding:7px 12px;cursor:pointer}
-  #peekbtn:hover{color:var(--ink);border-color:#4d74b8}
-  #peek{position:absolute;top:0;right:0;height:100%;width:min(92vw,380px);z-index:7;
-    background:linear-gradient(180deg,rgba(9,14,28,.98),rgba(7,11,22,.98));
-    border-left:1px solid #22314f;transform:translateX(100%);
-    transition:transform .28s ease;display:flex;flex-direction:column;padding:14px}
-  #peek.open{transform:translateX(0)}
-  #peek header{display:flex;justify-content:space-between;align-items:center;
-    color:var(--dim);font-size:12px;letter-spacing:.2em;text-transform:uppercase;
-    padding-bottom:10px;border-bottom:1px solid #1c2740}
-  #peek header button{background:none;border:none;color:var(--faint);font-size:18px;
-    cursor:pointer;line-height:1}
-  #peek header button:hover{color:var(--ink)}
-  #peek iframe{width:100%;flex:1;border:0;border-radius:8px;margin-top:12px;
-    background:#0b1120;min-height:280px}
-  #peek .btns{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
-  #peek .btns a{flex:1;text-align:center;min-width:120px;text-decoration:none;
-    font-family:var(--jpfont);font-size:12px;color:var(--dim);
-    border:1px solid #2c3e63;border-radius:8px;padding:9px 6px}
-  #peek .btns a:hover{color:var(--ink);border-color:#4d74b8}
-  #peek .note{color:var(--faint);font-size:10.5px;font-family:var(--jpfont);
-    margin-top:10px;line-height:1.5}
-
-  /* ---- note (bottom-left) ---- */
-  #memo{position:absolute;left:16px;bottom:14px;z-index:4;width:min(60vw,240px)}
-  #memo textarea{width:100%;height:52px;resize:none;background:rgba(10,16,32,.5);
-    border:1px solid #1e2b47;border-radius:8px;color:var(--dim);
-    font-family:var(--jpfont);font-size:11.5px;padding:7px 9px;outline:none}
-  #memo textarea:focus{border-color:#3a568c;color:var(--ink)}
-
-  @media (prefers-reduced-motion:reduce){
-    svg#net.intro .link{stroke-dashoffset:0;animation:none}
-    svg#net.intro .node{opacity:1;animation:none}
+  /* ---------- header ---------- */
+  .top {
+    position: fixed; top: 14px; left: 50%; transform: translateX(-50%);
+    display: flex; align-items: center; gap: 14px; pointer-events: none; white-space: nowrap;
   }
-  @media (max-width:640px){
-    #memo{display:none}
-    #core{top:42%}
+  .brand { font-family: "Outfit", sans-serif; font-weight: 400; font-size: .78rem; letter-spacing: .34em; color: var(--dim); }
+  .clock { font-family: "Outfit", sans-serif; font-weight: 300; font-size: 1.02rem; letter-spacing: .06em; color: var(--head); font-variant-numeric: tabular-nums; }
+  .date { font-family: "Outfit", sans-serif; font-size: .74rem; letter-spacing: .08em; color: var(--dim); }
+  .sep { width: 1px; height: 12px; background: var(--line-2); }
+  .iconbtn {
+    pointer-events: auto; width: 28px; height: 28px; border-radius: 8px; border: 1px solid var(--line);
+    background: rgba(24,25,34,.5); display: grid; place-items: center; cursor: pointer; color: var(--dim);
+    transition: color .15s, border-color .15s;
   }
+  .iconbtn:hover { color: var(--head); border-color: var(--line-2); }
+  .iconbtn svg { width: 14px; height: 14px; }
+
+  /* ---------- cards ---------- */
+  .card {
+    position: fixed; width: var(--cw); background: var(--card);
+    -webkit-backdrop-filter: blur(12px) saturate(120%); backdrop-filter: blur(12px) saturate(120%);
+    border: 1px solid var(--line); border-radius: 14px;
+    box-shadow: 0 14px 44px rgba(0,0,0,.36);
+    display: flex; flex-direction: column; overflow: hidden;
+    transition: border-color .4s, box-shadow .4s;
+  }
+  .card.ping { border-color: rgba(236,205,110,.5); box-shadow: 0 0 0 1px rgba(236,205,110,.18), 0 0 38px rgba(236,205,110,.16); }
+  .tl { top: var(--gap); left: var(--gap); }
+  .tr { top: var(--gap); right: var(--gap); height: calc(50vh - var(--gap) * 1.5); }
+  .bl { bottom: var(--gap); left: var(--gap); top: calc(var(--gap) * 2 + var(--tlh, 150px)); }
+  .br { bottom: var(--gap); right: var(--gap); height: calc(50vh - var(--gap) * 1.5); }
+
+  .chead { display: flex; align-items: baseline; gap: 8px; padding: 12px 14px 8px; }
+  .chead .t { font-family: "Outfit", sans-serif; font-weight: 500; font-size: .72rem; letter-spacing: .24em; color: var(--head); }
+  .chead .j { font-size: .7rem; color: var(--faint); }
+  .chead .r { margin-left: auto; font-family: "Outfit", sans-serif; font-size: .68rem; color: var(--faint); letter-spacing: .04em; }
+  .dot { width: 7px; height: 7px; border-radius: 50%; flex: none; align-self: center; box-shadow: 0 0 8px currentColor; }
+
+  .scroll { flex: 1; min-height: 0; overflow-y: auto; padding: 2px 6px 10px; scrollbar-width: thin; scrollbar-color: #33343f transparent; }
+  .scroll::-webkit-scrollbar { width: 7px; }
+  .scroll::-webkit-scrollbar-thumb { background: #33343f; border-radius: 4px; }
+  .fade { -webkit-mask-image: linear-gradient(#000 calc(100% - 22px), transparent); mask-image: linear-gradient(#000 calc(100% - 22px), transparent); }
+
+  /* top-left: done */
+  .done { display: block; padding: 0 16px 14px; }
+  .done .big { font-family: "Outfit", sans-serif; font-weight: 300; font-size: 3.1rem; line-height: 1; color: var(--head); letter-spacing: .01em; font-variant-numeric: tabular-nums; }
+  .done .big small { font-size: .9rem; font-weight: 400; color: var(--dim); margin-left: 6px; letter-spacing: .04em; }
+  .done .sub { display: flex; gap: 12px; margin-top: 9px; font-size: .74rem; color: var(--dim); flex-wrap: wrap; }
+  .done .sub b { color: var(--gold); font-weight: 500; font-family: "Outfit", sans-serif; }
+  .done .go { margin-top: 10px; font-family: "Outfit", sans-serif; font-size: .68rem; letter-spacing: .12em; color: var(--faint); transition: color .15s; }
+  .tl { cursor: pointer; }
+  .tl:hover { border-color: var(--line-2); }
+  .tl:hover .go { color: var(--accent); }
+
+  /* top-right: news */
+  .tabs { display: flex; gap: 4px; padding: 0 12px 6px; }
+  .tab { border: 1px solid var(--line); background: transparent; border-radius: 999px; padding: 2px 11px; font-size: .72rem; color: var(--dim); cursor: pointer; }
+  .tab.on { background: rgba(88,199,211,.13); border-color: rgba(88,199,211,.38); color: #cfeef1; }
+  .news a { display: block; padding: 8px 9px; border-radius: 9px; transition: background .15s; }
+  .news a:hover, .news a:focus-visible { background: rgba(255,255,255,.045); outline: none; }
+  .news .h { color: #d4d8e3; font-size: .8rem; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .news .m { margin-top: 3px; font-size: .67rem; color: var(--faint); display: flex; gap: 6px; }
+  .news .m .new { color: var(--gold); }
+  .empty { padding: 18px 10px; color: var(--faint); font-size: .76rem; line-height: 1.7; }
+
+  /* lists (drive / market) */
+  .list .grp { font-family: "Outfit", sans-serif; font-size: .64rem; letter-spacing: .22em; color: var(--faint); padding: 10px 9px 4px; text-transform: uppercase; }
+  .list a { display: flex; align-items: center; gap: 10px; padding: 7px 9px; border-radius: 9px; transition: background .15s; }
+  .list a:hover, .list a:focus-visible { background: rgba(255,255,255,.05); outline: none; }
+  .list a .n { flex: 1; min-width: 0; font-family: "Outfit", sans-serif; font-size: .84rem; color: #d2d6e2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .list a .jp { font-size: .7rem; color: var(--faint); white-space: nowrap; }
+  .list a.first { background: rgba(143,191,114,.08); }
+  .list a.first .n { color: #fff; }
+  .finder { margin: 2px 12px 6px; display: flex; align-items: center; gap: 7px; border: 1px solid var(--line); border-radius: 9px; padding: 5px 9px; background: rgba(0,0,0,.18); }
+  .finder:focus-within { border-color: rgba(92,182,179,.45); }
+  .finder svg { width: 12px; height: 12px; color: var(--faint); flex: none; }
+  .finder input { flex: 1; min-width: 0; background: transparent; border: 0; outline: none; font-size: .76rem; }
+  .finder input::placeholder { color: var(--faint); }
+
+  /* ---------- dialogue dock ---------- */
+  .dock {
+    position: fixed; left: 50%; bottom: 18px; transform: translateX(-50%);
+    width: min(560px, calc(100vw - var(--cw) * 2 - var(--gap) * 4 - 16px));
+    display: flex; flex-direction: column; gap: 8px; pointer-events: none;
+  }
+  .log { display: flex; flex-direction: column; gap: 4px; align-items: center; }
+  .log .ln { font-size: .76rem; color: var(--dim); background: rgba(19,19,26,.66); border: 1px solid var(--line); padding: 4px 11px; border-radius: 999px; max-width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; animation: rise .35s ease-out; transition: opacity .6s; }
+  .log .ln.me { color: #e6e9f1; }
+  .log .ln.old { opacity: .45; }
+  @keyframes rise { from { opacity: 0; transform: translateY(6px); } }
+  .bar {
+    pointer-events: auto; display: flex; align-items: center; gap: 10px;
+    background: rgba(24,25,34,.72); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+    border: 1px solid var(--line-2); border-radius: 16px; padding: 7px 7px 7px 16px;
+    box-shadow: 0 16px 50px rgba(0,0,0,.45);
+    transition: border-color .25s, box-shadow .25s;
+  }
+  .bar:focus-within { border-color: rgba(236,205,110,.42); box-shadow: 0 0 0 3px rgba(236,205,110,.07), 0 16px 50px rgba(0,0,0,.45); }
+  .bar .spark { width: 9px; height: 9px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 10px var(--gold); flex: none; animation: breathe 3.2s ease-in-out infinite; }
+  @keyframes breathe { 50% { opacity: .45; transform: scale(.8); } }
+  .bar input { flex: 1; min-width: 0; background: transparent; border: 0; outline: none; font-size: .9rem; padding: 6px 0; color: #eef0f6; }
+  .bar input::placeholder { color: var(--faint); }
+  .send { width: 34px; height: 34px; border-radius: 11px; border: 0; background: rgba(236,205,110,.14); color: var(--gold); display: grid; place-items: center; cursor: pointer; transition: background .15s; }
+  .send:hover { background: rgba(236,205,110,.26); }
+  .send svg { width: 15px; height: 15px; }
+
+  #boot { position: fixed; inset: 0; display: grid; place-items: center; color: #7c8095; font: 13px system-ui; background: #13131a; white-space: pre-wrap; text-align: center; padding: 24px; z-index: 9; }
+
+  /* ---------- narrow screens: stack the cards ---------- */
+  @media (max-width: 860px) {
+    body { overflow: auto; }
+    .wrap { position: relative; display: flex; flex-direction: column; gap: 12px; padding: 64px 12px 110px; }
+    .card { position: relative; top: auto !important; left: auto !important; right: auto !important; bottom: auto !important; width: 100%; height: auto !important; max-height: 60vh; }
+    .dock { width: calc(100vw - 24px); }
+    .top .date, .top .sep { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) { .bar .spark { animation: none; } }
 </style>
 </head>
 <body>
-<div id="stage">
-  <svg id="net" class="intro" viewBox="0 0 1200 780" preserveAspectRatio="xMidYMid meet" aria-label="仕事ツール">
-    <defs>
-      <radialGradient id="coreg" cx="50%" cy="50%" r="50%">
-        <stop offset="0%" stop-color="#eaf6ff" stop-opacity=".95"/>
-        <stop offset="22%" stop-color="#9fd2ff" stop-opacity=".55"/>
-        <stop offset="55%" stop-color="#3f6fae" stop-opacity=".18"/>
-        <stop offset="100%" stop-color="#3f6fae" stop-opacity="0"/>
-      </radialGradient>
-      <filter id="glow" x="-80%" y="-80%" width="260%" height="260%">
-        <feGaussianBlur stdDeviation="3.4" result="b"/>
-        <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-      </filter>
-      <filter id="softglow" x="-120%" y="-120%" width="340%" height="340%">
-        <feGaussianBlur stdDeviation="10"/>
-      </filter>
-    </defs>
-    <g id="stars"></g>
-    <circle id="corehalo" cx="600" cy="352" r="110" fill="url(#coreg)"/>
-    <circle cx="600" cy="352" r="2.6" fill="#eaf6ff"/>
-    <g id="links"></g>
-    <g id="nodes"></g>
-  </svg>
+<canvas id="view" aria-label="Work Cosmos"></canvas>
+<noscript><div style="position:fixed;inset:0;display:grid;place-items:center">JavaScript を有効にしてください。</div></noscript>
+<div id="boot">Loading…</div>
 
-  <div id="core">
-    <div id="clock">--:--</div>
-    <div id="date">&nbsp;</div>
-    <div id="search">
-      <input id="q" type="text" autocomplete="off" spellcheck="false"
-        placeholder="編集中フォルダを検索  ―  先生名 / 書名" aria-label="編集中フォルダを検索">
-    </div>
-    <div id="qlinks">
-      <a id="ql-fold" href="#" target="_blank" rel="noopener">編集中フォルダ</a>
-      <span>/</span>
-      <a id="ql-pub" href="#" target="_blank" rel="noopener">刊行一覧</a>
-    </div>
-  </div>
+<header class="top">
+  <span class="brand">WORK&nbsp;BASE</span>
+  <span class="sep"></span>
+  <span class="clock" id="clock">--:--</span>
+  <span class="date" id="date"></span>
+  <button class="iconbtn" id="fsBtn" title="全画面（F キー / 背景をダブルクリック）" aria-label="全画面">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M2 6V2h4M10 2h4v4M14 10v4h-4M6 14H2v-4"/></svg>
+  </button>
+</header>
 
-  <button id="peekbtn" type="button">◱ 予定 &amp; メモ</button>
-  <aside id="peek" aria-hidden="true">
-    <header><span>眺めるだけ</span><button id="peekclose" type="button" aria-label="閉じる">×</button></header>
-    <iframe id="cal" title="Google カレンダー" loading="lazy"></iframe>
-    <div class="btns">
-      <a id="nb" href="#" target="_blank" rel="noopener">Notion 作業板</a>
-      <a id="nt" href="#" target="_blank" rel="noopener">Notion タスクメモ</a>
-      <a id="calfull" href="https://calendar.google.com/calendar/r?authuser=0" target="_blank" rel="noopener">カレンダーを開く</a>
+<div class="wrap">
+  <!-- top-left: Notion done -->
+  <a class="card tl" id="tl" target="_blank" rel="noopener" href="https://www.notion.so/32667766d902813fb566d2e6d8d9513f" title="Notion「今週の作業板」を開く">
+    <div class="chead"><span class="dot" style="color:var(--gold);background:var(--gold)"></span><span class="t">DONE</span><span class="j">完了済みタスク</span></div>
+    <div class="done">
+      <div class="big"><span id="doneN">—</span><small>tasks</small></div>
+      <div class="sub"><span id="doneDelta"></span><span id="doneToday"></span></div>
+      <div class="go">NOTION&nbsp;→&nbsp; <span id="doneAt"></span></div>
     </div>
-    <p class="note">書き込みは各サービスで。ここは表示だけです。<br>
-      カレンダーが空欄のときは「カレンダーを開く」からログイン状態を確認してください。</p>
-  </aside>
+  </a>
 
-  <div id="memo"><textarea id="memotext" placeholder="今日のメモ（この端末に保存）"></textarea></div>
+  <!-- top-right: news -->
+  <section class="card tr" id="tr">
+    <div class="chead"><span class="dot" style="color:var(--accent);background:var(--accent)"></span><span class="t">NEWS</span><span class="j">教育・出版</span><span class="r" id="newsAt"></span></div>
+    <div class="tabs" role="tablist">
+      <button class="tab on" data-k="edu" role="tab">教育</button>
+      <button class="tab" data-k="pub" role="tab">出版</button>
+    </div>
+    <div class="scroll fade news" id="newsList"><div class="empty">読み込み中…</div></div>
+  </section>
+
+  <!-- bottom-left: drive -->
+  <section class="card bl" id="bl">
+    <div class="chead"><span class="dot" style="color:#8fbf72;background:#8fbf72"></span><span class="t">DRIVE</span><span class="j">よく使う</span></div>
+    <div class="finder" title="Google ドライブ「編集中」直下のフォルダを検索">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="7" cy="7" r="4.6"/><path d="M10.5 10.5 14 14" stroke-linecap="round"/></svg>
+      <input id="finder" placeholder="編集中を検索（先生名・書名）" autocomplete="off">
+    </div>
+    <div class="scroll fade list" id="driveList"></div>
+  </section>
+
+  <!-- bottom-right: market -->
+  <section class="card br" id="br">
+    <div class="chead"><span class="dot" style="color:#d9a441;background:#d9a441"></span><span class="t">MARKET</span><span class="j">Amazon・出版社</span></div>
+    <div class="scroll fade list" id="marketList"></div>
+  </section>
 </div>
 
-<div id="tip"></div>
+<!-- bottom-centre: dialogue (form only for now) -->
+<div class="dock">
+  <div class="log" id="log"></div>
+  <form class="bar" id="bar" autocomplete="off">
+    <span class="spark"></span>
+    <input id="cmd" placeholder="Base に話しかける…　（例：gmail / 編集中 / 全画面）" aria-label="コマンド">
+    <button class="send" type="submit" aria-label="送信">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+    </button>
+  </form>
+</div>
 
 <script>
-(function(){
-  "use strict";
+function __bootErr(e) {
+  var b = document.getElementById("boot");
+  if (b) { b.textContent = "Work Base の起動に失敗しました。\n\n" + (e && (e.stack || e.message) || e) + "\n\nこの画面をスクショして送ってください。"; b.style.color = "#e08a8a"; }
+}
+window.addEventListener("error", function (ev) { __bootErr(ev.error || ev.message); });
 
-  /* ============ CONFIG ─ ここだけ直せば中身を差し替えられます ============ */
+(function () {
+try {
+  // ================================================================= CONFIG
   var A = "authuser=0";
-  var EDIT_PARENT = "19e1XLVpyfmhm_oGxluYGKvCx4u8auywX";      // Google Drive「編集中」フォルダ ID
-  var DRIVE_SEARCH = "https://drive.google.com/drive/u/0/search?q=";
-  var CAL_SRC   = "kitayama@toyokan.co.jp";                    // ← カレンダーのアドレス（要確認）
-  var NOTION_BOARD = "https://www.notion.so/";                 // ← Notion 作業板 URL（要差し替え）
-  var NOTION_TASKS = "https://www.notion.so/";                 // ← Notion タスクメモ URL（要差し替え）
-  var PUBLISHED_LIST = DRIVE_SEARCH + encodeURIComponent("刊行一覧");
-
+  var EDIT_PARENT = "19e1XLVpyfmhm_oGxluYGKvCx4u8auywX";   // Drive「編集中」
   var GROUPS = [
-    { key:"base",   en:"Base",        jp:"社内",      col:"var(--g-base)" },
-    { key:"prog",   en:"In Progress", jp:"進行中",    col:"var(--g-prog)" },
-    { key:"market", en:"Market",      jp:"市場",      col:"var(--g-market)" },
-    { key:"comp",   en:"Competitors", jp:"他社",      col:"var(--g-comp)" },
-    { key:"office", en:"Office",      jp:"経理・事務", col:"var(--g-office)" },
-    { key:"other",  en:"Other",       jp:"そのほか",  col:"var(--g-other)" }
+    { k: "base",   jp: "Base",        col: "#8fbf72", big: true },
+    { k: "prog",   jp: "in progress", col: "#5cb6b3", big: true },
+    { k: "market", jp: "market",      col: "#d9a441" },
+    { k: "comp",   jp: "Competitors", col: "#b48ead" },
+    { k: "office", jp: "Office work", col: "#6d8fd0" },
+    { k: "other",  jp: "other",       col: "#cf7a6a" }
   ];
+  // [group, label, 日本語, url, 四隅のどこに並べるか（drive / amazon / pub）]
+  var TOOLS = [
+    ["Base","Gmail","メール","https://mail.google.com/mail/?"+A,"drive"],
+    ["Base","Calendar","カレンダー","https://calendar.google.com/calendar/r?"+A,"drive"],
+    ["Base","Portal","ポータル","https://sites.google.com/toyokan.co.jp/portal/%E3%83%9B%E3%83%BC%E3%83%A0?"+A,"drive"],
+    ["Base","Toyokan site","東洋館","https://www.toyokan.co.jp/"],
+    ["in progress","Projects sheet","企画一覧","https://docs.google.com/spreadsheets/d/1XI3lXlDdiK_qWv9MNIamiDzWLgY-mS5vmnK3rmb04rw/edit?"+A,"drive"],
+    ["in progress","Editing folder","編集中","https://drive.google.com/drive/folders/"+EDIT_PARENT+"?"+A,"drive"],
+    ["in progress","Management folder","管理","https://drive.google.com/drive/folders/1-kgoU2Rb5EyUhGzumdMvEN7YznB5exCP?"+A,"drive"],
+    ["in progress","Proposals folder","企画書","https://drive.google.com/drive/folders/1Zkz084sQ6FpfXGKSUZHXyjAkyc6zD0RZ?"+A,"drive"],
+    ["market","Amazon overall","Amazon 本 総合","https://www.amazon.co.jp/gp/bestsellers/books/","amazon"],
+    ["market","Amazon Toyokan","Amazon 東洋館","https://www.amazon.co.jp/gp/bestsellers/books/12874471","amazon"],
+    ["market","New: teachers","教師向け 新着","https://www.amazon.co.jp/gp/new-releases/books/554292/","amazon"],
+    ["market","Business how-to","ビジネス実用","https://www.amazon.co.jp/gp/bestsellers/books/492066","amazon"],
+    ["market","Education ranking","教育書 総合","https://www.amazon.co.jp/gp/bestsellers/books/2257225051","amazon"],
+    ["market","Education / practice","教育・実務書","https://www.amazon.co.jp/gp/bestsellers/books/12867251","amazon"],
+    ["market","honto","honto","https://honto.jp/","amazon"],
+    ["Office work","Attendance","勤怠","https://s2.kingtime.jp/independent/recorder2/personal/"],
+    ["Office work","MF Expense","MF 経費","https://expense.moneyforward.com/routine_route"],
+    ["Office work","MF Payable","MF 債務支払","https://payable.moneyforward.com/"],
+    ["Office work","CloudSign","クラウドサイン","https://app.cloudsign.jp/"],
+    ["Office work","Yamato B2","ヤマト B2","https://bmypage.kuronekoyamato.co.jp/bmypage/servlet/jp.co.kuronekoyamato.wur.hmp.servlet.user.HMPLGI0010JspServlet"],
+    ["Competitors","Meiji Tosho","明治図書","https://www.meijitosho.co.jp/search/?title=%90V%8A%A7%8F%91%90%D0","pub"],
+    ["Competitors","Gakuyo Shobo","学陽書房","https://www.gakuyo.co.jp/search/g6008.html","pub"],
+    ["Competitors","Gakuji Shuppan","学事出版","https://www.gakuji.co.jp/","pub"],
+    ["Competitors","Reimei Shobo","黎明書房","http://www.reimei-shobo.com/","pub"],
+    ["Competitors","Gakugei Mirai","学芸みらい社","https://www.gakugeimirai.jp/","pub"],
+    ["Competitors","Forum A","フォーラム・A","https://foruma.co.jp/","pub"],
+    ["other","Coworking","コワーキング","https://jrwd-workspace.com/"],
+    ["other","Messenger","メッセンジャー","https://www.facebook.com/messages/"]
+  ];
+  var DATA_REFRESH_MIN = 10;
 
-  var TOOLS = {
-    base:[
-      ["Gmail","Gmail","https://mail.google.com/mail/?"+A],
-      ["Calendar","カレンダー","https://calendar.google.com/calendar/r?"+A],
-      ["Portal","東洋館ポータル","https://sites.google.com/toyokan.co.jp/portal/%E3%83%9B%E3%83%BC%E3%83%A0?"+A],
-      ["Toyokan","東洋館サイト","https://www.toyokan.co.jp/"]
-    ],
-    prog:[
-      ["Projects","企画一覧シート","https://docs.google.com/spreadsheets/d/1XI3lXlDdiK_qWv9MNIamiDzWLgY-mS5vmnK3rmb04rw/edit?"+A],
-      ["Editing","編集中フォルダ","https://drive.google.com/drive/folders/19e1XLVpyfmhm_oGxluYGKvCx4u8auywX?"+A],
-      ["Management","管理フォルダ","https://drive.google.com/drive/folders/1-kgoU2Rb5EyUhGzumdMvEN7YznB5exCP?"+A],
-      ["Proposals","企画書フォルダ","https://drive.google.com/drive/folders/1Zkz084sQ6FpfXGKSUZHXyjAkyc6zD0RZ?"+A]
-    ],
-    market:[
-      ["Amazon all","Amazon 総合","https://www.amazon.co.jp/gp/bestsellers/books/"],
-      ["Amazon TK","Amazon 東洋館","https://www.amazon.co.jp/gp/bestsellers/books/12874471"],
-      ["New: teach","教師向け新刊","https://www.amazon.co.jp/gp/new-releases/books/554292/"],
-      ["Biz how-to","ビジネス実用","https://www.amazon.co.jp/gp/bestsellers/books/492066"],
-      ["Edu rank","教育書ランキング","https://www.amazon.co.jp/gp/bestsellers/books/2257225051"],
-      ["Edu / prac","教育・実務書","https://www.amazon.co.jp/gp/bestsellers/books/12867251"],
-      ["honto","honto","https://honto.jp/"]
-    ],
-    comp:[
-      ["Meiji","明治図書","https://www.meijitosho.co.jp/search/?title=%90V%8A%A7%8F%91%90%D0"],
-      ["Gakuyo","学陽書房","https://www.gakuyo.co.jp/search/g6008.html"],
-      ["Gakuji","学事出版","https://www.gakuji.co.jp/"],
-      ["Reimei","黎明書房","http://www.reimei-shobo.com/"],
-      ["Mirai","学芸みらい社","https://www.gakugeimirai.jp/"],
-      ["Forum A","フォーラム・A","https://foruma.co.jp/"]
-    ],
-    office:[
-      ["Attend","勤怠","https://s2.kingtime.jp/independent/recorder2/personal/"],
-      ["Expense","MF 経費","https://expense.moneyforward.com/routine_route"],
-      ["Payable","MF 債務","https://payable.moneyforward.com/"],
-      ["CloudSign","クラウドサイン","https://app.cloudsign.jp/"],
-      ["Yamato B2","ヤマト B2","https://bmypage.kuronekoyamato.co.jp/bmypage/servlet/jp.co.kuronekoyamato.wur.hmp.servlet.user.HMPLGI0010JspServlet"]
-    ],
-    other:[
-      ["Coworking","コワーキング","https://jrwd-workspace.com/"],
-      ["Messenger","Messenger","https://www.facebook.com/messages/"]
-    ]
-  };
+  // ================================================================= GRAPH (Work Cosmos)
+  var canvas = document.getElementById("view"), ctx = canvas.getContext("2d");
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var TAU = Math.PI * 2, DPR = Math.min(window.devicePixelRatio || 1, 2), W = 0, H = 0;
+  var GI = {}; GROUPS.forEach(function (g, i) { GI[g.jp] = i; });
+  var nodes = [], links = [], RING = [], BYLABEL = {};
+  function add(n, x, y) { n.id = nodes.length; n.x = x + (Math.random() * 2 - 1) * 6; n.y = y + (Math.random() * 2 - 1) * 6; n.vx = 0; n.vy = 0; n.glow = 0; nodes.push(n); return n; }
+  function rr(a, b) { return a + Math.random() * (b - a); }
+  var DUST_TINTS = ["#6e6e80", "#6e6e80", "#6e6e80", "#78787f", "#8fbf72", "#cf7a6a", "#d9a441", "#6d8fd0"];
 
-  /* ============ layout ============ */
-  var CX=600, CY=344, TAU=Math.PI*2;
-  var CORE_VOID=92;                  // 中央のUI用の空白半径
-  var ANG0=-Math.PI/2 + Math.PI/6 + 0.17;  // 30°+約10° 回転：真上真下・水平の桟を避ける
-  var svg=document.getElementById("net"),
-      LG=document.getElementById("links"),
-      NG=document.getElementById("nodes"),
-      SG=document.getElementById("stars");
-  var SVGNS="http://www.w3.org/2000/svg";
-  function el(n,a){var e=document.createElementNS(SVGNS,n);for(var k in a)e.setAttribute(k,a[k]);return e;}
-
-  // starfield (static)
-  (function(){
-    for(var i=0;i<70;i++){
-      var x=Math.random()*1200, y=Math.random()*780,
-          r=Math.random()*1.1+.2, o=Math.random()*.5+.12;
-      SG.appendChild(el("circle",{cx:x.toFixed(1),cy:y.toFixed(1),r:r.toFixed(2),
-        fill:"#9fb6dd","fill-opacity":o.toFixed(2)}));
-    }
-  })();
-
-  var HUBR_X=316, HUBR_Y=228, delayN=0;
-  var lit = {};   // group.key -> array of elements to light together
-
-  function path(x1,y1,x2,y2,bow){
-    var mx=(x1+x2)/2, my=(y1+y2)/2, dx=x2-x1, dy=y2-y1,
-        L=Math.hypot(dx,dy)||1, nx=-dy/L, ny=dx/L, k=bow*L;
-    return "M"+x1.toFixed(1)+" "+y1.toFixed(1)+" Q"+(mx+nx*k).toFixed(1)+" "+(my+ny*k).toFixed(1)+" "+x2.toFixed(1)+" "+y2.toFixed(1);
-  }
-  function addLink(cls,d,col,delay){
-    var p=el("path",{class:"link "+cls,d:d,stroke:col});
-    var len=p.getTotalLength ? 0 : 0;
-    LG.appendChild(p);
-    var L=p.getTotalLength();
-    p.style.setProperty("--len",L.toFixed(0));
-    p.style.setProperty("--d",delay.toFixed(2)+"s");
-    return p;
-  }
-
-  GROUPS.forEach(function(g,gi){
-    var ang = ANG0 + gi*(TAU/GROUPS.length);
-    var hx = CX + Math.cos(ang)*HUBR_X,
-        hy = CY + Math.sin(ang)*HUBR_Y;
-    var groupEls=[];
-
-    // spoke: core void edge -> hub
-    var sx=CX+Math.cos(ang)*CORE_VOID, sy=CY+Math.sin(ang)*CORE_VOID*0.92;
-    var sp=addLink("spoke",path(sx,sy,hx,hy,0.05),g.col,0.15+gi*0.05);
-    groupEls.push(sp);
-
-    // hub node
-    var hub=mkNode({en:g.en,x:hx,y:hy,col:g.col,r:5.5,rlit:8,hub:true,ang:ang,delay:0.5+gi*0.06});
-    groupEls.push(hub);
-
-    // tools fan out from hub direction
-    var list=TOOLS[g.key]||[], n=list.length;
-    list.forEach(function(t,ti){
-      var f = n===1 ? 0 : (ti/(n-1) - 0.5);      // -0.5 .. 0.5
-      var spread = Math.min(1.4, 0.26*n);
-      var ta = ang + f*spread;
-      var rr = 128 + (ti%2)*50;
-      var tx = hx + Math.cos(ta)*rr,
-          ty = hy + Math.sin(ta)*rr*0.82;
-      var lk=addLink("twig",path(hx,hy,tx,ty,0.10),g.col,1.0+ (delayN*0.035));
-      var nd=mkNode({en:t[0],jp:t[1],url:t[2],x:tx,y:ty,col:g.col,r:3.4,rlit:6.2,
-        ang:ta,delay:1.15+delayN*0.045});
-      delayN++;
-      groupEls.push(lk,nd);
-      nd._group=g.key; lk._group=g.key;
+  var work = add({ kind: "work", label: "Work", gi: -1, col: "#eccd6e", r: 12 }, 0, 0);
+  GROUPS.forEach(function (g, i) {
+    var a = (-90 + i * 60) * Math.PI / 180, hx = Math.cos(a) * 190, hy = Math.sin(a) * 190;
+    g.node = add({ kind: "hub", label: g.jp, gi: i, col: g.col, r: g.big ? 8.6 : 5.8, kids: [] }, hx, hy);
+    links.push({ a: work.id, b: g.node.id, kind: "core" });
+    var mine = TOOLS.filter(function (t) { return t[0] === g.jp; });
+    mine.forEach(function (t, j) {
+      var tx = hx + Math.cos(a + (j - mine.length / 2) * 0.5) * 95, ty = hy + Math.sin(a + (j - mine.length / 2) * 0.5) * 95;
+      var nd = add({ kind: "tool", label: t[1], jp: t[2], url: t[3], gi: i, col: g.col, r: 3.6 }, tx, ty);
+      BYLABEL[t[1]] = nd;
+      var L = { a: g.node.id, b: nd.id, kind: "leaf" };
+      links.push(L); g.node.kids.push(L);
     });
-    hub._group=g.key; sp._group=g.key;
-    lit[g.key]=groupEls;
+  });
+  [["Base","in progress"],["market","Competitors"]].forEach(function (p) {
+    links.push({ a: GROUPS[GI[p[0]]].node.id, b: GROUPS[GI[p[1]]].node.id, kind: "cross" });
+  });
+  var prev = null;
+  for (var d = 0; d < 95; d++) {
+    var ang = Math.random() * TAU, rad = rr(165, 370);
+    var dn = add({ kind: "dust", gi: -1, col: DUST_TINTS[(Math.random() * DUST_TINTS.length) | 0], r: rr(1.4, 2.9), homeR: rad }, Math.cos(ang) * rad, Math.sin(ang) * rad);
+    if (prev && Math.random() < 0.45) links.push({ a: prev.id, b: dn.id, kind: "dust" });
+    prev = Math.random() < 0.55 ? dn : null;
+  }
+  nodes.forEach(function (n) { n.deg = 0; });
+  links.forEach(function (l) { nodes[l.a].deg++; nodes[l.b].deg++; l.A = nodes[l.a]; l.B = nodes[l.b]; });
+  var CORE_LINKS = links.filter(function (l) { return l.kind === "core"; });
+  var adj = {}; nodes.forEach(function (n) { adj[n.id] = {}; });
+  links.forEach(function (l) { adj[l.a][l.b] = 1; adj[l.b][l.a] = 1; });
+
+  function dcol() { return Math.random() < 0.76 ? "#6b6b7c" : DUST_TINTS[(Math.random() * DUST_TINTS.length) | 0]; }
+  for (var f = 0; f < 430; f++) {
+    var fa = Math.random() * TAU, fr = 150 + Math.pow(Math.random(), 0.7) * 300;
+    RING.push({ x: Math.cos(fa) * fr, y: Math.sin(fa) * fr, r: rr(1, 2.3), col: dcol(), tw: rr(0.3, 2.2), ph: Math.random() * TAU });
+  }
+  for (var i = 0, RN = 300, RAD = 452; i < RN; i++) {
+    var a2 = i / RN * TAU;
+    RING.push({ x: Math.cos(a2) * (RAD + rr(-16, 16)), y: Math.sin(a2) * (RAD + rr(-16, 16)), r: rr(1.2, 2.5),
+      col: Math.random() < 0.82 ? "#6b6b7c" : DUST_TINTS[(Math.random() * DUST_TINTS.length) | 0], tw: rr(0.3, 2), ph: Math.random() * TAU });
+  }
+
+  var P = { center: 0.26, repel: 0.72, link: 0.52, dist: 0.46, nodeS: 1.05, linkS: 1 };
+
+  // ---------- camera (with a slow, constant spin) ----------
+  var cam = { x: 0, y: 0, z: 1 }, camT = null, rot = 0, spin = 1, narrow = false, userZoomed = false;
+  function W2S(x, y) {
+    var c = Math.cos(rot), s = Math.sin(rot), dx = x - cam.x, dy = y - cam.y;
+    return [(dx * c - dy * s) * cam.z + W / 2, (dx * s + dy * c) * cam.z + H / 2];
+  }
+  function S2W(sx, sy) {
+    var c = Math.cos(-rot), s = Math.sin(-rot), dx = (sx - W / 2) / cam.z, dy = (sy - H / 2) / cam.z;
+    return [dx * c - dy * s + cam.x, dx * s + dy * c + cam.y];
+  }
+  function fitZ() { return Math.max(0.42, Math.min(1.25, Math.min(H * 0.98, W * (narrow ? 0.98 : 0.66)) / 940)); }
+  function resize() {
+    W = window.innerWidth; H = window.innerHeight; narrow = W <= 860;
+    canvas.width = W * DPR; canvas.height = H * DPR; canvas.style.width = W + "px"; canvas.style.height = H + "px";
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    document.documentElement.style.setProperty("--tlh", document.getElementById("tl").offsetHeight + "px");
+    if (!camT && !userZoomed) cam.z = fitZ();
+  }
+  window.addEventListener("resize", resize);
+
+  // ---------- physics ----------
+  var alpha = 1, drag = null, hoverN = null, selN = null, panning = false;
+  function tick() {
+    var cf = 0.004 + P.center * 0.02, rep = 1500 + P.repel * 9000, lk = 0.02 + P.link * 0.12;
+    for (var i = 0; i < nodes.length; i++) {
+      var n = nodes[i];
+      if (n.kind === "dust") {
+        var dr = Math.hypot(n.x, n.y) || 0.01, rf = (dr - n.homeR) * 0.014;
+        n.vx -= n.x / dr * rf; n.vy -= n.y / dr * rf;
+      } else { n.vx -= n.x * cf; n.vy -= n.y * cf; }
+      for (var j = i + 1; j < nodes.length; j++) {
+        var m = nodes[j], dx = n.x - m.x, dy = n.y - m.y, d2 = dx * dx + dy * dy || 0.01, dd = Math.sqrt(d2);
+        var fo = Math.min(4, rep / d2) * ((n.kind === "dust" || m.kind === "dust") ? 0.32 : 1);
+        n.vx += dx / dd * fo; n.vy += dy / dd * fo; m.vx -= dx / dd * fo; m.vy -= dy / dd * fo;
+      }
+    }
+    for (var k = 0; k < links.length; k++) {
+      var l = links[k], a = l.A, b = l.B;
+      var rest = (l.kind === "core" ? 118 : l.kind === "cross" ? 200 : l.kind === "dust" ? 46 : 58) * (0.45 + P.dist * 1.5);
+      var ex = b.x - a.x, ey = b.y - a.y, de = Math.hypot(ex, ey) || 0.01, fl = (de - rest) * lk;
+      var wa = a.kind === "tool" ? 1.6 : 0.7, wb = b.kind === "tool" ? 1.6 : 0.7;
+      a.vx += ex / de * fl * wa; a.vy += ey / de * fl * wa; b.vx -= ex / de * fl * wb; b.vy -= ey / de * fl * wb;
+    }
+    var freeze = hoverN && !drag && !panning;
+    for (var q = 0; q < nodes.length; q++) {
+      var nd = nodes[q];
+      if (nd.kind === "work") { nd.x = nd.y = nd.vx = nd.vy = 0; continue; }
+      if (nd === drag) { nd.vx = nd.vy = 0; continue; }
+      nd.vx *= 0.8; nd.vy *= 0.8;
+      var sp = Math.hypot(nd.vx, nd.vy);
+      if (sp > 9) { nd.vx = nd.vx / sp * 9; nd.vy = nd.vy / sp * 9; }
+      if (!freeze) { nd.x += nd.vx * alpha; nd.y += nd.vy * alpha; }
+    }
+    alpha *= 0.97;
+    if (alpha < 0.05) alpha = reduce ? 0 : 0.05;
+  }
+  function reheat(v) { alpha = Math.max(alpha, v || 0.9); }
+
+  // ---------- signals flowing out of the core (always on) ----------
+  var pulses = [], rings = [], flare = 0, nextPulse = 0;
+  function spawnPulse(L, spd, bright) { pulses.push({ L: L, t: 0, spd: spd || rr(0.35, 0.6), b: bright || 1 }); }
+  function flareUp(power) {
+    flare = Math.min(1.6, flare + (power || 1));
+    rings.push({ t: 0, p: power || 1 });
+    CORE_LINKS.forEach(function (L) { spawnPulse(L, rr(0.9, 1.3), 1.6); });
+    reheat(0.35);
+  }
+
+  // ---------- interaction ----------
+  var moved = 0;
+  function nodeAt(sx, sy) {
+    var best = null, bd = Infinity;
+    for (var i = nodes.length - 1; i >= 0; i--) {
+      var n = nodes[i];
+      if (n.kind === "dust" || n.kind === "work") continue;
+      var s = W2S(n.x, n.y), dd = Math.hypot(s[0] - sx, s[1] - sy);
+      var vr = n.r * (1 + Math.min(8, n.deg) * 0.06) * P.nodeS * Math.max(0.55, Math.min(cam.z, 2.4)) / 1.15;
+      var hitR = Math.max(n.kind === "tool" ? 18 : 24, vr + 13);
+      if (dd < hitR && dd < bd) { bd = dd; best = n; }
+    }
+    return best;
+  }
+  canvas.addEventListener("pointerdown", function (e) {
+    moved = 0;
+    var n = nodeAt(e.clientX, e.clientY);
+    if (n) { drag = n; reheat(0.5); } else { panning = true; canvas.classList.add("grab"); }
+    canvas.setPointerCapture(e.pointerId);
+  });
+  canvas.addEventListener("pointermove", function (e) {
+    moved += Math.abs(e.movementX) + Math.abs(e.movementY);
+    if (drag) { var w = S2W(e.clientX, e.clientY); drag.x = w[0]; drag.y = w[1]; reheat(0.35); }
+    else if (panning) {
+      var c = Math.cos(-rot), s = Math.sin(-rot), mx = e.movementX / cam.z, my = e.movementY / cam.z;
+      cam.x -= mx * c - my * s; cam.y -= mx * s + my * c;
+    } else { hoverN = nodeAt(e.clientX, e.clientY); canvas.classList.toggle("node", !!hoverN); }
+  });
+  canvas.addEventListener("pointerup", function () {
+    if (drag && moved < 5) {
+      selN = (selN === drag ? null : drag);
+      if (drag.url) { drag.glow = 1.4; window.open(drag.url, "_blank", "noopener"); }
+    } else if (panning && moved < 5) selN = null;
+    drag = null; panning = false; canvas.classList.remove("grab");
+  });
+  canvas.addEventListener("pointerleave", function () { if (!drag) { hoverN = null; canvas.classList.remove("node"); } });
+  canvas.addEventListener("wheel", function (e) {
+    e.preventDefault(); userZoomed = true;
+    var before = S2W(e.clientX, e.clientY);
+    cam.z = Math.max(0.25, Math.min(5, cam.z * Math.exp(-e.deltaY * 0.0016)));
+    var after = S2W(e.clientX, e.clientY);
+    cam.x += before[0] - after[0]; cam.y += before[1] - after[1];
+  }, { passive: false });
+  canvas.addEventListener("dblclick", function () { toggleFS(); });
+
+  // ---------- render ----------
+  var t0 = performance.now(), last = t0;
+  function frame(now) {
+    var t = (now - t0) / 1000, dt = Math.min(0.05, (now - last) / 1000); last = now;
+    if (camT) {
+      var k = Math.min(1, (now - camT.t0) / camT.dur), ee = 1 - Math.pow(1 - k, 3);
+      cam.x = camT.fx + (camT.tx - camT.fx) * ee; cam.y = camT.fy + (camT.ty - camT.fy) * ee; cam.z = camT.fz + (camT.tz - camT.fz) * ee;
+      if (k >= 1) camT = null;
+    }
+    // constant motion: a slow spin that eases to a stop while pointing at a star
+    var wantSpin = (hoverN || drag) ? 0 : 1;
+    spin += (wantSpin - spin) * Math.min(1, dt * 3);
+    if (!reduce) rot += dt * 0.022 * spin * (1 + flare * 2.2);
+    tick(); if (alpha > 0.12) tick();
+
+    if (!reduce && now > nextPulse) {
+      spawnPulse(CORE_LINKS[(Math.random() * CORE_LINKS.length) | 0]);
+      nextPulse = now + rr(380, 900);
+    }
+    flare = Math.max(0, flare - dt * 0.55);
+    for (var gi = 0; gi < nodes.length; gi++) if (nodes[gi].glow > 0) nodes[gi].glow = Math.max(0, nodes[gi].glow - dt * 0.28);
+
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    ctx.fillStyle = "#13131a"; ctx.fillRect(0, 0, W, H);
+
+    var hi = hoverN || selN, near = hi ? adj[hi.id] : null;
+
+    // star field
+    var ringDim = hi ? 0.24 : 1, rzc = Math.max(0.5, Math.min(cam.z, 2));
+    for (var ri = 0; ri < RING.length; ri++) {
+      var R2 = RING[ri], sr = W2S(R2.x, R2.y);
+      if (sr[0] < -20 || sr[0] > W + 20 || sr[1] < -20 || sr[1] > H + 20) continue;
+      var tw = reduce ? 0.8 : (0.55 + 0.45 * Math.sin(t * R2.tw + R2.ph));
+      ctx.globalAlpha = Math.min(1, 0.5 * tw * ringDim * (1 + flare * 0.9));
+      ctx.fillStyle = R2.col;
+      ctx.beginPath(); ctx.arc(sr[0], sr[1], Math.max(0.6, R2.r * rzc), 0, TAU); ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+
+    // links
+    ctx.lineCap = "round";
+    for (var l = 0; l < links.length; l++) {
+      var L = links[l], s1 = W2S(L.A.x, L.A.y), s2 = W2S(L.B.x, L.B.y);
+      var lit = hi && (L.a === hi.id || L.b === hi.id), faded = hi && !lit;
+      var glowL = Math.max(L.A.glow, L.B.glow);
+      var baseA = (faded ? 0.05 : 0.16) + flare * (L.kind === "dust" ? 0.05 : 0.22) + glowL * 0.4;
+      ctx.strokeStyle = (lit || glowL > 0.05) ? hexA(colOf(L), lit ? 0.85 : Math.min(0.9, baseA)) : "rgba(150,153,175," + Math.min(0.6, baseA).toFixed(3) + ")";
+      ctx.lineWidth = (lit ? 1.6 : 0.9 + flare * 0.5) * P.linkS * Math.max(0.5, Math.min(cam.z, 2));
+      ctx.beginPath(); ctx.moveTo(s1[0], s1[1]); ctx.lineTo(s2[0], s2[1]); ctx.stroke();
+    }
+
+    // pulses travelling outward (core → hub → tool)
+    ctx.globalCompositeOperation = "lighter";
+    for (var pi = pulses.length - 1; pi >= 0; pi--) {
+      var p = pulses[pi];
+      p.t += dt * p.spd;
+      if (p.t >= 1) {
+        pulses.splice(pi, 1);
+        if (p.L.kind === "core" && p.L.B.kids && p.L.B.kids.length) {
+          var hop = p.L.B.kids[(Math.random() * p.L.B.kids.length) | 0];
+          spawnPulse(hop, p.spd * rr(1, 1.3), p.b);
+          if (p.b > 1.2) p.L.B.kids.forEach(function (K) { if (K !== hop) spawnPulse(K, p.spd, p.b * 0.8); });
+        } else if (p.L.B.kind === "tool") { p.L.B.glow = Math.max(p.L.B.glow, 0.35 * p.b); }
+        continue;
+      }
+      var e2 = p.t < 0.5 ? 2 * p.t * p.t : 1 - Math.pow(-2 * p.t + 2, 2) / 2;
+      var px = p.L.A.x + (p.L.B.x - p.L.A.x) * e2, py = p.L.A.y + (p.L.B.y - p.L.A.y) * e2;
+      var sp2 = W2S(px, py), col = colOf(p.L), fadeP = Math.sin(p.t * Math.PI);
+      var pr = (2.2 + p.b) * Math.max(0.6, Math.min(cam.z, 1.8));
+      var gp = ctx.createRadialGradient(sp2[0], sp2[1], 0, sp2[0], sp2[1], pr * 4);
+      gp.addColorStop(0, hexA(mix(col, [255, 255, 255], 0.55), 0.8 * fadeP * (hi ? 0.4 : 1)));
+      gp.addColorStop(1, hexA(col, 0));
+      ctx.fillStyle = gp; ctx.beginPath(); ctx.arc(sp2[0], sp2[1], pr * 4, 0, TAU); ctx.fill();
+    }
+    // shock rings from a command
+    for (var ki = rings.length - 1; ki >= 0; ki--) {
+      var rg = rings[ki]; rg.t += dt * 0.55;
+      if (rg.t >= 1) { rings.splice(ki, 1); continue; }
+      var c0 = W2S(0, 0), rr0 = (40 + rg.t * 520) * cam.z;
+      ctx.strokeStyle = "rgba(255,226,160," + Math.min(1, 0.34 * (1 - rg.t) * rg.p).toFixed(3) + ")";
+      ctx.lineWidth = 1.2 + (1 - rg.t) * 5;
+      ctx.beginPath(); ctx.arc(c0[0], c0[1], rr0, 0, TAU); ctx.stroke();
+    }
+    ctx.globalCompositeOperation = "source-over";
+
+    drawCore(W2S(0, 0), cam.z, t, hi ? 0.4 : 1);
+
+    // nodes
+    for (var i2 = 0; i2 < nodes.length; i2++) {
+      var n = nodes[i2];
+      if (n.kind === "work") continue;
+      var s = W2S(n.x, n.y);
+      var r = (n.r * (1 + Math.min(8, n.deg) * 0.06) * P.nodeS) * Math.max(0.55, Math.min(cam.z, 2.4)) / 1.15;
+      var dim = 1;
+      if (hi) dim = (n === hi || (near && near[n.id])) ? 1 : (n.kind === "dust" ? 0.1 : 0.16);
+      var g = n === hi ? 1 : n.glow;
+      if (g > 0.02) {
+        var gr = r * (5 + n.glow * 3);
+        ctx.globalAlpha = Math.min(1, 0.55 * Math.max(dim, n.glow));
+        var gg = ctx.createRadialGradient(s[0], s[1], 0, s[0], s[1], gr);
+        gg.addColorStop(0, hexA(n.col, 0.75 * Math.min(1, g))); gg.addColorStop(1, hexA(n.col, 0));
+        ctx.fillStyle = gg; ctx.beginPath(); ctx.arc(s[0], s[1], gr, 0, TAU); ctx.fill();
+        ctx.globalAlpha = 1;
+      }
+      ctx.globalAlpha = n.kind === "dust" ? dim * 0.75 : Math.max(dim, Math.min(1, n.glow));
+      ctx.fillStyle = n.glow > 0.3 ? mix(n.col, [255, 255, 255], Math.min(0.6, n.glow * 0.4)) : n.col;
+      ctx.beginPath(); ctx.arc(s[0], s[1], r, 0, TAU); ctx.fill();
+      ctx.globalAlpha = 1;
+
+      if (n.label && n.kind !== "dust" && (n === hi || (near && near[n.id]) || n.glow > 0.5)) {
+        var txt = n.kind === "tool" && n.jp ? n.label + "  " + n.jp : n.label;
+        ctx.globalAlpha = Math.min(1, Math.max(dim, n.glow)) * (n === hi || n.glow > 0.5 ? 1 : 0.8);
+        ctx.font = (n.kind === "hub" ? "500 " : "400 ") + (n.kind === "tool" ? 11 : 12.5) + 'px "Outfit", "Zen Kaku Gothic New", sans-serif';
+        ctx.textAlign = "center"; ctx.textBaseline = "top";
+        var tww = ctx.measureText(txt).width;
+        ctx.fillStyle = "rgba(6,7,11,.75)"; ctx.fillRect(s[0] - tww / 2 - 4, s[1] + r + 3, tww + 8, 16);
+        ctx.fillStyle = n.kind === "tool" ? "#d0d4e1" : mix(n.col, [255, 255, 255], .35);
+        ctx.fillText(txt, s[0], s[1] + r + 5);
+        ctx.globalAlpha = 1;
+      }
+    }
+
+    // vignette
+    var vg = ctx.createRadialGradient(W / 2, H / 2, Math.min(W, H) * 0.2, W / 2, H / 2, Math.max(W, H) * 0.75);
+    vg.addColorStop(0, "rgba(20,20,30,0)"); vg.addColorStop(1, "rgba(6,6,10,.4)");
+    ctx.fillStyle = vg; ctx.fillRect(0, 0, W, H);
+    requestAnimationFrame(frame);
+  }
+
+  function drawCore(sc, zoom, t, vis) {
+    var cxp = sc[0], cyp = sc[1];
+    var pulse = reduce ? 1 : (1 + Math.sin(t * 0.85) * 0.05);
+    var fl = flare, R = 34 * zoom * pulse * (1 + fl * 0.55);
+    vis = Math.min(1, vis + fl * 0.6);
+    ctx.save();
+    ctx.globalCompositeOperation = "lighter";
+    ctx.save();
+    ctx.translate(cxp, cyp); ctx.rotate(-0.4 + rot * 0.6);
+    var disc = ctx.createRadialGradient(0, 0, 0, 0, 0, R * 5.4);
+    disc.addColorStop(0, "rgba(255,234,186," + Math.min(1, 0.09 * vis + fl * 0.08) + ")");
+    disc.addColorStop(0.5, "rgba(240,208,152," + Math.min(1, 0.035 * vis + fl * 0.04) + ")");
+    disc.addColorStop(1, "rgba(210,180,150,0)");
+    ctx.scale(1, 0.82); ctx.fillStyle = disc;
+    ctx.beginPath(); ctx.arc(0, 0, R * 5.4, 0, TAU); ctx.fill();
+    ctx.restore();
+    var b1 = ctx.createRadialGradient(cxp, cyp, 0, cxp, cyp, R * 3.2);
+    b1.addColorStop(0, "rgba(255,244,214," + Math.min(1, 0.5 * vis + fl * 0.3) + ")");
+    b1.addColorStop(0.35, "rgba(255,214,150," + Math.min(1, 0.13 * vis + fl * 0.12) + ")");
+    b1.addColorStop(1, "rgba(255,210,140,0)");
+    ctx.fillStyle = b1; ctx.beginPath(); ctx.arc(cxp, cyp, R * 3.2, 0, TAU); ctx.fill();
+    var b2 = ctx.createRadialGradient(cxp, cyp, 0, cxp, cyp, R * 1.15);
+    b2.addColorStop(0, "rgba(255,240,200," + (0.95 * vis) + ")");
+    b2.addColorStop(0.5, "rgba(252,206,138," + (0.4 * vis) + ")");
+    b2.addColorStop(1, "rgba(245,195,120,0)");
+    ctx.fillStyle = b2; ctx.beginPath(); ctx.arc(cxp, cyp, R * 1.15, 0, TAU); ctx.fill();
+    ctx.globalCompositeOperation = "source-over";
+    var c1 = ctx.createRadialGradient(cxp - R * 0.15, cyp - R * 0.15, 0, cxp, cyp, R * 0.5);
+    c1.addColorStop(0, "rgba(255,253,246," + vis + ")");
+    c1.addColorStop(0.55, "rgba(255,235,182," + vis + ")");
+    c1.addColorStop(1, "rgba(238,196,120,0)");
+    ctx.fillStyle = c1; ctx.beginPath(); ctx.arc(cxp, cyp, R * 0.5, 0, TAU); ctx.fill();
+    ctx.fillStyle = "rgba(255,254,250," + vis + ")";
+    ctx.beginPath(); ctx.arc(cxp, cyp, R * 0.13, 0, TAU); ctx.fill();
+    ctx.restore();
+  }
+  function colOf(L) { var g = GROUPS[Math.max(L.A.gi, L.B.gi)]; return g ? g.col : "#8a8f9f"; }
+  function hexA(hex, a) {
+    if (hex[0] !== "#") return hex;
+    var n = parseInt(hex.slice(1), 16);
+    return "rgba(" + (n >> 16 & 255) + "," + (n >> 8 & 255) + "," + (n & 255) + "," + (a < 0 ? 0 : a > 1 ? 1 : a).toFixed(3) + ")";
+  }
+  function mix(hex, to, k) {
+    var n = parseInt(hex.slice(1), 16), r = n >> 16 & 255, g = n >> 8 & 255, b = n & 255;
+    return "#" + ((1 << 24) + (Math.round(r + (to[0] - r) * k) << 16) + (Math.round(g + (to[1] - g) * k) << 8) + Math.round(b + (to[2] - b) * k)).toString(16).slice(1);
+  }
+
+  // ================================================================= FULLSCREEN
+  function isFS() { return !!(document.fullscreenElement || document.webkitFullscreenElement); }
+  function toggleFS() {
+    var el = document.documentElement;
+    try {
+      if (!isFS()) (el.requestFullscreen || el.webkitRequestFullscreen).call(el);
+      else (document.exitFullscreen || document.webkitExitFullscreen).call(document);
+    } catch (x) {}
+  }
+  document.getElementById("fsBtn").addEventListener("click", toggleFS);
+  document.addEventListener("keydown", function (e) {
+    var tag = (e.target.tagName || "").toLowerCase();
+    if (tag === "input" || tag === "textarea") return;
+    if ((e.key === "f" || e.key === "F") && !e.ctrlKey && !e.metaKey && !e.altKey) { e.preventDefault(); toggleFS(); }
+    else if (e.key === "/") { e.preventDefault(); document.getElementById("cmd").focus(); }
   });
 
-  function mkNode(o){
-    var g=el("g",{class:"node"+(o.hub?" hub":""),tabindex:"0"});
-    g.style.setProperty("--d",o.delay.toFixed(2)+"s");
-    g.style.setProperty("--rlit",o.rlit);
-    g.appendChild(el("circle",{class:"dot",cx:o.x.toFixed(1),cy:o.y.toFixed(1),
-      r:o.r,fill:o.col}));
-    // label placement: outward from centre
-    var lx=o.x + Math.cos(o.ang)*(o.hub?16:12),
-        ly=o.y + Math.sin(o.ang)*(o.hub?16:12) + 3.5;
-    var anchor = Math.cos(o.ang) < -0.25 ? "end" : (Math.cos(o.ang) > 0.25 ? "start":"middle");
-    var tx=el("text",{class:"en",x:lx.toFixed(1),y:ly.toFixed(1),"text-anchor":anchor});
-    tx.textContent=o.en;
-    g.appendChild(tx);
-    if(o.url){ g._url=o.url; g._jp=o.jp; g._en=o.en; }
-    NG.appendChild(g);
+  // ================================================================= CLOCK
+  var WD = ["日","月","火","水","木","金","土"];
+  function pad(n) { return (n < 10 ? "0" : "") + n; }
+  function tickClock() {
+    var d = new Date();
+    document.getElementById("clock").textContent = pad(d.getHours()) + ":" + pad(d.getMinutes());
+    document.getElementById("date").textContent = d.getFullYear() + "." + (d.getMonth() + 1) + "." + d.getDate() + " " + WD[d.getDay()];
+  }
+  tickClock(); setInterval(tickClock, 10000);
 
-    g.addEventListener("mouseenter",function(){ enter(g); });
-    g.addEventListener("mouseleave",leave);
-    g.addEventListener("focus",function(){ enter(g); });
-    g.addEventListener("blur",leave);
-    g.addEventListener("click",function(){ if(g._url) window.open(g._url,"_blank","noopener"); });
-    g.addEventListener("keydown",function(e){
-      if((e.key==="Enter"||e.key===" ")&&g._url){ e.preventDefault(); window.open(g._url,"_blank","noopener"); }
+  // ================================================================= LISTS (drive / market)
+  function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+  function row(t, extra) {
+    var g = GROUPS[GI[t[0]]];
+    return "<a href='" + esc(t[3]) + "' target='_blank' rel='noopener' data-l='" + esc(t[1]) + "' class='" + (extra || "") + "'>" +
+      "<span class='dot' style='color:" + g.col + ";background:" + g.col + "'></span>" +
+      "<span class='n'>" + esc(t[1]) + "</span><span class='jp'>" + esc(t[2]) + "</span></a>";
+  }
+  var drive = TOOLS.filter(function (t) { return t[4] === "drive"; });
+  document.getElementById("driveList").innerHTML = drive.map(function (t, i) { return row(t, i === 0 ? "first" : ""); }).join("");
+  document.getElementById("marketList").innerHTML =
+    "<div class='grp'>Amazon ・ ranking</div>" + TOOLS.filter(function (t) { return t[4] === "amazon"; }).map(function (t) { return row(t); }).join("") +
+    "<div class='grp'>Publishers</div>" + TOOLS.filter(function (t) { return t[4] === "pub"; }).map(function (t) { return row(t); }).join("");
+
+  // list ↔ graph: pointing at a row lights its star; opening it makes it flare
+  document.querySelectorAll(".list").forEach(function (list) {
+    list.addEventListener("pointerover", function (e) { var a = e.target.closest("a[data-l]"); if (a) hoverN = BYLABEL[a.dataset.l] || null; });
+    list.addEventListener("pointerleave", function () { hoverN = null; });
+    list.addEventListener("click", function (e) { var a = e.target.closest("a[data-l]"); if (a && BYLABEL[a.dataset.l]) BYLABEL[a.dataset.l].glow = 1.4; });
+    list.addEventListener("focusin", function (e) { var a = e.target.closest("a[data-l]"); if (a) hoverN = BYLABEL[a.dataset.l] || null; });
+    list.addEventListener("focusout", function () { hoverN = null; });
+    list.addEventListener("keydown", function (e) {
+      if (e.key !== "ArrowDown" && e.key !== "ArrowUp") return;
+      var items = Array.prototype.slice.call(list.querySelectorAll("a")), i = items.indexOf(document.activeElement);
+      e.preventDefault();
+      var nx = items[Math.max(0, Math.min(items.length - 1, i + (e.key === "ArrowDown" ? 1 : -1)))];
+      if (nx) nx.focus();
     });
-    return g;
+  });
+
+  // 編集中 finder
+  document.getElementById("finder").addEventListener("keydown", function (e) {
+    if (e.key !== "Enter" || e.isComposing) return;
+    var q = e.target.value.trim();
+    var url = q ? "https://drive.google.com/drive/u/0/search?q=" + encodeURIComponent("parent:" + EDIT_PARENT + " type:folder " + q)
+                : "https://drive.google.com/drive/folders/" + EDIT_PARENT + "?" + A;
+    window.open(url, "_blank", "noopener");
+    if (BYLABEL["Editing folder"]) BYLABEL["Editing folder"].glow = 1.4;
+  });
+
+  // ================================================================= DATA (Notion / news)
+  var FALLBACK_NOTION = { updated: "2026-09-21T17:22:57+09:00", done: 485, today: 9, history: { "2026-09-21": 485 } };
+  var news = null, newsTab = "edu", seenNews = null, lastDone = null;
+  try { newsTab = localStorage.getItem("wb-news-tab") || "edu"; } catch (x) {}
+  try { seenNews = JSON.parse(localStorage.getItem("wb-seen") || "null"); } catch (x) {}
+
+  function getJSON(path) {
+    return fetch(path + "?t=" + Date.now(), { cache: "no-store" }).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); });
+  }
+  function jstDay(d) { return new Date(d.getTime() + 9 * 3600e3).toISOString().slice(0, 10); }
+  function fmtTime(iso) { var d = new Date(iso); return (d.getMonth() + 1) + "/" + d.getDate() + " " + pad(d.getHours()) + ":" + pad(d.getMinutes()); }
+  function ago(iso) {
+    if (!iso) return "";
+    var m = Math.round((Date.now() - new Date(iso).getTime()) / 60000);
+    if (m < 1) return "たった今"; if (m < 60) return m + "分前";
+    var h = Math.round(m / 60); if (h < 24) return h + "時間前";
+    return Math.round(h / 24) + "日前";
+  }
+  function ping(id) { var el = document.getElementById(id); el.classList.add("ping"); setTimeout(function () { el.classList.remove("ping"); }, 2600); }
+
+  function countUp(el, to) {
+    var from = parseInt(el.textContent, 10); if (isNaN(from)) from = Math.max(0, to - 60);
+    var s = performance.now(), dur = reduce ? 1 : 1400;
+    (function step(now) {
+      var k = Math.min(1, (now - s) / dur), e = 1 - Math.pow(1 - k, 3);
+      el.textContent = Math.round(from + (to - from) * e);
+      if (k < 1) requestAnimationFrame(step);
+    })(s);
+  }
+  function renderNotion(n) {
+    countUp(document.getElementById("doneN"), n.done);
+    var today = jstDay(new Date()), base = null;
+    Object.keys(n.history || {}).sort().forEach(function (d) { if (d < today) base = n.history[d]; });
+    document.getElementById("doneDelta").innerHTML = base != null ? "今日 <b>+" + Math.max(0, n.done - base) + "</b>" : "";
+    document.getElementById("doneToday").innerHTML = n.today != null ? "今日やること <b>" + n.today + "</b>" : "";
+    document.getElementById("doneAt").textContent = n.updated ? fmtTime(n.updated) + " 時点" : "";
+    if (lastDone != null && n.done > lastDone) { ping("tl"); flareUp(0.7); }
+    lastDone = n.done;
+  }
+  function renderNews() {
+    var box = document.getElementById("newsList");
+    document.querySelectorAll(".tab").forEach(function (b) { b.classList.toggle("on", b.dataset.k === newsTab); });
+    var items = news && news[newsTab];
+    if (!items || !items.length) { box.innerHTML = "<div class='empty'>ニュースはまだ届いていません。<br>（GitHub で公開すると毎時自動で更新されます）</div>"; return; }
+    box.innerHTML = items.map(function (x) {
+      var fresh = x.time && (Date.now() - new Date(x.time).getTime()) < 3 * 3600e3;
+      return "<a href='" + esc(x.url) + "' target='_blank' rel='noopener'><div class='h'>" + esc(x.title) + "</div>" +
+        "<div class='m'>" + (fresh ? "<span class='new'>●</span>" : "") + "<span>" + esc(x.source) + "</span><span>" + ago(x.time) + "</span></div></a>";
+    }).join("");
+    box.scrollTop = 0;
+    document.getElementById("newsAt").textContent = news.updated ? "更新 " + fmtTime(news.updated) : "";
+  }
+  document.querySelectorAll(".tab").forEach(function (b) {
+    b.addEventListener("click", function () { newsTab = b.dataset.k; try { localStorage.setItem("wb-news-tab", newsTab); } catch (x) {} renderNews(); });
+  });
+
+  function loadData(first) {
+    getJSON("data/notion.json").then(renderNotion, function () { if (first === true) renderNotion(FALLBACK_NOTION); });
+    getJSON("data/news.json").then(function (j) {
+      news = j; renderNews();
+      var head = (j.edu && j.edu[0] && j.edu[0].url) + "|" + (j.pub && j.pub[0] && j.pub[0].url);
+      if (seenNews && seenNews !== head) { ping("tr"); flareUp(0.5); say("新しいニュースが入りました"); }
+      seenNews = head; try { localStorage.setItem("wb-seen", JSON.stringify(head)); } catch (x) {}
+    }, function () { if (first === true) renderNews(); });
   }
 
-  var tip=document.getElementById("tip");
-  function enter(g){
-    if(!svg.classList.contains("ready")) return;
-    var key=g._group; if(!key) return;
-    svg.classList.add("dim");
-    (lit[key]||[]).forEach(function(e){ e.classList.add("lit"); });
-    if(g._url){
-      tip.innerHTML="<b>"+g._jp+"</b><i>"+g._en+"</i>";
-      var box=g.getBoundingClientRect();
-      tip.classList.add("on");
-      var cx=Math.max(70,Math.min(window.innerWidth-70, box.left+box.width/2));
-      tip.style.left=cx+"px";
-      tip.style.top=Math.max(24,box.top-10)+"px";
-      tip.style.transform="translate(-50%,-100%)";
+  // ================================================================= DIALOGUE (form only — AI later)
+  var logEl = document.getElementById("log");
+  function say(text, who) {
+    var d = document.createElement("div");
+    d.className = "ln" + (who === "me" ? " me" : "");
+    d.textContent = text;
+    logEl.appendChild(d);
+    while (logEl.children.length > 3) logEl.removeChild(logEl.firstChild);
+    var all = logEl.children;
+    for (var i = 0; i < all.length; i++) all[i].classList.toggle("old", i < all.length - 2);
+    clearTimeout(say.t); say.t = setTimeout(function () { logEl.innerHTML = ""; }, 14000);
+  }
+  function norm(s) { return s.toLowerCase().replace(/[\s・　]/g, ""); }
+  function findTools(q) {
+    var nq = norm(q);
+    if (!nq) return [];
+    return nodes.filter(function (n) {
+      if (n.kind !== "tool") return false;
+      var en = norm(n.label), jp = norm(n.jp || "");
+      return en.indexOf(nq) >= 0 || (jp && (jp.indexOf(nq) >= 0 || nq.indexOf(jp) >= 0)) || (nq.length > 3 && nq.indexOf(en) >= 0);
+    });
+  }
+  document.getElementById("bar").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var inp = document.getElementById("cmd"), q = inp.value.trim();
+    inp.value = "";
+    flareUp(1);
+    if (!q) return;
+    say(q, "me");
+    if (/^(全画面|ぜんがめん|full(screen)?|fs)$/i.test(q)) { toggleFS(); say("全画面を切り替えました"); return; }
+    if (/^(リセット|reset|home)$/i.test(q)) {
+      userZoomed = false; camT = { t0: performance.now(), dur: 700, fx: cam.x, fy: cam.y, fz: cam.z, tx: 0, ty: 0, tz: fitZ() }; say("視点を戻しました"); return;
     }
-  }
-  function leave(){
-    svg.classList.remove("dim");
-    document.querySelectorAll(".node.lit,.link.lit").forEach(function(e){e.classList.remove("lit");});
-    tip.classList.remove("on");
-  }
-
-  /* ============ intro -> settle ============ */
-  var totalDelay = 1.15 + delayN*0.045 + 0.9;
-  setTimeout(function(){
-    svg.classList.remove("intro");
-    svg.classList.add("ready");
-  }, Math.min(totalDelay*1000+200, 4200));
-
-  /* ============ keep #core centred on the SVG core ============ */
-  var coreEl=document.getElementById("core");
-  function placeCore(){
-    var r=svg.getBoundingClientRect();
-    var s=Math.min(r.width/1200, r.height/780);
-    var ox=r.left+(r.width-1200*s)/2, oy=r.top+(r.height-780*s)/2;
-    coreEl.style.left=(ox+CX*s)+"px";
-    coreEl.style.top=(oy+CY*s)+"px";
-  }
-  placeCore();
-  window.addEventListener("resize",placeCore);
-  setTimeout(placeCore,300);
-
-  /* ============ clock ============ */
-  var DOW=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
-  function tick(){
-    var d=new Date();
-    var hh=String(d.getHours()).padStart(2,"0"), mm=String(d.getMinutes()).padStart(2,"0");
-    document.getElementById("clock").textContent=hh+":"+mm;
-    document.getElementById("date").textContent=
-      d.getFullYear()+"."+String(d.getMonth()+1).padStart(2,"0")+"."+String(d.getDate()).padStart(2,"0")
-      +"  "+DOW[d.getDay()];
-  }
-  tick(); setInterval(tick,15000);
-
-  /* ============ 編集中 search ============ */
-  var q=document.getElementById("q");
-  function runSearch(){
-    var v=q.value.trim();
-    var query = v ? ("parent:"+EDIT_PARENT+" type:folder "+v) : ("parent:"+EDIT_PARENT+" type:folder");
-    window.open(DRIVE_SEARCH+encodeURIComponent(query),"_blank","noopener");
-  }
-  q.addEventListener("keydown",function(e){ if(e.key==="Enter") runSearch(); });
-  document.getElementById("ql-fold").href="https://drive.google.com/drive/folders/"+EDIT_PARENT+"?"+A;
-  document.getElementById("ql-pub").href=PUBLISHED_LIST;
-
-  /* ============ side panel ============ */
-  var peek=document.getElementById("peek");
-  function setPeek(open){
-    peek.classList.toggle("open",open);
-    peek.setAttribute("aria-hidden",open?"false":"true");
-    var cal=document.getElementById("cal");
-    if(open && !cal.src){
-      cal.src="https://calendar.google.com/calendar/embed?src="+encodeURIComponent(CAL_SRC)
-        +"&ctz=Asia%2FTokyo&mode=AGENDA&showTitle=0&showNav=1&showPrint=0&showTabs=0&showCalendars=0&showTz=0&bgcolor=%230b1120";
+    var wantsOpen = /(開いて|ひらいて|開く)$|^(open|o)\s/i.test(q);
+    var key = q.replace(/(を)?(開いて|ひらいて|開く)$/, "").replace(/^(open|o)\s+/i, "").trim();
+    var hits = findTools(key);
+    if (hits.length) {
+      hits.forEach(function (n) { n.glow = 1.6; var hub = GROUPS[n.gi].node; hub.glow = Math.max(hub.glow, 1); });
+      if (wantsOpen && hits.length === 1) { window.open(hits[0].url, "_blank", "noopener"); say(hits[0].label + " を開きました"); }
+      else say(hits.map(function (n) { return n.label; }).join("・") + " を光らせました — 星をクリックで開きます");
+    } else {
+      say("（対話 AI はまだ準備中です。いまは星の名前で光らせたり、「〜を開いて」で開いたりできます）");
     }
-  }
-  document.getElementById("peekbtn").addEventListener("click",function(){setPeek(!peek.classList.contains("open"));});
-  document.getElementById("peekclose").addEventListener("click",function(){setPeek(false);});
-  document.getElementById("nb").href=NOTION_BOARD;
-  document.getElementById("nt").href=NOTION_TASKS;
+  });
 
-  /* ============ memo ============ */
-  var mt=document.getElementById("memotext");
-  try{ mt.value=localStorage.getItem("workbase.memo")||""; }catch(e){}
-  mt.addEventListener("input",function(){ try{localStorage.setItem("workbase.memo",mt.value);}catch(e){} });
-
+  // ================================================================= START
+  var __b = document.getElementById("boot"); if (__b) __b.parentNode.removeChild(__b);
+  resize();
+  var z0 = fitZ(); cam.z = z0 * 0.55;
+  camT = { t0: performance.now(), dur: 1600, fx: 0, fy: 0, fz: z0 * 0.55, tx: 0, ty: 0, tz: z0 };
+  setTimeout(function () { flareUp(0.8); }, 900);
+  loadData(true);
+  setInterval(loadData, DATA_REFRESH_MIN * 60000);
+  document.addEventListener("visibilitychange", function () { if (!document.hidden) loadData(); });
+  requestAnimationFrame(frame);
+} catch (e) { __bootErr(e); }
 })();
 </script>
 </body>
