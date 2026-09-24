@@ -93,6 +93,8 @@
   .tl { cursor: pointer; }
   .tl:hover { border-color: var(--line-2); }
   .tl:hover .go { color: var(--accent); }
+  .done .go .web { margin-left: 8px; padding: 1px 6px; border: 1px solid var(--line); border-radius: 6px; font-size: .62rem; letter-spacing: .1em; color: var(--faint); }
+  .done .go .web:hover { color: var(--head); border-color: var(--line-2); }
 
   /* top-right: news */
   .tabs { display: flex; gap: 4px; padding: 0 12px 6px; }
@@ -176,14 +178,16 @@
 
 <div class="wrap">
   <!-- top-left: Notion done -->
-  <a class="card tl" id="tl" target="_blank" rel="noopener" href="https://www.notion.so/32667766d902813fb566d2e6d8d9513f" title="Notion「今週の作業板」を開く">
+  <section class="card tl" id="tl" title="Notion「今週の作業板」をデスクトップ版アプリで開く">
     <div class="chead"><span class="dot" style="color:var(--gold);background:var(--gold)"></span><span class="t">DONE</span><span class="j">完了済みタスク</span></div>
     <div class="done">
       <div class="big"><span id="doneN">—</span><small>tasks</small></div>
       <div class="sub"><span id="doneDelta"></span><span id="doneToday"></span></div>
-      <div class="go">NOTION&nbsp;→&nbsp; <span id="doneAt"></span></div>
+      <div class="go">NOTION&nbsp;→&nbsp; <span id="doneAt"></span>
+        <a class="web" id="notionWeb" href="https://www.notion.so/32667766d902813fb566d2e6d8d9513f" target="_blank" rel="noopener" title="ブラウザ版で開く">web</a>
+      </div>
     </div>
-  </a>
+  </section>
 
   <!-- top-right: news -->
   <section class="card tr" id="tr">
@@ -276,6 +280,7 @@ try {
     ["other","Messenger","メッセンジャー","https://www.facebook.com/messages/"]
   ];
   var DATA_REFRESH_MIN = 10;
+  var NOTION_PAGE = "32667766d902813fb566d2e6d8d9513f";      // 今週の作業板
 
   // ================================================================= GRAPH (Work Cosmos)
   var canvas = document.getElementById("view"), ctx = canvas.getContext("2d");
@@ -684,6 +689,12 @@ try {
                 : "https://drive.google.com/drive/folders/" + EDIT_PARENT + "?" + A;
     window.open(url, "_blank", "noopener");
     if (BYLABEL["Editing folder"]) BYLABEL["Editing folder"].glow = 1.4;
+  });
+
+  // DONE カード → Notion のデスクトップ版アプリ（notion:// スキーム）。右下の web はブラウザ版
+  document.getElementById("tl").addEventListener("click", function (e) {
+    if (e.target.closest("#notionWeb")) return;
+    window.location.href = "notion://www.notion.so/" + NOTION_PAGE;
   });
 
   // ================================================================= DATA (Notion / news)
