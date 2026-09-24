@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Work Base（サンプル：霧）</title>
+<title>Work Base（サンプル：霧・立体）</title>
 <meta name="description" content="北山の仕事の基地。中央に Work Cosmos、四隅に Notion の完了数・教育と出版のニュース・よく使うドライブ・市場と出版社。">
 <meta name="theme-color" content="#050810">
 
@@ -282,50 +282,68 @@ try {
   var DATA_REFRESH_MIN = 10;
   var NOTION_PAGE = "32667766d902813fb566d2e6d8d9513f";      // 今週の作業板
 
-  // ================================================================= CENTER: 霧の中の星（線なし）
+  // ================================================================= CENTER: 霧＋立体の星（線なし）
   var canvas = document.getElementById("view"), ctx = canvas.getContext("2d");
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var TAU = Math.PI * 2, DPR = Math.min(window.devicePixelRatio || 1, 2), W = 0, H = 0;
+  var WHITE = "#e9eef9";                     // ふだんの星の色
   var GI = {}; GROUPS.forEach(function (g, i) { GI[g.jp] = i; });
   var nodes = [], BYLABEL = {};
   function rr(a, b) { return a + Math.random() * (b - a); }
 
-  // --- 星（ツール）は定位置＋ゆらぎ。グループごとの雲のかたまりに配置 ---
-  function star(n, hx, hy) {
-    n.hx = hx; n.hy = hy; n.x = hx; n.y = hy; n.ph = Math.random() * TAU;
-    n.sw = rr(0.6, 1.5); n.glow = 0; n.id = nodes.length; nodes.push(n); return n;
+  // 「押したら色が付く」— 色が付いた星は端末に覚えておく
+  var LIT = {};
+  try { LIT = JSON.parse(localStorage.getItem("wb-lit") || "{}") || {}; } catch (x) {}
+  function saveLit() { try { localStorage.setItem("wb-lit", JSON.stringify(LIT)); } catch (x) {} }
+  function litUp(n) { if (!n) return; if (!n.lit) { n.lit = true; LIT[n.label] = 1; saveLit(); } n.glow = 1.4; }
+
+  // ---------- 立体（球状）に配置 ----------
+  function dir3(i, n) {                       // フィボナッチ球で偏りなく方向を配る
+    var k = i + 0.5, ph = Math.acos(1 - 2 * k / n), th = Math.PI * (1 + Math.sqrt(5)) * k;
+    return [Math.cos(th) * Math.sin(ph), Math.sin(th) * Math.sin(ph) * 0.8, Math.cos(ph)];
+  }
+  function star(n, p) {
+    n.hx = p[0]; n.hy = p[1]; n.hz = p[2];
+    n.x = p[0]; n.y = p[1]; n.z = p[2];
+    n.ph = Math.random() * TAU; n.sw = rr(0.6, 1.5); n.glow = 0;
+    n.lit = !!LIT[n.label]; n.id = nodes.length; nodes.push(n); return n;
   }
   GROUPS.forEach(function (g, i) {
-    var a = (-90 + i * 60) * Math.PI / 180, hx = Math.cos(a) * 205, hy = Math.sin(a) * 205;
-    g.node = star({ kind: "hub", label: g.jp, gi: i, col: g.col, r: 5.6 }, hx, hy);
+    var D = dir3(i, GROUPS.length), HR = 215;
+    g.node = star({ kind: "hub", label: g.jp, gi: i, col: g.col, r: 5.4 }, [D[0] * HR, D[1] * HR, D[2] * HR]);
+    // ハブの向きに垂直な2軸（クラスタを板状に広げる）
+    var up = Math.abs(D[2]) < 0.9 ? [0, 0, 1] : [1, 0, 0];
+    var ax = [D[1] * up[2] - D[2] * up[1], D[2] * up[0] - D[0] * up[2], D[0] * up[1] - D[1] * up[0]];
+    var al = Math.hypot(ax[0], ax[1], ax[2]); ax = [ax[0] / al, ax[1] / al, ax[2] / al];
+    var ay = [D[1] * ax[2] - D[2] * ax[1], D[2] * ax[0] - D[0] * ax[2], D[0] * ax[1] - D[1] * ax[0]];
     var mine = TOOLS.filter(function (t) { return t[0] === g.jp; });
     mine.forEach(function (t, j) {
-      var sp = (j - (mine.length - 1) / 2) * 0.42;
-      var rad = 108 + (j % 2 ? 26 : 0);
-      var tx = hx + Math.cos(a + sp) * rad, ty = hy + Math.sin(a + sp) * rad;
-      BYLABEL[t[1]] = star({ kind: "tool", label: t[1], jp: t[2], url: t[3], gi: i, col: g.col, r: 3.4 }, tx, ty);
+      var a = (j / mine.length) * TAU + i, rad = 74 + (j % 3) * 26, out = HR + rr(-26, 34);
+      var p = [D[0] * out + (ax[0] * Math.cos(a) + ay[0] * Math.sin(a)) * rad,
+               D[1] * out + (ax[1] * Math.cos(a) + ay[1] * Math.sin(a)) * rad,
+               D[2] * out + (ax[2] * Math.cos(a) + ay[2] * Math.sin(a)) * rad];
+      BYLABEL[t[1]] = star({ kind: "tool", label: t[1], jp: t[2], url: t[3], gi: i, col: g.col, r: 3.9 }, p);
     });
   });
-  // 飾りの小さな星（クリック不可）。霧に混ざって漂う
-  for (var d = 0; d < 120; d++) {
-    var da = Math.random() * TAU, dr = Math.pow(Math.random(), 0.65) * 430 + 60;
-    star({ kind: "dust", gi: -1, col: Math.random() < 0.7 ? "#9fb0cc" : GROUPS[(Math.random() * 6) | 0].col, r: rr(0.9, 2.1) },
-      Math.cos(da) * dr, Math.sin(da) * dr * 0.86);
+  for (var d = 0; d < 150; d++) {             // 飾りの星（クリック不可）
+    var D2 = dir3(d, 150), rad2 = rr(120, 440);
+    star({ kind: "dust", gi: -1, col: WHITE, r: rr(0.7, 1.7) }, [D2[0] * rad2, D2[1] * rad2, D2[2] * rad2]);
   }
 
-  // ---------- camera ----------
-  var cam = { x: 0, y: 0, z: 1 }, camT = null, rot = 0, spin = 1, narrow = false, userZoomed = false;
-  function W2S(x, y) {
-    var c = Math.cos(rot), s = Math.sin(rot), dx = x - cam.x, dy = y - cam.y;
-    return [(dx * c - dy * s) * cam.z + W / 2, (dx * s + dy * c) * cam.z + H / 2];
+  // ---------- カメラ（マウスドラッグで3D回転）----------
+  var cam = { x: 0, y: 0, z: 1 }, camT = null, userZoomed = false, narrow = false;
+  var yaw = 0.3, pitch = -0.22, vYaw = 0, vPitch = 0, spin = 1, FOC = 1250;
+  function project(x, y, z) {
+    var cy0 = Math.cos(yaw), sy0 = Math.sin(yaw);
+    var X = x * cy0 - z * sy0, Z = x * sy0 + z * cy0;
+    var cp = Math.cos(pitch), sp = Math.sin(pitch);
+    var Y = y * cp - Z * sp, Z2 = y * sp + Z * cp;
+    var k = FOC / Math.max(220, FOC - Z2);                 // 手前は大きく、奥は小さく
+    return [(X - cam.x) * cam.z * k + W / 2, (Y - cam.y) * cam.z * k + H / 2, Z2, k];
   }
-  function S2W(sx, sy) {
-    var c = Math.cos(-rot), s = Math.sin(-rot), dx = (sx - W / 2) / cam.z, dy = (sy - H / 2) / cam.z;
-    return [dx * c - dy * s + cam.x, dx * s + dy * c + cam.y];
-  }
-  function fitZ() { return Math.max(0.42, Math.min(1.3, Math.min(H * 0.98, W * (narrow ? 0.98 : 0.68)) / 880)); }
+  function fitZ() { return Math.max(0.42, Math.min(1.3, Math.min(H * 0.98, W * (narrow ? 0.98 : 0.68)) / 1000)); }
 
-  // ---------- 霧（スプライトを重ねるボリューム霧）----------
+  // ---------- 霧 ----------
   var CX = 0, CY = 0, R = 260, driftX = 0, driftY = 0;
   function sprite(size, col) {
     var s = document.createElement("canvas"); s.width = size; s.height = size;
@@ -348,12 +366,12 @@ try {
     for (var i = 0; i < 150; i++) {
       var a = Math.random() * TAU, rad = Math.pow(Math.random(), 0.6);
       PUFFS.push({ hx: Math.cos(a) * rad * R * 1.6, hy: Math.sin(a) * rad * R * 1.0, x: 0, y: 0,
-        spd: 0.5 + Math.random() * 1.6, s: R * (0.5 + Math.random() * 1.2), ph: Math.random() * TAU, spr: PUFF, a: 0.05 + Math.random() * 0.09 });
+        spd: 0.5 + Math.random() * 1.6, s: R * (0.5 + Math.random() * 1.2), ph: Math.random() * TAU, spr: PUFF, a: 0.04 + Math.random() * 0.075 });
     }
     for (var j = 0; j < 72; j++) {
       var a2 = Math.random() * TAU, rad2 = Math.pow(Math.random(), 0.48);
       PUFFS2.push({ hx: Math.cos(a2) * rad2 * R * 2.0, hy: Math.sin(a2) * rad2 * R * 1.2, x: 0, y: 0,
-        spd: 0.7 + Math.random() * 2, s: R * (0.75 + Math.random() * 1.5), ph: Math.random() * TAU, spr: PUFF2, a: 0.03 + Math.random() * 0.05 });
+        spd: 0.7 + Math.random() * 2, s: R * (0.75 + Math.random() * 1.5), ph: Math.random() * TAU, spr: PUFF2, a: 0.025 + Math.random() * 0.045 });
     }
     PUFFS.concat(PUFFS2).forEach(function (p) { p.x = CX + p.hx; p.y = CY + p.hy; });
     for (var m = 0; m < 620; m++) {
@@ -382,45 +400,56 @@ try {
   function reheat() {}
 
   // ---------- 操作 ----------
-  var hoverN = null, selN = null, panning = false, moved = 0;
+  var hoverN = null, selN = null, dragging = false, moved = 0, lastMove = 0;
   function nodeAt(sx, sy) {
     var best = null, bd = Infinity;
-    for (var i = nodes.length - 1; i >= 0; i--) {
+    for (var i = 0; i < nodes.length; i++) {
       var n = nodes[i];
       if (n.kind === "dust") continue;
-      var s = W2S(n.x, n.y), dd = Math.hypot(s[0] - sx, s[1] - sy);
-      var hitR = n.kind === "tool" ? 17 : 22;
+      var dd = Math.hypot(n.sx - sx, n.sy - sy);
+      var hitR = (n.kind === "tool" ? 16 : 21) * Math.max(0.7, n.k || 1);
       if (dd < hitR && dd < bd) { bd = dd; best = n; }
     }
     return best;
   }
   canvas.addEventListener("pointerdown", function (e) {
-    moved = 0; panning = true; canvas.classList.add("grab"); canvas.setPointerCapture(e.pointerId);
+    moved = 0; dragging = true; vYaw = vPitch = 0; canvas.classList.add("grab"); canvas.setPointerCapture(e.pointerId);
   });
   canvas.addEventListener("pointermove", function (e) {
     moved += Math.abs(e.movementX) + Math.abs(e.movementY);
-    if (panning && moved > 6) {
-      var c = Math.cos(-rot), s = Math.sin(-rot), mx = e.movementX / cam.z, my = e.movementY / cam.z;
-      cam.x -= mx * c - my * s; cam.y -= mx * s + my * c;
-    } else if (!panning) { hoverN = nodeAt(e.clientX, e.clientY); canvas.classList.toggle("node", !!hoverN); }
+    if (dragging && moved > 5) {
+      if (e.shiftKey) {                                   // Shift＋ドラッグ＝平行移動
+        cam.x -= e.movementX / cam.z; cam.y -= e.movementY / cam.z;
+      } else {                                            // ドラッグ＝ぐるっと回す（裏側まで）
+        yaw += e.movementX * 0.006; pitch -= e.movementY * 0.005;
+        pitch = Math.max(-1.45, Math.min(1.45, pitch));
+        vYaw = e.movementX * 0.006; vPitch = -e.movementY * 0.005; lastMove = performance.now();
+      }
+    } else if (!dragging) { hoverN = nodeAt(e.clientX, e.clientY); canvas.classList.toggle("node", !!hoverN); }
   });
   canvas.addEventListener("pointerup", function (e) {
-    if (moved < 6) {
+    if (moved < 5) {
       var n = nodeAt(e.clientX, e.clientY);
-      if (n && n.url) { n.glow = 1.4; window.open(n.url, "_blank", "noopener"); }
-      selN = n && !n.url ? (selN === n ? null : n) : null;
+      if (n) {
+        if (!n.lit) { n.lit = true; LIT[n.label] = 1; saveLit(); }   // 押したら色が付く
+        n.glow = 1.4;
+        if (n.url) window.open(n.url, "_blank", "noopener");
+      } else selN = null;
     }
-    panning = false; canvas.classList.remove("grab");
+    dragging = false; canvas.classList.remove("grab");
+    if (performance.now() - lastMove > 90) { vYaw = vPitch = 0; }    // 止めてから離したら流さない
   });
   canvas.addEventListener("pointerleave", function () { hoverN = null; canvas.classList.remove("node"); });
   canvas.addEventListener("wheel", function (e) {
     e.preventDefault(); userZoomed = true;
-    var before = S2W(e.clientX, e.clientY);
-    cam.z = Math.max(0.25, Math.min(5, cam.z * Math.exp(-e.deltaY * 0.0016)));
-    var after = S2W(e.clientX, e.clientY);
-    cam.x += before[0] - after[0]; cam.y += before[1] - after[1];
+    cam.z = Math.max(0.3, Math.min(4, cam.z * Math.exp(-e.deltaY * 0.0016)));
   }, { passive: false });
   canvas.addEventListener("dblclick", function () { toggleFS(); });
+  function resetView() {
+    userZoomed = false; vYaw = vPitch = 0; cam.x = cam.y = 0;
+    camT = { t0: performance.now(), dur: 700, fx: cam.x, fy: cam.y, fz: cam.z, tx: 0, ty: 0, tz: fitZ() };
+    pitch = -0.22;
+  }
 
   // ---------- 描画 ----------
   var t0 = performance.now(), last = t0;
@@ -444,13 +473,20 @@ try {
   function frame(now) {
     var t = (now - t0) / 1000, dt = Math.min(0.05, (now - last) / 1000); last = now;
     if (camT) {
-      var k = Math.min(1, (now - camT.t0) / camT.dur), ee = 1 - Math.pow(1 - k, 3);
+      var kk = Math.min(1, (now - camT.t0) / camT.dur), ee = 1 - Math.pow(1 - kk, 3);
       cam.x = camT.fx + (camT.tx - camT.fx) * ee; cam.y = camT.fy + (camT.ty - camT.fy) * ee; cam.z = camT.fz + (camT.tz - camT.fz) * ee;
-      if (k >= 1) camT = null;
+      if (kk >= 1) camT = null;
     }
-    var wantSpin = (hoverN ? 0 : 1);
-    spin += (wantSpin - spin) * Math.min(1, dt * 3);
-    if (!reduce) rot += dt * 0.015 * spin * (1 + flare * 1.6);
+    // 慣性 → 手を離したあとゆるやかに流れて、やがて自動回転に戻る
+    if (!dragging) {
+      yaw += vYaw; pitch = Math.max(-1.45, Math.min(1.45, pitch + vPitch));
+      vYaw *= 0.94; vPitch *= 0.94;
+      if (Math.abs(vYaw) < 0.0004) vYaw = 0;
+      if (Math.abs(vPitch) < 0.0004) vPitch = 0;
+      var wantSpin = (hoverN || vYaw || vPitch) ? 0 : 1;
+      spin += (wantSpin - spin) * Math.min(1, dt * 2.5);
+      if (!reduce) yaw += dt * 0.055 * spin * (1 + flare * 1.2);
+    }
     flare = Math.max(0, flare - dt * 0.5);
     for (var gi = 0; gi < nodes.length; gi++) if (nodes[gi].glow > 0) nodes[gi].glow = Math.max(0, nodes[gi].glow - dt * 0.28);
     if (!reduce) { driftX = Math.sin(t * 0.13) * R * 0.18; driftY = Math.cos(t * 0.1) * R * 0.12; }
@@ -470,20 +506,72 @@ try {
 
     var hi = hoverN || selN;
 
+    // 位置を計算して奥→手前の順に並べる
+    for (var i0 = 0; i0 < nodes.length; i0++) {
+      var n0 = nodes[i0], sw = reduce ? 0 : 1;
+      var ox = Math.sin(t * 0.21 * n0.sw + n0.ph) * 11 * sw, oy = Math.cos(t * 0.18 * n0.sw + n0.ph * 1.3) * 11 * sw,
+          oz = Math.sin(t * 0.15 * n0.sw + n0.ph * 0.7) * 11 * sw;
+      var pr = project(n0.hx + ox, n0.hy + oy, n0.hz + oz);
+      n0.sx = pr[0]; n0.sy = pr[1]; n0.zz = pr[2]; n0.k = pr[3];
+    }
+    var order = nodes.slice().sort(function (a, b) { return a.zz - b.zz; });
+
+    // 奥の星（霧の後ろ）
+    function drawStar(n) {
+      if (n.sx < -60 || n.sx > W + 60 || n.sy < -60 || n.sy > H + 60) return;
+      var depth = Math.max(0.35, Math.min(1.25, n.k));
+      var r = n.r * Math.max(0.5, Math.min(cam.z, 2)) * depth;
+      var far = n.zz < 0 ? 0.55 : 1;                     // 奥側は少し沈める
+      var dim = far;
+      if (hi) dim *= (n === hi || n.gi === hi.gi) ? 1 : (n.kind === "dust" ? 0.2 : 0.3);
+      var tint = n.lit || n === hi || (hi && n.gi === hi.gi) || n.glow > 0.2 ? n.col : WHITE;
+      var g = n === hi ? 1 : n.glow;
+      if (g > 0.02) {
+        var gr = r * (5 + n.glow * 3.5);
+        ctx.globalAlpha = Math.min(1, 0.6 * Math.max(dim, n.glow));
+        var gg = ctx.createRadialGradient(n.sx, n.sy, 0, n.sx, n.sy, gr);
+        gg.addColorStop(0, hexA(tint, 0.8 * Math.min(1, g))); gg.addColorStop(1, hexA(tint, 0));
+        ctx.fillStyle = gg; ctx.beginPath(); ctx.arc(n.sx, n.sy, gr, 0, TAU); ctx.fill();
+      }
+      if (n.kind !== "dust") {                          // 霧の中でも見つけられるよう芯に光を持たせる
+        ctx.globalAlpha = Math.min(1, 0.32 * dim);
+        var hh = ctx.createRadialGradient(n.sx, n.sy, 0, n.sx, n.sy, r * 3.4);
+        hh.addColorStop(0, hexA(tint, 0.5)); hh.addColorStop(1, hexA(tint, 0));
+        ctx.fillStyle = hh; ctx.beginPath(); ctx.arc(n.sx, n.sy, r * 3.4, 0, TAU); ctx.fill();
+        ctx.globalAlpha = 1;
+      }
+      var tw2 = n.kind === "dust" ? (0.45 + 0.55 * Math.abs(Math.sin(t * n.sw + n.ph))) : 1;
+      ctx.globalAlpha = Math.min(1, Math.max(dim * tw2 * (n.kind === "dust" ? 0.5 : 1), n.glow));
+      ctx.fillStyle = n.glow > 0.3 ? mix(tint, [255, 255, 255], Math.min(0.6, n.glow * 0.4)) : tint;
+      ctx.beginPath(); ctx.arc(n.sx, n.sy, Math.max(0.6, r), 0, TAU); ctx.fill();
+      ctx.globalAlpha = 1;
+      if (n.label && (n === hi || (hi && n.gi === hi.gi) || n.glow > 0.5)) {
+        var txt = n.kind === "tool" && n.jp ? n.label + "  " + n.jp : n.label;
+        ctx.globalAlpha = Math.min(1, Math.max(dim, n.glow)) * (n === hi || n.glow > 0.5 ? 1 : 0.7);
+        ctx.font = (n.kind === "hub" ? "500 " : "400 ") + (n.kind === "tool" ? 11 : 12.5) + 'px "Outfit", "Zen Kaku Gothic New", sans-serif';
+        ctx.textAlign = "center"; ctx.textBaseline = "top";
+        var twd = ctx.measureText(txt).width;
+        ctx.fillStyle = "rgba(4,6,12,.72)"; ctx.fillRect(n.sx - twd / 2 - 4, n.sy + r + 3, twd + 8, 16);
+        ctx.fillStyle = n.kind === "tool" ? (n.lit ? mix(n.col, [255, 255, 255], .45) : "#dfe6f4") : mix(n.col, [255, 255, 255], .35);
+        ctx.fillText(txt, n.sx, n.sy + r + 5);
+        ctx.globalAlpha = 1;
+      }
+    }
+    for (var b0 = 0; b0 < order.length; b0++) if (order[b0].zz < 0) drawStar(order[b0]);
+
+    // 霧（星の奥と手前のあいだに挟む＝奥の星がかすむ）
     ctx.save();
     ctx.globalCompositeOperation = "lighter";
-    // 霧
     drawPuffs(PUFFS2, t); drawPuffs(PUFFS, t);
     ctx.globalAlpha = 1;
-    // 中央にとどまる白い発光のモヤ
     var hb = reduce ? 1 : (1 + Math.sin(t * 0.9) * 0.14);
     var hr = R * (1.1 + flare * 0.5) * hb;
-    var hg = ctx.createRadialGradient(CX + driftX * 0.5, CY + driftY * 0.5, 0, CX + driftX * 0.5, CY + driftY * 0.5, hr);
-    hg.addColorStop(0, "rgba(242,246,252," + (0.24 + flare * 0.22).toFixed(3) + ")");
+    var hgx = CX + driftX * 0.5, hgy = CY + driftY * 0.5;
+    var hg = ctx.createRadialGradient(hgx, hgy, 0, hgx, hgy, hr);
+    hg.addColorStop(0, "rgba(242,246,252," + (0.19 + flare * 0.24).toFixed(3) + ")");
     hg.addColorStop(0.4, "rgba(216,226,240," + (0.09 + flare * 0.1).toFixed(3) + ")");
     hg.addColorStop(1, "rgba(212,222,236,0)");
-    ctx.fillStyle = hg; ctx.beginPath(); ctx.arc(CX + driftX * 0.5, CY + driftY * 0.5, hr, 0, TAU); ctx.fill();
-    // 流れる小さな星（霧の粒）
+    ctx.fillStyle = hg; ctx.beginPath(); ctx.arc(hgx, hgy, hr, 0, TAU); ctx.fill();
     for (var mi = 0; mi < MIST.length; mi++) {
       var mo = MIST[mi];
       if (!reduce) {
@@ -496,62 +584,23 @@ try {
         mo.x = CX + driftX + Math.cos(na) * nr * 1.2; mo.y = CY + driftY + Math.sin(na) * nr * 0.8;
         mo.life = 0; continue;
       }
-      ctx.globalAlpha = mo.a * Math.sin(Math.min(1, mo.life) * Math.PI) * (hi ? 0.55 : 1);
+      ctx.globalAlpha = mo.a * Math.sin(Math.min(1, mo.life) * Math.PI) * (hi ? 0.5 : 1);
       ctx.drawImage(MOTE, mo.x - mo.s / 2, mo.y - mo.s / 2, mo.s, mo.s);
     }
-    // コマンドの衝撃波
     for (var ki = rings.length - 1; ki >= 0; ki--) {
       var rg2 = rings[ki]; rg2.t += dt * 0.5;
       if (rg2.t >= 1) { rings.splice(ki, 1); continue; }
       ctx.globalAlpha = 1;
       ctx.strokeStyle = "rgba(226,238,255," + (0.3 * (1 - rg2.t) * rg2.p).toFixed(3) + ")";
       ctx.lineWidth = 1.2 + (1 - rg2.t) * 5;
-      ctx.beginPath(); ctx.arc(CX, CY, (40 + rg2.t * Math.max(W, H) * 0.6) , 0, TAU); ctx.stroke();
+      ctx.beginPath(); ctx.arc(CX, CY, 40 + rg2.t * Math.max(W, H) * 0.6, 0, TAU); ctx.stroke();
     }
     ctx.restore();
     ctx.globalAlpha = 1;
 
-    // 星（ツール）— 線は描かない
-    for (var i2 = 0; i2 < nodes.length; i2++) {
-      var n = nodes[i2];
-      // 定位置のまわりをゆっくり漂う
-      var sw = reduce ? 0 : 1;
-      n.x = n.hx + Math.sin(t * 0.21 * n.sw + n.ph) * 13 * sw + Math.cos(t * 0.13 + n.ph * 1.7) * 7 * sw;
-      n.y = n.hy + Math.cos(t * 0.18 * n.sw + n.ph * 1.3) * 12 * sw + Math.sin(t * 0.11 + n.ph) * 7 * sw;
-      var s = W2S(n.x, n.y);
-      if (s[0] < -60 || s[0] > W + 60 || s[1] < -60 || s[1] > H + 60) continue;
-      var zc = Math.max(0.6, Math.min(cam.z, 2.2));
-      var r = n.r * zc;
-      var dim = 1;
-      if (hi) dim = (n === hi || n.gi === hi.gi) ? 1 : (n.kind === "dust" ? 0.18 : 0.26);
-      var g = n === hi ? 1 : n.glow;
-      if (g > 0.02) {
-        var gr = r * (5 + n.glow * 3.5);
-        ctx.globalAlpha = Math.min(1, 0.6 * Math.max(dim, n.glow));
-        var gg = ctx.createRadialGradient(s[0], s[1], 0, s[0], s[1], gr);
-        gg.addColorStop(0, hexA(n.col, 0.8 * Math.min(1, g))); gg.addColorStop(1, hexA(n.col, 0));
-        ctx.fillStyle = gg; ctx.beginPath(); ctx.arc(s[0], s[1], gr, 0, TAU); ctx.fill();
-      }
-      var tw2 = n.kind === "dust" ? (0.45 + 0.55 * Math.abs(Math.sin(t * n.sw + n.ph))) : 1;
-      ctx.globalAlpha = Math.min(1, Math.max(dim * tw2 * (n.kind === "dust" ? 0.8 : 1), n.glow));
-      ctx.fillStyle = n.glow > 0.3 ? mix(n.col, [255, 255, 255], Math.min(0.6, n.glow * 0.4)) : n.col;
-      ctx.beginPath(); ctx.arc(s[0], s[1], r, 0, TAU); ctx.fill();
-      ctx.globalAlpha = 1;
+    // 手前の星
+    for (var f0 = 0; f0 < order.length; f0++) if (order[f0].zz >= 0) drawStar(order[f0]);
 
-      if (n.label && (n === hi || n.gi === (hi && hi.gi) || n.glow > 0.5)) {
-        var txt = n.kind === "tool" && n.jp ? n.label + "  " + n.jp : n.label;
-        ctx.globalAlpha = Math.min(1, Math.max(dim, n.glow)) * (n === hi || n.glow > 0.5 ? 1 : 0.75);
-        ctx.font = (n.kind === "hub" ? "500 " : "400 ") + (n.kind === "tool" ? 11 : 12.5) + 'px "Outfit", "Zen Kaku Gothic New", sans-serif';
-        ctx.textAlign = "center"; ctx.textBaseline = "top";
-        var twd = ctx.measureText(txt).width;
-        ctx.fillStyle = "rgba(4,6,12,.72)"; ctx.fillRect(s[0] - twd / 2 - 4, s[1] + r + 3, twd + 8, 16);
-        ctx.fillStyle = n.kind === "tool" ? "#d7dfee" : mix(n.col, [255, 255, 255], .35);
-        ctx.fillText(txt, s[0], s[1] + r + 5);
-        ctx.globalAlpha = 1;
-      }
-    }
-
-    // ふち
     var vg = ctx.createRadialGradient(W / 2, H / 2, Math.min(W, H) * 0.24, W / 2, H / 2, Math.max(W, H) * 0.78);
     vg.addColorStop(0, "rgba(5,8,16,0)"); vg.addColorStop(1, "rgba(3,5,10,.6)");
     ctx.fillStyle = vg; ctx.fillRect(0, 0, W, H);
@@ -612,7 +661,7 @@ try {
   document.querySelectorAll(".list").forEach(function (list) {
     list.addEventListener("pointerover", function (e) { var a = e.target.closest("a[data-l]"); if (a) hoverN = BYLABEL[a.dataset.l] || null; });
     list.addEventListener("pointerleave", function () { hoverN = null; });
-    list.addEventListener("click", function (e) { var a = e.target.closest("a[data-l]"); if (a && BYLABEL[a.dataset.l]) BYLABEL[a.dataset.l].glow = 1.4; });
+    list.addEventListener("click", function (e) { var a = e.target.closest("a[data-l]"); if (a) litUp(BYLABEL[a.dataset.l]); });
     list.addEventListener("focusin", function (e) { var a = e.target.closest("a[data-l]"); if (a) hoverN = BYLABEL[a.dataset.l] || null; });
     list.addEventListener("focusout", function () { hoverN = null; });
     list.addEventListener("keydown", function (e) {
@@ -631,7 +680,7 @@ try {
     var url = q ? "https://drive.google.com/drive/u/0/search?q=" + encodeURIComponent("parent:" + EDIT_PARENT + " type:folder " + q)
                 : "https://drive.google.com/drive/folders/" + EDIT_PARENT + "?" + A;
     window.open(url, "_blank", "noopener");
-    if (BYLABEL["Editing folder"]) BYLABEL["Editing folder"].glow = 1.4;
+    litUp(BYLABEL["Editing folder"]);
   });
 
   // DONE カード → Notion のデスクトップ版アプリ（notion:// スキーム）。右下の web はブラウザ版
@@ -736,15 +785,18 @@ try {
     if (!q) return;
     say(q, "me");
     if (/^(全画面|ぜんがめん|full(screen)?|fs)$/i.test(q)) { toggleFS(); say("全画面を切り替えました"); return; }
+    if (/^(色リセット|色をリセット|白に戻す|reset ?colors?)$/i.test(q)) {
+      nodes.forEach(function (n) { n.lit = false; }); LIT = {}; saveLit(); say("星を白に戻しました"); return;
+    }
     if (/^(リセット|reset|home)$/i.test(q)) {
-      userZoomed = false; camT = { t0: performance.now(), dur: 700, fx: cam.x, fy: cam.y, fz: cam.z, tx: 0, ty: 0, tz: fitZ() }; say("視点を戻しました"); return;
+      resetView(); say("視点を戻しました"); return;
     }
     var wantsOpen = /(開いて|ひらいて|開く)$|^(open|o)\s/i.test(q);
     var key = q.replace(/(を)?(開いて|ひらいて|開く)$/, "").replace(/^(open|o)\s+/i, "").trim();
     var hits = findTools(key);
     if (hits.length) {
       hits.forEach(function (n) { n.glow = 1.6; var hub = GROUPS[n.gi].node; hub.glow = Math.max(hub.glow, 1); });
-      if (wantsOpen && hits.length === 1) { window.open(hits[0].url, "_blank", "noopener"); say(hits[0].label + " を開きました"); }
+      if (wantsOpen && hits.length === 1) { litUp(hits[0]); window.open(hits[0].url, "_blank", "noopener"); say(hits[0].label + " を開きました"); }
       else say(hits.map(function (n) { return n.label; }).join("・") + " を光らせました — 星をクリックで開きます");
     } else {
       say("（対話 AI はまだ準備中です。いまは星の名前で光らせたり、「〜を開いて」で開いたりできます）");
