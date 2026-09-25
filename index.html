@@ -218,10 +218,13 @@
   .tiles .tx { min-width: 0; line-height: 1.15; }
   .tiles .nm { display: block; font-family: "Outfit", sans-serif; font-size: .72rem; font-weight: 500; color: #e2e8f2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .tiles .sb { display: block; font-family: "Outfit", sans-serif; font-size: .56rem; letter-spacing: .04em; color: #5f93a8; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .tiles .ft { display: flex; align-items: center; gap: 6px; margin: 7px 2px 1px; border-top: 1px solid rgba(91,214,245,.12); padding-top: 6px; }
-  .tiles .ft svg { width: 11px; height: 11px; color: #5f93a8; flex: none; }
-  .tiles .ft input { flex: 1; min-width: 0; background: transparent; border: 0; outline: none; font-size: .7rem; color: #dfe6f2; }
+  .tiles .ft { display: flex; align-items: center; gap: 7px; margin: 7px 2px 1px; border-top: 1px solid rgba(91,214,245,.12); padding-top: 6px; }
+  .tiles .ft .spark { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 7px var(--gold); flex: none; animation: breathe 3.2s ease-in-out infinite; }
+  .tiles .ft input { flex: 1; min-width: 0; background: transparent; border: 0; outline: none; font-size: .7rem; color: #dfe6f2; padding: 1px 0; }
   .tiles .ft input::placeholder { color: #5f93a8; }
+  .tiles .ft .send { width: 18px; height: 18px; border-radius: 5px; border: 0; background: rgba(236,205,110,.14); color: var(--gold); display: grid; place-items: center; cursor: pointer; }
+  .tiles .ft .send:hover { background: rgba(236,205,110,.28); }
+  .tiles .ft .send svg { width: 11px; height: 11px; }
 
   .wxbar {
     padding: 1px 0 2px;
@@ -247,21 +250,6 @@
   .log .ln.me { color: #e6e9f1; }
   .log .ln.old { opacity: .45; }
   @keyframes rise { from { opacity: 0; transform: translateY(6px); } }
-  .bar {
-    pointer-events: auto; display: flex; align-items: center; gap: 10px;
-    background: rgba(24,25,34,.72); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
-    border: 1px solid var(--line-2); border-radius: 16px; padding: 7px 7px 7px 16px;
-    box-shadow: 0 16px 50px rgba(0,0,0,.45);
-    transition: border-color .25s, box-shadow .25s;
-  }
-  .bar:focus-within { border-color: rgba(236,205,110,.42); box-shadow: 0 0 0 3px rgba(236,205,110,.07), 0 16px 50px rgba(0,0,0,.45); }
-  .bar .spark { width: 9px; height: 9px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 10px var(--gold); flex: none; animation: breathe 3.2s ease-in-out infinite; }
-  @keyframes breathe { 50% { opacity: .45; transform: scale(.8); } }
-  .bar input { flex: 1; min-width: 0; background: transparent; border: 0; outline: none; font-size: .9rem; padding: 6px 0; color: #eef0f6; }
-  .bar input::placeholder { color: var(--faint); }
-  .send { width: 34px; height: 34px; border-radius: 11px; border: 0; background: rgba(236,205,110,.14); color: var(--gold); display: grid; place-items: center; cursor: pointer; transition: background .15s; }
-  .send:hover { background: rgba(236,205,110,.26); }
-  .send svg { width: 15px; height: 15px; }
 
   #boot { position: fixed; inset: 0; display: grid; place-items: center; color: #7c8095; font: 13px system-ui; background: #050810; white-space: pre-wrap; text-align: center; padding: 24px; z-index: 9; }
 
@@ -358,20 +346,16 @@
 <!-- bottom-centre: dialogue / よく使うドライブ / 天気 -->
 <div class="bottom">
   <div class="log" id="log"></div>
-  <form class="bar" id="bar" autocomplete="off">
-    <span class="spark"></span>
-    <input id="cmd" placeholder="Base に話しかける…　（例：gmail / 編集中 / 球体 / 全画面）" aria-label="コマンド">
-    <button class="send" type="submit" aria-label="送信">
-      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-    </button>
-  </form>
   <nav class="tiles" aria-label="Google workspace">
     <div class="th"><span class="t">GOOGLE</span><span class="c" id="tiCount"></span></div>
     <div class="gr" id="tiles"></div>
-    <div class="ft" title="Google ドライブ「編集中」直下のフォルダを検索">
-      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="7" cy="7" r="4.6"/><path d="M10.5 10.5 14 14" stroke-linecap="round"/></svg>
-      <input id="finder" placeholder="Search 編集中 …" autocomplete="off">
-    </div>
+    <form class="ft" id="bar" autocomplete="off">
+      <span class="spark"></span>
+      <input id="cmd" placeholder="Base に話しかける…　（gmail / 編集中 庄子 / 球体 / 全画面）" aria-label="コマンド">
+      <button class="send" type="submit" aria-label="送信">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+      </button>
+    </form>
   </nav>
   <div class="wxbar" id="wx"></div>
 </div>
@@ -504,15 +488,28 @@ try {
   // ---------- カメラ（マウスドラッグで3D回転）----------
   var cam = { x: 0, y: 0, z: 1 }, camT = null, userZoomed = false, narrow = false;
   var yaw = 0.3, pitch = -0.22, vYaw = 0, vPitch = 0, spin = 1, FOC = 1250;
+  var VX = 0, VY = 0, VW = 0, VH = 0;                      // 中央に使えるスペース
   function project(x, y, z) {
     var cy0 = Math.cos(yaw), sy0 = Math.sin(yaw);
     var X = x * cy0 - z * sy0, Z = x * sy0 + z * cy0;
     var cp = Math.cos(pitch), sp = Math.sin(pitch);
     var Y = y * cp - Z * sp, Z2 = y * sp + Z * cp;
     var k = FOC / Math.max(220, FOC - Z2);                 // 手前は大きく、奥は小さく
-    return [(X - cam.x) * cam.z * k + W / 2, (Y - cam.y) * cam.z * k + H / 2, Z2, k];
+    return [(X - cam.x) * cam.z * k + VX, (Y - cam.y) * cam.z * k + VY, Z2, k];
   }
-  function fitZ() { return Math.max(0.34, Math.min(1.3, Math.min(H * 0.78, W * (narrow ? 0.98 : 0.44)) / 1000)); }
+  function fitZ() { return Math.max(0.3, Math.min(1.3, Math.min(VH * 0.98, VW * 0.96) / 1000)); }
+  function measure() {                                     // 上のヘッダー・左右のカード・下のブロックを避けた中心
+    var top = 46, bot = 18, left = 0, right = W;
+    var b = document.querySelector(".bottom");
+    if (b && !narrow) { var r = b.getBoundingClientRect(); bot = Math.max(18, H - r.top + 8); }
+    if (!narrow) {
+      var lc = document.querySelector(".col.left"), rc = document.querySelector(".col.right");
+      if (lc) left = lc.getBoundingClientRect().right + 14;
+      if (rc) right = rc.getBoundingClientRect().left - 14;
+    }
+    VX = (left + right) / 2; VY = (top + (H - bot)) / 2;
+    VW = Math.max(240, right - left); VH = Math.max(240, (H - bot) - top);
+  }
 
   // ---------- 霧 ----------
   var CX = 0, CY = 0, R = 260, driftX = 0, driftY = 0;
@@ -559,7 +556,8 @@ try {
     canvas.width = W * DPR; canvas.height = H * DPR; canvas.style.width = W + "px"; canvas.style.height = H + "px";
     ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
     document.documentElement.style.setProperty("--tlh", document.getElementById("tl").offsetHeight + "px");
-    CX = W / 2; CY = H / 2; R = Math.max(150, Math.min(W, H) * 0.31);
+    measure();
+    CX = VX; CY = VY; R = Math.max(140, Math.min(VW, VH) * 0.42);
     if (!PUFFS.length) buildCloud();
     if (!camT && !userZoomed) cam.z = fitZ();
   }
@@ -865,15 +863,13 @@ try {
     });
   });
 
-  // 編集中 finder
-  document.getElementById("finder").addEventListener("keydown", function (e) {
-    if (e.key !== "Enter" || e.isComposing) return;
-    var q = e.target.value.trim();
+  // 「編集中 <語>」で Google ドライブの「編集中」直下をフォルダ検索
+  function findEditing(q) {
     var url = q ? "https://drive.google.com/drive/u/0/search?q=" + encodeURIComponent("parent:" + EDIT_PARENT + " type:folder " + q)
                 : "https://drive.google.com/drive/folders/" + EDIT_PARENT + "?" + A;
     window.open(url, "_blank", "noopener");
     litUp(BYLABEL["Editing folder"]);
-  });
+  }
 
   // DONE カード → Notion のデスクトップ版アプリ（notion:// スキーム）。右下の web はブラウザ版
   document.getElementById("tl").addEventListener("click", function (e) {
@@ -1155,6 +1151,8 @@ try {
       nodes.forEach(function (n) { n.lit = false; }); LIT = {}; saveLit(); say("星を白に戻しました"); return;
     }
     if (/^(球体|球|sphere|ball)$/i.test(q)) { toggleSphere(); return; }
+    var ed = q.match(/^(編集中|へんしゅうちゅう|editing)\s*(.*)$/i);
+    if (ed) { findEditing(ed[2].trim()); say(ed[2].trim() ? "「" + ed[2].trim() + "」を編集中フォルダで探します" : "編集中フォルダを開きました"); return; }
     if (/^(リセット|reset|home)$/i.test(q)) {
       resetView(); say("視点を戻しました"); return;
     }
