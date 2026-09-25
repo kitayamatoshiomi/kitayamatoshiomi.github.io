@@ -149,6 +149,89 @@ def update_notion():
     print("notion: done", done, "today", today)
 
 
+
+# ---------------------------------------------------------------- market / weather
+YF = "https://query1.finance.yahoo.com/v8/finance/chart/"
+INDEXES = [("日経平均", "%5EN225", "https://finance.yahoo.co.jp/quote/998407.O"),
+           ("NY ダウ", "%5EDJI", "https://finance.yahoo.co.jp/quote/^DJI")]
+FX = [("ドル円", "JPY=X", "https://finance.yahoo.co.jp/quote/USDJPY=FX"),
+      ("ユーロ円", "EURJPY=X", "https://finance.yahoo.co.jp/quote/EURJPY=FX")]
+# 投資信託：(表示名, ISIN, 協会コード)
+FUNDS = [("eMAXIS 日経225", "JP90C0006LC1", "0331109A"),
+         ("eMAXIS Slim S&P500", "JP90C000GKC6", "03311187"),
+         ("eMAXIS Slim オルカン", "JP90C000H1T1", "0331418A"),
+         ("iFreeNEXT インド株", "JP90C000PCX0", "04314233")]
+CITIES = [("東京", 35.6895, 139.6917), ("阿倍野", 34.6383, 135.5133)]
+WMO = {0: "晴れ", 1: "おおむね晴れ", 2: "晴れ時々くもり", 3: "くもり", 45: "霧", 48: "霧",
+       51: "小雨", 53: "小雨", 55: "雨", 56: "みぞれ", 57: "みぞれ", 61: "雨", 63: "雨", 65: "強い雨",
+       66: "みぞれ", 67: "みぞれ", 71: "雪", 73: "雪", 75: "大雪", 77: "雪", 80: "にわか雨",
+       81: "にわか雨", 82: "激しい雨", 85: "にわか雪", 86: "にわか雪", 95: "雷雨", 96: "雷雨", 99: "雷雨"}
+
+
+def quote(sym):
+    j = json.loads(fetch(YF + sym + "?range=5d&interval=1d"))
+    m = j["chart"]["result"][0]["meta"]
+    now = m.get("regularMarketPrice")
+    prev = m.get("chartPreviousClose") or m.get("previousClose")
+    chg = (now - prev) if (now is not None and prev) else None
+    return {"price": now, "chg": chg, "chgp": (chg / prev * 100) if chg is not None and prev else None}
+
+
+def fund(isin, code):
+    url = ("https://toushin-lib.fwg.ne.jp/FdsWeb/FDST030000/csv-file-download"
+           "?isinCd=%s&associFundCd=%s" % (isin, code))
+    rows = [r for r in fetch(url).decode("cp932", "replace").strip().splitlines() if r][1:]
+    last, prev = rows[-1].split(","), rows[-2].split(",")
+    nav, pnav = float(last[1]), float(prev[1])
+    return {"nav": nav, "chg": nav - pnav, "chgp": (nav - pnav) / pnav * 100, "date": last[0]}
+
+
+def update_market():
+    prev = load("market.json")
+    res = {"updated": NOW.isoformat(), "idx": [], "fx": [], "funds": []}
+    for name, sym, url in INDEXES + FX:
+        key = "idx" if (name, sym, url) in INDEXES else "fx"
+        try:
+            q = quote(sym); q.update({"name": name, "url": url}); res[key].append(q)
+        except Exception as e:
+            print("quote", name, "failed:", e, file=sys.stderr)
+    for name, isin, code in FUNDS:
+        try:
+            f = fund(isin, code)
+            f.update({"name": name, "url": "https://toushin-lib.fwg.ne.jp/FdsWeb/FDST030000?isinCd=" + isin})
+            res["funds"].append(f)
+        except Exception as e:
+            print("fund", name, "failed:", e, file=sys.stderr)
+    for k in ("idx", "fx", "funds"):
+        if not res[k]:
+            res[k] = prev.get(k, [])
+    save("market.json", res)
+    print("market:", {k: len(res[k]) for k in ("idx", "fx", "funds")})
+
+
+def update_weather():
+    out = {"updated": NOW.isoformat(), "cities": []}
+    for name, la, lo in CITIES:
+        try:
+            u = ("https://api.open-meteo.com/v1/forecast?latitude=%s&longitude=%s"
+                 "&current=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,"
+                 "temperature_2m_min,precipitation_probability_max&timezone=Asia%%2FTokyo&forecast_days=2" % (la, lo))
+            j = json.loads(fetch(u))
+            c, d = j["current"], j["daily"]
+            out["cities"].append({"name": name, "temp": c["temperature_2m"],
+                "code": c["weather_code"], "text": WMO.get(c["weather_code"], "—"),
+                "max": d["temperature_2m_max"][0], "min": d["temperature_2m_min"][0],
+                "pop": d["precipitation_probability_max"][0],
+                "tomorrow": {"code": d["weather_code"][1], "text": WMO.get(d["weather_code"][1], "—"),
+                             "max": d["temperature_2m_max"][1], "min": d["temperature_2m_min"][1],
+                             "pop": d["precipitation_probability_max"][1]}})
+        except Exception as e:
+            print("weather", name, "failed:", e, file=sys.stderr)
+    if out["cities"]:
+        save("weather.json", out)
+    print("weather:", len(out["cities"]))
+
+
 # ---------------------------------------------------------------- io
 def load(name):
     try:
@@ -166,6 +249,11 @@ def save(name, obj):
 
 if __name__ == "__main__":
     update_news()
+    for fn in (update_market, update_weather):
+        try:
+            fn()
+        except Exception as e:
+            print(fn.__name__, "failed:", e, file=sys.stderr)
     try:
         update_notion()
     except Exception as e:

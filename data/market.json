@@ -1,0 +1,69 @@
+{
+ "updated": "2026-09-25T10:34:13.717202+09:00",
+ "idx": [
+  {
+   "price": 66217.13,
+   "chg": 2294.1300000000047,
+   "chgp": 3.5888960155186784,
+   "name": "日経平均",
+   "url": "https://finance.yahoo.co.jp/quote/998407.O"
+  },
+  {
+   "price": 51349.98,
+   "chg": -428.0599999999977,
+   "chgp": -0.8267211350603416,
+   "name": "NY ダウ",
+   "url": "https://finance.yahoo.co.jp/quote/^DJI"
+  }
+ ],
+ "fx": [
+  {
+   "price": 158.699,
+   "chg": 1.65300000000002,
+   "chgp": 1.0525578492925767,
+   "name": "ドル円",
+   "url": "https://finance.yahoo.co.jp/quote/USDJPY=FX"
+  },
+  {
+   "price": 180.527,
+   "chg": 0.25,
+   "chgp": 0.1386754827293554,
+   "name": "ユーロ円",
+   "url": "https://finance.yahoo.co.jp/quote/EURJPY=FX"
+  }
+ ],
+ "funds": [
+  {
+   "nav": 81461.0,
+   "chg": 610.0,
+   "chgp": 0.7544742798481157,
+   "date": "2026年09月24日",
+   "name": "eMAXIS 日経225",
+   "url": "https://toushin-lib.fwg.ne.jp/FdsWeb/FDST030000?isinCd=JP90C0006LC1"
+  },
+  {
+   "nav": 44842.0,
+   "chg": 876.0,
+   "chgp": 1.9924487103671018,
+   "date": "2026年09月24日",
+   "name": "eMAXIS Slim S&P500",
+   "url": "https://toushin-lib.fwg.ne.jp/FdsWeb/FDST030000?isinCd=JP90C000GKC6"
+  },
+  {
+   "nav": 38188.0,
+   "chg": 656.0,
+   "chgp": 1.7478418416284769,
+   "date": "2026年09月24日",
+   "name": "eMAXIS Slim オルカン",
+   "url": "https://toushin-lib.fwg.ne.jp/FdsWeb/FDST030000?isinCd=JP90C000H1T1"
+  },
+  {
+   "nav": 13550.0,
+   "chg": 256.0,
+   "chgp": 1.9256807582367985,
+   "date": "2026年09月24日",
+   "name": "iFreeNEXT インド株",
+   "url": "https://toushin-lib.fwg.ne.jp/FdsWeb/FDST030000?isinCd=JP90C000PCX0"
+  }
+ ]
+}
