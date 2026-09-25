@@ -1,65 +1,101 @@
 {
- "updated": "2026-09-25T20:41:41.173306+09:00",
+ "updated": "2026-09-25T22:38:22.738273+09:00",
  "edu": [
   {
    "title": "小・中学校の授業数、各教科一律に3～4%削減 情報教育拡充で [学習指導要領の改訂]",
    "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1KZ0JkbGgwNHhPZzlNaTlDd0QtclZuS2pmc1EyU1VseWdzc252bzFIcTduN1dQSVBnRTdCSFhSODN1Q1hKVEpVbk54aU1ZdUlQd0VScmVTekN1eWwtelBZZnFNYlExVVU?oc=5",
    "source": "朝日新聞",
-   "time": "2026-09-25T20:14:12+09:00"
+   "time": "2026-09-25T21:36:58+09:00"
   },
   {
-   "title": "江戸の観光地を巡る企画展示「Go to お江戸」都立中央図書館",
-   "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE1fN0w3UVhaOFJLR3NoLUhCd05Nc0ZVcUFMYTNHMjNZLXpfQkhUMENBRXpIanFIcUFzMXY2ZjZDblF2NnlwTlNxMWUteUh4OFZuMUVvZkFHMDJKZnQ3?oc=5",
-   "source": "resemom.jp",
-   "time": "2026-09-25T19:45:03+09:00"
+   "title": "次期学習指導要領の審議まとめ案 AI活用の留意点を充実",
+   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1ueFNRTWVSN2theFZ2ajM5elh0aXBGQmxqUFJVVXU3TDN5YlFVcFZmV0x4SXdWWWtFNVB0WW52WmtlM3NQWlBoakpRS0d3N2UtNThyRWRB?oc=5",
+   "source": "教育新聞",
+   "time": "2026-09-25T20:55:00+09:00"
+  },
+  {
+   "title": "内申点によらない「10：0」算定が3校へ拡大 都立高校入試",
+   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5kaFY5SkJINEJmbWxQdDVqUzhnUkZIWUx6aEhaX0ROZm9wczljbktQSndZS28zVG9yYnB3NlV1TzNFeDBIU0xpa2ludzZXNUFOTWgydlVB?oc=5",
+   "source": "教育新聞",
+   "time": "2026-09-25T20:55:00+09:00"
+  },
+  {
+   "title": "「基礎学力」、日本は知識や技能を重視 10カ国の保護者調査",
+   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1KODBoNG1obTdEVWJ1RVgtcnJ1UDZHLWJEYk5HQ0NzNzBlbzY5M3l1bDdpeldhU0NCNUNILUQ4VWxSanNuMGZmamZ6bWlzSlZIaWY1bXdB?oc=5",
+   "source": "教育新聞",
+   "time": "2026-09-25T20:55:00+09:00"
+  },
+  {
+   "title": "なぜ世界のAI教育ランキングで1位なのか アラブ首長国連邦",
+   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9RQ25YekxZQVM2bktiY1BUdUk4eHExa2Z3VHE3YzVFcUctRVJFMWJnakhlWXFKOXBVWV9fTml5WVVLWG5iSzhGbkdEb25Fby00RjlNY1N3?oc=5",
+   "source": "教育新聞",
+   "time": "2026-09-25T20:55:00+09:00"
+  },
+  {
+   "title": "学校安全に生成AIやCSの活用可能性 中教審の部会で議論",
+   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE85a0Z1WmZIRlBRZUNVT1BwU09xY2VmRVAzZENYSlliM1RWS2lZZVdBTWhFYnFGdFE3UjNYNERGbWpWZlM3ZTFLckZndHBGUjZsZ0pXbGlR?oc=5",
+   "source": "教育新聞",
+   "time": "2026-09-25T20:55:00+09:00"
+  },
+  {
+   "title": "精神疾患で休職した教職員への支援体制 管理職に負担偏る",
+   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE42RjdQaFZMTWE0QXZsNk5xZVpsWkxNTGhzU0RaTzdhZ1BNamJzdVRiQjVkQTRmemZlR3NhRFMwdndqS0Y4RjZXWnBQZVl4anZlNlJmN193?oc=5",
+   "source": "教育新聞",
+   "time": "2026-09-25T20:55:00+09:00"
+  },
+  {
+   "title": "台風25号の影響で37校が休校 施設被害は500校超、土砂流入も",
+   "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE55b1F1M21ycDl5MTlEM2hwckNrb19OUTE4dk5sMHVpYU5JYk9EdmV5aFhPMmJvSVZxSzcwNGRXZFBHUFpZU1NPREtlbHZ3dXpNV2VLR2wzS0FzWExVMWVWWTRiWEEtLWc?oc=5",
+   "source": "朝日新聞",
+   "time": "2026-09-25T20:35:00+09:00"
+  },
+  {
+   "title": "「医学部地域枠」の拡大促進 文科省、27年度予算の概算要求 定員削減と両立へ",
+   "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE05WWpyTlp3cHdnU0hJRndoS1BWQ0cyNFlHUnU4MDVsMlBoUWxxQmVCYUJEMElneER5TW5HVXR1bWxHcWs2bTQ0UWpJN1lFdw?oc=5",
+   "source": "静岡新聞DIGITAL",
+   "time": "2026-09-25T20:29:00+09:00"
   },
   {
    "title": "【クレーム対応Q＆A】秋の行事を減らしてほしい",
    "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE1BUDNOZTlJUnJkeHhYRTFLSXhEQ2ZSWjdjMU9VSWw2Y0dxTnF5Vk03cmtZUk9DVDRJSjJtcEpNOWJJbkxpVUVLajQtT3Q1eDU5UGFDMG1FUnltcXhILXhzM0JhanRLQQ?oc=5",
-   "source": "reseed.resemom.jp",
+   "source": "リセマム",
    "time": "2026-09-25T19:45:02+09:00"
   },
   {
    "title": "日曜朝の75分、最先端科学に触れる…無料オンラインセミナー9/27より",
    "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE51cHAzZ1ZhXy1WTWJaQWdacFplZ2RjYjRVbk1wUmdDQ0RVanlCcEJmN05JT2pPNmxVRDgzS1ZlNDBabjFRcVpPUGIxNUdfZnVQZUlTeG5OejB0ZHha?oc=5",
-   "source": "resemom.jp",
+   "source": "リセマム",
    "time": "2026-09-25T19:30:04+09:00"
   },
   {
    "title": "立腰・体幹教育の推進へ要望書、子供の体力向上目指す",
    "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5fTHJ4QTZRNWgwQy1xdGhLeEdub0RzMnFnMndLSk1razY3S0lrWjdEM3doSkI2Nk8tSHBFcFpUb0laN04yMkMwZlM1WFI0RTdLTlVXY1AyY1hOUmxBUUxSdU5UQXd6QQ?oc=5",
-   "source": "reseed.resemom.jp",
+   "source": "リセマム",
    "time": "2026-09-25T19:15:03+09:00"
   },
   {
    "title": "【高校受験2027】茨城県立高入試、実施細則を公表…学力検査2/25",
    "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE1xTnFRZ3c0OU1VVmVtUGhOMVRZMVVldFg3T0tNSXJZaWFpRkpmcU0xZUlzUGRfT0ZfV1JlMXE4VS1DWkNrWVJQZjVPdEJwWTRxdkdUUHdPdVB4bHVL?oc=5",
-   "source": "resemom.jp",
+   "source": "リセマム",
    "time": "2026-09-25T19:15:03+09:00"
   },
   {
    "title": "跡見学園女子大「版画で楽しむ現代アート」12/8まで",
    "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE16aFl0UzlKbURKNnZnQTFfcWU5bWNJUnh6LTJCUG9HU3NzS1UydUNwODJtdmZQVWo0Mjh1Wldsc3ZTejVzX0RDdXpSdGRTUEx5LWFhWm56S0JVTG5Q?oc=5",
-   "source": "resemom.jp",
+   "source": "リセマム",
    "time": "2026-09-25T19:10:03+09:00"
   },
   {
    "title": "「医学部に入る2027」発売…255高校・82医学部の最新データも掲載",
    "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE5QeklvVHpfUnFNWFZRWHRBS202blJCc0lUbWJabmJlSjhoM3lEZV9Mcnd1SXZOVDg5clBvNEpnUU1kQXZkWms3NE9EZjdnZkpkSV9VY0N0WU1IZTdK?oc=5",
-   "source": "resemom.jp",
+   "source": "リセマム",
    "time": "2026-09-25T19:01:05+09:00"
   },
   {
    "title": "小中高・大学のAI活用を比較、教員の毎日利用率は大学が小中高を上回る",
    "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5qV05yWHhmblp5cUY5YWhLeHNfblNEZUdGSVcwUnJjNmRPX2szRGF3UExEbzZpX0lybUZZdmRna1Bab3Q5QjNiZW9QUjVpZHNoMEdTNDJ0MDhocmlQMmpBdFNfS1NLdw?oc=5",
-   "source": "reseed.resemom.jp",
+   "source": "リセマム",
    "time": "2026-09-25T18:45:03+09:00"
-  },
-  {
-   "title": "サイバー大と数検協会が連携協定、数学力でDX人材育成",
-   "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5rc2xQckxXMHBmZXY1Nnhkc2M3aldXUG1XZWZkR3ZrczVRUTdxSFluanJodXVtV2V5OVFUTGZEdUdJR0JTbHcxYU5iWmlLY0IwTzJES0o0bzRYZUFsME1La1FaSjdkQQ?oc=5",
-   "source": "reseed.resemom.jp",
-   "time": "2026-09-25T18:15:03+09:00"
   },
   {
    "title": "関芳弘文部科学大臣記者会見録（令和8年9月25日）",
@@ -68,54 +104,42 @@
    "time": "2026-09-25T18:03:57+09:00"
   },
   {
-   "title": "【大学受験2027】小論文を課す国公立大学を一覧化…駿台",
-   "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE94S1p0R1J0SlNSRU8wZUxwek9oNEVua0dxU2xhXzJXVUxsX0puanFjMFZQd3RwSGJBUWRDMDBxcGdGU0NSNi1DbjcwWC0tdkhhSmhzQ25mblN4al9D?oc=5",
-   "source": "resemom.jp",
-   "time": "2026-09-25T17:45:03+09:00"
-  },
-  {
-   "title": "【教員採用】神戸市、2次選考432人合格…実質倍率4.1倍",
-   "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5LOGNlSUgxWHU2N0lvXzFYdnYyX0VYcDRuVHRpRTRwNHBQempVbkk0cEZQOUFvMVJzRVVuUjdfWkM3VENxZXlfdUhERWxsQnBRSlphLUZyNVNGd0NybXVlQ3JIQUY3UQ?oc=5",
-   "source": "reseed.resemom.jp",
-   "time": "2026-09-25T17:45:02+09:00"
-  },
-  {
-   "title": "【高校受験2027】大阪府公立高の実技検査…夕陽丘は聴音・視唱、水都国際は英語",
-   "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE1vOGpBaVBVTDRiSElBc1FzYTl1SllMSHpTcXZnSmpwRDdnUldWemlrQ1NmNC11SEY5X0lpQ19EWGJNZW84eW15VGlVeW52SmswcVoxZXU4MWxUelN6?oc=5",
-   "source": "resemom.jp",
-   "time": "2026-09-25T17:15:03+09:00"
-  },
-  {
-   "title": "全米大学ランキング2027、MITが1位…15年ぶり首位交代",
-   "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBiNG1oSVVpOV9tZzNpVnAxQVV4UGtGRTFxdm9yaUl6WUY0OFJlQ0ZmdG9idEs4TjVESlBCb0daMzk0VG1xR3hMQ0FyQ1NJRjJucnQtNkEwWDFheVZmSkc1cFk0Nlgzdw?oc=5",
-   "source": "reseed.resemom.jp",
-   "time": "2026-09-25T17:15:03+09:00"
-  },
-  {
    "title": "国語の文章要約「AI使用は慎重に」 文科省がまとめ案に留意点（毎日新聞）",
    "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9GWHduUkJOaGdWdEd2OVJZU1gwQ2xYQWt4V1M3cndFUGt3aTdNbGl2anFrNi1aS3JCQVlIVmx4RGNRR1M1b0VtR1h0U1ZDR3l1MWxCakVxLV9waVZNSWVOMW5Qem1wRUdBWXZQa3RUWU10NHJqRGlMdWpSSGd5eUU?oc=5",
    "source": "Yahoo!ニュース",
    "time": "2026-09-25T16:23:41+09:00"
-  },
-  {
-   "title": "児童・生徒間での性暴力防止 対応マニュアル作成 鳥取県教委",
-   "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFAwTl9jSkY3dnNVOUFxNnM5VnJGd0l6NDdRQ2NpM1BXNjFRSmVCb20wWE44UkR5aThzRjdHaThDVVdHX3lESEdHX1RyWVRUU0JCS0RZ?oc=5",
-   "source": "kyoiku-press.com",
-   "time": "2026-09-25T15:56:15+09:00"
-  },
-  {
-   "title": "文部科学省＝東京・霞が関 - 発達障害の不登校割合、3倍以上 コミュニケーションの特性影響か - 写真・画像(1/1)",
-   "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE12LTM2MUcyeUNzYVAtVDdodHlPS1dKVHRpOGkzT21BeDl5S1JvaXpTM1V2SW9ZZ2MzTUFkNjdXaXByeG9vaUcyb1ZZaHNqWnAxQWZ5dU5zSQ?oc=5",
-   "source": "nishinippon.co.jp",
-   "time": "2026-09-25T15:37:08+09:00"
   }
  ],
  "pub": [
+  {
+   "title": "【これ付録!?】子ども向けvs大人向け「すごい付録」書店の動画に感動!? - 「鳩時計すげえ」「これ系大好き」と大絶賛",
+   "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE5XenJhX1UtencwQnJSYV9wZUNveDZ5ZUpObEZRVUd3bXM3a0xEQW9mS3hEUmpJTmFZRkNCVEhqcml2QUlaRWRSTjNwajlLUmx4Y2o5b3RxUlUyRnRp?oc=5",
+   "source": "news.mynavi.jp",
+   "time": "2026-09-25T22:23:27+09:00"
+  },
+  {
+   "title": "2026年10月1日(木)よりTSUTAYA 京都 IP書店にて、『雀魂-じゃんたま-』TSUTAYA POP UP SHOPが開催決定！",
+   "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE96R1NXMUpoVVRfS3F5U0RmMHFpZGJVd05DcEFua21GRXhFRzZYQmo1V1ZreU9KeXVPNEIwMGltRHl2b1BEUlFLR2VzUjRTTlNzcHdiOGxUdUZDel90dUhhY3d1eE9yUQ?oc=5",
+   "source": "shibuyatsutaya.tsite.jp",
+   "time": "2026-09-25T21:33:41+09:00"
+  },
   {
    "title": "欲しい本より、出合う本 隆祥館書店が守る町の本屋",
    "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1sUU9mR2R3eTNjelh0Qlo0THJWWjI4RlR3RTVlVVBiajRLYy15MGtCVWR0c0Q4TUJEbnd5MW1wUGhjQXVlMVlQMF85VGZaM2lXX2lRNVRzRUg?oc=5",
    "source": "週刊大阪日日新聞",
    "time": "2026-09-25T20:30:18+09:00"
+  },
+  {
+   "title": "広島の書店「フタバ図書」が24時間営業　無人化システム導入、県内初",
+   "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE96X3dEbjdNdjBhZ3E5TUg3WDByekhfdGF4YXMyNUE4UVJXOTdmaUVET3p5a2t1U2dOTE8tVWJIdE8xT091UVJaM1htdlU2RVlrZ0hGbENEWWhwOVUxdTlrcWRnemJIN0Y5Rk12WnlROWF5eG9EZFVQd1VER3BfeVXSAYQBQVVfeXFMTzVhS0RhRkJ0R1RXWEZROVRrOVlSX3JpaFBYNWowQUlfSWhzQ0Y4ek5kdlg5UXVBelh1SWJsamJGU2Qwd3RuN0xac2tFMEdBTmpHMTRHRVRKY19icnUzTjRSNnlad1dVQ1hFYmV1MVpSczd1VS1naTFIeE4wQXc1SXN1b1Nf?oc=5",
+   "source": "topics.smt.docomo.ne.jp",
+   "time": "2026-09-25T19:13:00+09:00"
+  },
+  {
+   "title": "【特典情報！】購入者限定／よこみぞゆりさんの新刊『すみっコぐらし おもいでアルバム』♪",
+   "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTFAzWlN0eW5JeFNoOUZsWmtZWFkwbEkyRzliTy1NZ3ZUYm5objR6NmZTVkRmcDVqZXd1TnhoWDlGSkVmd2FQUG1JUlBMcUEzRWUtQzYydmdhYVVfY1ZYRGZDMWhVWDZjMzVITDJ3cmpVVEhVS3ZEZDJkcXJB?oc=5",
+   "source": "毎日キレイ",
+   "time": "2026-09-25T19:07:43+09:00"
   },
   {
    "title": "書店の閉店を促進する不動産の問題 建物の老朽化、テナント自体の撤退、契約更新の不発 #エキスパートトピ",
@@ -124,15 +148,9 @@
    "time": "2026-09-25T19:00:50+09:00"
   },
   {
-   "title": "宇宙にある”架空のスーベニアショップ” 26AWコレクション第一弾を発表。羽田空港と福岡・六本松の蔦屋書店2会場でPOP UPを開催。",
-   "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE1iYmJ3X1hfeGVnWVYxdkN2bEFVOGZodzFZdE8zaGIzWHVwSnpWWEloTENGZE1ORDR3X1QtTWxueUViTVFGVjFPd3ZPQmJfLXV6WE80TkExbUNYNDBCUUFlNzFJUGhqQUwxdXAw?oc=5",
-   "source": "時事ドットコム",
-   "time": "2026-09-25T18:16:00+09:00"
-  },
-  {
    "title": "銀座蔦屋書店で「大好きが止まらない」開催、ガラスと錫合金の融合",
    "url": "https://news.google.com/rss/articles/CBMiRkFVX3lxTFBrNVVYZ0pGSkdUbkE2THNVZkRsSF9BZmQ5R3FhZ0NxOUpIQXJOQUpIOTZxM3I0NVlmb045YlZGb0dmWEFrV3c?oc=5",
-   "source": "Koubo",
+   "source": "koubo.jp",
    "time": "2026-09-25T18:05:50+09:00"
   },
   {
@@ -144,7 +162,7 @@
   {
    "title": "TMNETWORKが表紙を飾る『B-PASS ALL AREA Vol.26』の発売を記念して、対象書店限定で特製オリジナルポストカードをプレゼント！",
    "url": "https://news.google.com/rss/articles/CBMiRkFVX3lxTFBadGRTZFpNa0xkQ1JoX2ZxQjdpTzVWazEzQlQzQVhLQ0hVSVlnVDhFU19QUmtBcnVZeS03aTJRVWZGZ3NhWGc?oc=5",
-   "source": "b-pass.online",
+   "source": "B-PASS online",
    "time": "2026-09-25T18:00:00+09:00"
   },
   {
@@ -166,40 +184,22 @@
    "time": "2026-09-25T17:19:31+09:00"
   },
   {
-   "title": "【特典情報！】購入者限定／よこみぞゆりさんの新刊『すみっコぐらし おもいでアルバム』♪",
-   "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE4tLXZOUXZlTFAxeGtqZnRveDFtNkFIbTRjOGl5ZmttZFFaVGRUOUlPdVd6QV9aaUl6R0RCaXN2ampTZW1GQ2ZHbjBLeEIyY1Z2MVNFR2ZYQW5CYmFYZE82Zg?oc=5",
-   "source": "Koubo",
-   "time": "2026-09-25T17:00:00+09:00"
+   "title": "宇宙にある”架空のスーベニアショップ” 26AWコレクション第一弾を発表。羽田空港と福岡・六本松の蔦屋書店2会場でPOP UPを開催。",
+   "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1QTTRHS25PV1BHd0NTb3NPQ1lfTDNvU2ZoTHpPWDI5UnozS2J0QlAwMmFrVzFLWGY1V0VsME91Y19FeFhGYWZjZG1IcnpyTEZVdXVsWEpiVGhiY0o2RWFzV2U5YTdZVWNHaWc?oc=5",
+   "source": "PR TIMES",
+   "time": "2026-09-25T17:10:02+09:00"
+  },
+  {
+   "title": "【銀座 蔦屋書店】Glass Studio TooS・細見博子・田中MANの「大好きが止まらない」〜鶴は千年、亀はMAN年〜を10月1日（木）より開催。ガラス、錫合金、絵画が融合したコラボ作品を発表。",
+   "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1JMzFNbWI5Q1QyeW9QQmwtYlNaNkxJZDFvVkdESDdlUDBCdzVkUm1aS1ZDMlZHU1RPSjJxWUpzRlduU1l4VHo1QlVCbjZxZ1pRajZPQm1CbWRweE82a21mYkk2UUwtbFVwcHc?oc=5",
+   "source": "PR TIMES",
+   "time": "2026-09-25T16:40:17+09:00"
   },
   {
    "title": "図書館内ショップ「TOSHOP」、東京・八王子の桑都の杜にオープン",
    "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5aOG82Q2xqMDBhX0d3RHVzTjFFYnp1cmFIQ3FZTE9pa0VpR3B5dHkzWkdFYmFJVk1OcFVDckRObEZyRXFwR3Q1YkNoXzQtUHREdk44bg?oc=5",
    "source": "新文化オンライン",
    "time": "2026-09-25T16:12:39+09:00"
-  },
-  {
-   "title": "第66回北海道図書館大会の記念フォーラム「読むよろこびをともにつくる～図書館・書店・出版社の役割と可能性～」の動画視聴の申込受付中",
-   "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE5FeVF5VWJaUWtnUG84S0UwRUh3emE4Z2tPTmJ4c09LZFI2ZmVNN0E4LXBhc0pPQnJLZVNpNkJlQW40TVhjRjQwQ1RMYXo?oc=5",
-   "source": "current.ndl.go.jp",
-   "time": "2026-09-25T16:08:51+09:00"
-  },
-  {
-   "title": "【羽生結弦とくまのプーさん】伝説の衣装のおきがえを実演！ 「SEIMEI」から「バラード 第１番」への着せ替え動画を公開",
-   "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBLWDNNSWFOcUxoRWZBdHNJaVZDdFN6azBRc25YbTRaT0FtelJrMGZtYkE2QnVDWGtDQmNEeXpJMXVWN2kzaUhTRjh4OV9fbUhWRE1DNDdZV0dHWC1CSndiU2dCM1BCOEtzQVJXVjRrM1pReTdvajV2VnRn?oc=5",
-   "source": "毎日キレイ",
-   "time": "2026-09-25T15:09:03+09:00"
-  },
-  {
-   "title": "内田 博氏の個展『小さな油彩画2026−KARUIZAWA−』を軽井沢書店 中軽井沢店で10月7日より開催！",
-   "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9PYzN3MXhVY3h4OUlOWnpTTTFsaFc0UmkwenowRTVXYUhlLXFzTllTejluV0twRm1SYXAtQ3lVajNYakJySmo4aXZJaWxmLWJWYzJxTjVrbWVINWNaOG5CV3VYdHk3b2NTNm5Z?oc=5",
-   "source": "時事ドットコム",
-   "time": "2026-09-25T14:46:00+09:00"
-  },
-  {
-   "title": "アニメスタート目前！『マロニエ王国の七人の騎士 公式ファンブック』が9月28日(月) に発売！ 特製キラキラ騎士様カードがもらえる書店フェアも開催！",
-   "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE1FT203UzlwRXBQcHB6S3hRLUNzSWI2bDNXWkczRm5QbFh2NXVNc3VqWDRQVjU2ZFZiaWpYVDJxdi1LS1BYSWhqMUFSNVhCOFA2ZGZVdEhJT2k4OEUxWUtjaHkwUzgyQ19jdno0SGwtTUE3QTVZTnVIbm13?oc=5",
-   "source": "毎日キレイ",
-   "time": "2026-09-25T14:33:29+09:00"
   },
   {
    "title": "日本出版学会、ジュンク堂書店創業者・工藤恭孝氏の公開インタビューを10月に開催",
