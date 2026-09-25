@@ -40,10 +40,29 @@ def main():
             if ("[[%s]]" % h) in text or folder == h:
                 counts[h] += 1
                 break
-    out = {"updated": datetime.now(JST).isoformat(), "total": total,
-           "items": [{"name": h, "col": c, "count": counts[h]} for h, c in HUBS],
-           "vault": os.path.basename(VAULT)}
-    with open(os.path.join(ROOT, "data", "obsidian.json"), "w", encoding="utf-8") as f:
+    dst = os.path.join(ROOT, "data", "obsidian.json")
+    try:
+        with open(dst, encoding="utf-8") as f:
+            prev = json.load(f)
+    except Exception:
+        prev = {}
+    now = datetime.now(JST)
+    today = now.strftime("%Y-%m-%d")
+    hist = prev.get("history", {})
+    base = None                                  # 今日より前の、いちばん新しい記録
+    for d in sorted(hist):
+        if d < today:
+            base = hist[d]
+    hist[today] = dict(counts, total=total)
+    hist = dict(sorted(hist.items())[-90:])
+    items = []
+    for h, c in HUBS:
+        diff = None if not base else counts[h] - base.get(h, counts[h])
+        items.append({"name": h, "col": c, "count": counts[h], "diff": diff})
+    out = {"updated": now.isoformat(), "total": total,
+           "total_diff": None if not base else total - base.get("total", total),
+           "items": items, "history": hist, "vault": os.path.basename(VAULT)}
+    with open(dst, "w", encoding="utf-8") as f:
         json.dump(out, f, ensure_ascii=False, indent=1)
     print("obsidian:", total, counts)
 

@@ -101,7 +101,7 @@
   .done .big small { font-size: 1rem; font-weight: 400; color: var(--dim); margin-left: 8px; letter-spacing: .04em; }
   .done .sub { display: flex; gap: 14px; margin-top: 11px; font-size: .84rem; color: var(--text); flex-wrap: wrap; }
   .done .sub b { font-size: 1rem; }
-  .done .spkwrap { margin-top: 10px; height: 34px; }
+
   .done .sub b { color: var(--gold); font-weight: 500; font-family: "Outfit", sans-serif; }
   .done .go { margin-top: 10px; font-family: "Outfit", sans-serif; font-size: .68rem; letter-spacing: .12em; color: var(--faint); transition: color .15s; }
   .tl { cursor: pointer; }
@@ -187,6 +187,7 @@
   .vault .nums a:hover { border-color: var(--line-2); background: rgba(255,255,255,.04); }
   .vault .nums .n { display: block; font-family: "Outfit", sans-serif; font-size: 1.12rem; color: var(--head); line-height: 1.1; }
   .vault .nums .l { display: block; font-size: .62rem; color: var(--faint); margin-top: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .vault .nums .df { display: block; font-family: "Outfit", sans-serif; font-size: .6rem; margin-top: 2px; }
 
   /* 下部：対話窓＋よく使うドライブ＋天気 */
   .bottom {
@@ -196,25 +197,31 @@
   }
   .bottom > * { pointer-events: auto; }
   .tiles {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px;
-    background: var(--card); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
-    border: 1px solid var(--line); border-radius: 14px; padding: 8px;
+    background: rgba(9,16,28,.72); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+    border: 1px solid rgba(91,214,245,.18); border-radius: 12px; padding: 8px 9px 7px;
     box-shadow: 0 14px 44px rgba(0,0,0,.36);
   }
+  .tiles .th { display: flex; align-items: baseline; margin: 0 2px 7px; }
+  .tiles .th .t { font-family: "Outfit", sans-serif; font-size: .64rem; letter-spacing: .2em; color: #9fd8ea; }
+  .tiles .th .c { margin-left: auto; font-family: "Outfit", sans-serif; font-size: .62rem; color: #6ec8a0; }
+  .tiles .gr { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; }
   .tiles a {
-    display: flex; align-items: center; gap: 9px; padding: 9px 10px;
-    border: 1px solid var(--line); border-radius: 11px; background: rgba(10,16,28,.55);
-    transition: border-color .15s, background .15s, transform .08s;
+    display: flex; align-items: center; gap: 7px; padding: 5px 7px; min-width: 0;
+    border: 1px solid rgba(91,214,245,.14); border-radius: 7px; background: rgba(14,26,44,.6);
+    transition: border-color .15s, background .15s;
   }
-  .tiles a:hover, .tiles a:focus-visible { background: rgba(255,255,255,.055); outline: none; }
-  .tiles a:active { transform: translateY(1px); }
+  .tiles a:hover, .tiles a:focus-visible { background: rgba(91,214,245,.1); border-color: rgba(91,214,245,.4); outline: none; }
   .tiles .ic {
-    width: 26px; height: 26px; flex: none; border-radius: 8px; display: grid; place-items: center;
-    font-family: "Outfit", sans-serif; font-size: .78rem; font-weight: 600; color: #0b1018;
+    width: 17px; height: 17px; flex: none; border-radius: 5px; display: grid; place-items: center;
+    font-family: "Outfit", sans-serif; font-size: .58rem; font-weight: 600; color: #08101c;
   }
-  .tiles .tx { min-width: 0; }
-  .tiles .nm { display: block; font-family: "Outfit", sans-serif; font-size: .8rem; color: #dfe4ef; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .tiles .sb { display: block; font-size: .66rem; color: var(--faint); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .tiles .tx { min-width: 0; line-height: 1.15; }
+  .tiles .nm { display: block; font-family: "Outfit", sans-serif; font-size: .72rem; font-weight: 500; color: #e2e8f2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .tiles .sb { display: block; font-family: "Outfit", sans-serif; font-size: .56rem; letter-spacing: .04em; color: #5f93a8; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .tiles .ft { display: flex; align-items: center; gap: 6px; margin: 7px 2px 1px; border-top: 1px solid rgba(91,214,245,.12); padding-top: 6px; }
+  .tiles .ft svg { width: 11px; height: 11px; color: #5f93a8; flex: none; }
+  .tiles .ft input { flex: 1; min-width: 0; background: transparent; border: 0; outline: none; font-size: .7rem; color: #dfe6f2; }
+  .tiles .ft input::placeholder { color: #5f93a8; }
 
   .wxbar {
     padding: 1px 0 2px;
@@ -295,7 +302,6 @@
     <div class="done">
       <div class="big"><span id="doneN">—</span><small>tasks</small></div>
       <div class="sub"><span id="doneDelta"></span><span id="doneToday"></span></div>
-      <div class="spkwrap" id="doneSpark"></div>
       <div class="go">NOTION&nbsp;→&nbsp; <span id="doneAt"></span>
         <a class="web" id="notionWeb" href="https://www.notion.so/32667766d902813fb566d2e6d8d9513f" target="_blank" rel="noopener" title="ブラウザ版で開く">web</a>
       </div>
@@ -319,11 +325,7 @@
 
   <!-- ドライブ・経理・連絡 -->
   <section class="card bl fill" id="bl">
-    <div class="chead"><span class="dot" style="color:#8fbf72;background:#8fbf72"></span><span class="t">DRIVE</span><span class="j">よく使う</span></div>
-    <div class="finder" title="Google ドライブ「編集中」直下のフォルダを検索">
-      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="7" cy="7" r="4.6"/><path d="M10.5 10.5 14 14" stroke-linecap="round"/></svg>
-      <input id="finder" placeholder="編集中を検索（先生名・書名）" autocomplete="off">
-    </div>
+    <div class="chead"><span class="dot" style="color:#6d8fd0;background:#6d8fd0"></span><span class="t">OFFICE</span><span class="j">経理・事務／連絡</span></div>
     <div class="scroll fade list" id="driveList"></div>
   </section>
  </div>
@@ -363,7 +365,14 @@
       <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
     </button>
   </form>
-  <nav class="tiles" id="tiles" aria-label="よく使う Google ドライブ"></nav>
+  <nav class="tiles" aria-label="Google workspace">
+    <div class="th"><span class="t">GOOGLE</span><span class="c" id="tiCount"></span></div>
+    <div class="gr" id="tiles"></div>
+    <div class="ft" title="Google ドライブ「編集中」直下のフォルダを検索">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="7" cy="7" r="4.6"/><path d="M10.5 10.5 14 14" stroke-linecap="round"/></svg>
+      <input id="finder" placeholder="Search 編集中 …" autocomplete="off">
+    </div>
+  </nav>
   <div class="wxbar" id="wx"></div>
 </div>
 
@@ -393,6 +402,7 @@ try {
     ["Base","Calendar","カレンダー","https://calendar.google.com/calendar/r?"+A,"drive"],
     ["Base","Portal","ポータル","https://sites.google.com/toyokan.co.jp/portal/%E3%83%9B%E3%83%BC%E3%83%A0?"+A,"drive"],
     ["Base","Toyokan site","東洋館","https://www.toyokan.co.jp/"],
+    ["in progress","My Drive","マイドライブ","https://drive.google.com/drive/u/0/my-drive?"+A],
     ["in progress","Projects sheet","企画一覧","https://docs.google.com/spreadsheets/d/1XI3lXlDdiK_qWv9MNIamiDzWLgY-mS5vmnK3rmb04rw/edit?"+A,"drive"],
     ["in progress","Editing folder","編集中","https://drive.google.com/drive/folders/"+EDIT_PARENT+"?"+A,"drive"],
     ["in progress","Management folder","管理（マネジメント）","https://drive.google.com/drive/folders/1-kgoU2Rb5EyUhGzumdMvEN7YznB5exCP?"+A,"office"],
@@ -832,9 +842,7 @@ try {
       "<span class='dot' style='color:" + g.col + ";background:" + g.col + "'></span>" +
       "<span class='n'>" + esc(t[1]) + "</span><span class='jp'>" + esc(t[2]) + "</span></a>";
   }
-  var drive = TOOLS.filter(function (t) { return t[4] === "drive"; });
   document.getElementById("driveList").innerHTML =
-    drive.map(function (t, i) { return row(t, i === 0 ? "first" : ""); }).join("") +
     "<div class='grp'>Office ・ 経理</div>" + TOOLS.filter(function (t) { return t[4] === "office"; }).map(function (t) { return row(t); }).join("") +
     "<div class='grp'>Contact ・ 連絡</div>" + TOOLS.filter(function (t) { return t[4] === "contact"; }).map(function (t) { return row(t); }).join("");
   document.getElementById("marketList").innerHTML =
@@ -928,17 +936,28 @@ try {
   renderWeek();
 
   // ================================================================= よく使うドライブ（タイル）
-  var TILES = [["Gmail", "#e0867f"], ["Calendar", "#7fb4e0"], ["Editing folder", "#5cb6b3"],
-               ["Projects sheet", "#8fbf72"], ["Management folder", "#6d8fd0"], ["Proposals folder", "#d9a441"]];
+  // [ツール名, 表示名, 小さい説明, 色]
+  var TILES = [
+    ["Gmail", "Gmail", "Mail", "#e0867f"],
+    ["Calendar", "Calendar", "Schedule", "#7fb4e0"],
+    ["My Drive", "My Drive", "Drive", "#8fbf72"],
+    ["Editing folder", "Editing", "Folder", "#5cb6b3"],
+    ["Management folder", "Management", "Folder", "#6d8fd0"],
+    ["Proposals folder", "Proposals", "Folder", "#d9a441"],
+    ["Projects sheet", "Projects", "Sheet", "#79c7a0"],
+    ["Portal", "Portal", "Site", "#b48ead"],
+    ["Toyokan site", "Toyokan", "Site", "#cf7a6a"]
+  ];
   (function () {
     var by = {}; TOOLS.forEach(function (t) { by[t[1]] = t; });
     document.getElementById("tiles").innerHTML = TILES.map(function (k) {
       var t = by[k[0]]; if (!t) return "";
-      var ini = t[1].replace(/[^A-Za-z]/g, "").slice(0, 1).toUpperCase() || "・";
-      return "<a href='" + esc(t[3]) + "' target='_blank' rel='noopener' data-l='" + esc(t[1]) + "'>" +
-        "<span class='ic' style='background:" + k[1] + "'>" + ini + "</span>" +
-        "<span class='tx'><span class='nm'>" + esc(t[2]) + "</span><span class='sb'>" + esc(t[1]) + "</span></span></a>";
+      var ini = k[1].replace(/[^A-Za-z]/g, "").slice(0, 1).toUpperCase();
+      return "<a href='" + esc(t[3]) + "' target='_blank' rel='noopener' data-l='" + esc(t[1]) + "' title='" + esc(t[2]) + "'>" +
+        "<span class='ic' style='background:" + k[3] + "'>" + ini + "</span>" +
+        "<span class='tx'><span class='nm'>" + esc(k[1]) + "</span><span class='sb'>" + esc(k[2]) + "</span></span></a>";
     }).join("");
+    document.getElementById("tiCount").textContent = TILES.length + " links";
     var box = document.getElementById("tiles");
     box.addEventListener("pointerover", function (e) { var a = e.target.closest("a[data-l]"); if (a) hoverN = BYLABEL[a.dataset.l] || null; });
     box.addEventListener("pointerleave", function () { hoverN = null; });
@@ -962,11 +981,14 @@ try {
     var box = document.getElementById("vtNums");
     if (!v || !v.items) { box.innerHTML = "<div class='empty'>保管庫の数はまだありません。</div>"; return; }
     box.innerHTML = v.items.map(function (x) {
-      return "<a href='#' data-v='" + esc(x.name) + "' title='" + esc(x.name) + "（Obsidian を開きます）'>" +
+      var d = x.diff, df = d == null ? "<span class='df flat'>—</span>"
+        : "<span class='df " + (d > 0 ? "up" : d < 0 ? "down" : "flat") + "'>" + (d > 0 ? "+" + d : d === 0 ? "±0" : d) + "</span>";
+      return "<a href='#' data-v='" + esc(x.name) + "' title='" + esc(x.name) + "（前日比 ／ クリックで Obsidian）'>" +
         "<span class='n' style='color:" + (x.col || "#dfe2ec") + "'>" + x.count + "</span>" +
-        "<span class='l'>" + esc(x.name) + "</span></a>";
+        "<span class='l'>" + esc(x.name) + "</span>" + df + "</a>";
     }).join("");
-    document.getElementById("vtAt").textContent = "全 " + v.total;
+    document.getElementById("vtAt").textContent = "全 " + v.total +
+      (v.total_diff == null ? "" : (v.total_diff > 0 ? "（+" + v.total_diff + "）" : v.total_diff < 0 ? "（" + v.total_diff + "）" : ""));
     box.querySelectorAll("a[data-v]").forEach(function (a) {
       a.addEventListener("click", function (e) {
         e.preventDefault();
@@ -1059,9 +1081,6 @@ try {
     document.getElementById("doneDelta").innerHTML = base != null ? "今日 <b>+" + Math.max(0, n.done - base) + "</b>" : "";
     document.getElementById("doneToday").innerHTML = n.today != null ? "今日やること <b>" + n.today + "</b>" : "";
     document.getElementById("doneAt").textContent = n.updated ? fmtTime(n.updated) + " 時点" : "";
-    var hist = Object.keys(n.history || {}).sort().slice(-14).map(function (k) { return n.history[k]; });
-    document.getElementById("doneSpark").innerHTML = hist.length > 1
-      ? spark(hist, 240, 34, "#eccd6e", true) : "<span style='font-size:.7rem;color:var(--faint)'>推移はこれから貯まります</span>";
     if (n.week_count != null) weekCount = n.week_count;
     if (n.week && n.week.length) {                       // 公開を許可したときだけ中身が届く
       var have = {}; WK.items.forEach(function (it) { have[it.t] = 1; });
