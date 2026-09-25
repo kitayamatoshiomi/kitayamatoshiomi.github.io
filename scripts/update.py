@@ -124,7 +124,8 @@ def update_notion():
         print("notion: NOTION_TOKEN なし → スキップ")
         return
     blocks = notion_children(NOTION_PAGE, token)
-    done, today, section = None, 0, ""
+    done, today, section, week = None, 0, "", []
+    ITEM = ("bulleted_list_item", "to_do", "numbered_list_item")
     for b in blocks:
         t = b.get("type", "")
         text = plain(b)
@@ -135,8 +136,11 @@ def update_notion():
             done = sum(1 for k in kids if plain(k).strip())
             section = ""
             continue
-        if "今日やること" in section and t in ("bulleted_list_item", "to_do", "numbered_list_item") and text.strip():
-            today += 1
+        if t in ITEM and text.strip():
+            if "今日やること" in section:
+                today += 1
+            elif "今週中に終わらせる" in section:
+                week.append(text.strip())
     if done is None:
         print("notion: 「完了済み」ブロックが見つからない", file=sys.stderr)
         return
@@ -144,9 +148,13 @@ def update_notion():
     hist = prev.get("history", {})
     hist[NOW.strftime("%Y-%m-%d")] = done
     hist = dict(sorted(hist.items())[-90:])
+    # 「今週中に終わらせる」の件数は常に出す。中身（案件名）は公開サイトに載るので
+    # 既定では出さない。載せてよいと決めたら、リポジトリ変数 PUBLISH_WEEK=1 を立てる。
+    publish = str(os.environ.get("PUBLISH_WEEK", "")).lower() in ("1", "true", "yes", "on")
     save("notion.json", {"updated": NOW.isoformat(), "done": done, "today": today,
+                         "week_count": len(week), "week": week if publish else [],
                          "history": hist, "url": prev.get("url")})
-    print("notion: done", done, "today", today)
+    print("notion: done", done, "today", today, "week", len(week), "published" if publish else "(count only)")
 
 
 
