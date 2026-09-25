@@ -1,0 +1,27 @@
+{
+ "updated": "2026-09-25T20:41:40.627883+09:00",
+ "total": 52,
+ "items": [
+  {
+   "name": "執筆",
+   "col": "#5cb6b3",
+   "count": 9
+  },
+  {
+   "name": "ふりかえり",
+   "col": "#b48ead",
+   "count": 24
+  },
+  {
+   "name": "読書メモ",
+   "col": "#d9a441",
+   "count": 1
+  },
+  {
+   "name": "日常メモ",
+   "col": "#8fbf72",
+   "count": 13
+  }
+ ],
+ "vault": "Obisidian用フォルダ"
+}

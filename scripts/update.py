@@ -177,12 +177,17 @@ WMO = {0: "晴れ", 1: "おおむね晴れ", 2: "晴れ時々くもり", 3: "く
 
 
 def quote(sym):
-    j = json.loads(fetch(YF + sym + "?range=5d&interval=1d"))
-    m = j["chart"]["result"][0]["meta"]
+    j = json.loads(fetch(YF + sym + "?range=1mo&interval=1d"))
+    r = j["chart"]["result"][0]
+    m = r["meta"]
     now = m.get("regularMarketPrice")
     prev = m.get("chartPreviousClose") or m.get("previousClose")
     chg = (now - prev) if (now is not None and prev) else None
-    return {"price": now, "chg": chg, "chgp": (chg / prev * 100) if chg is not None and prev else None}
+    closes = [c for c in (r.get("indicators", {}).get("quote", [{}])[0].get("close") or []) if c]
+    if now is not None:
+        closes = closes[-29:] + [now]
+    return {"price": now, "chg": chg, "chgp": (chg / prev * 100) if chg is not None and prev else None,
+            "spark": [round(c, 2) for c in closes[-30:]]}
 
 
 def fund(isin, code):
@@ -191,7 +196,13 @@ def fund(isin, code):
     rows = [r for r in fetch(url).decode("cp932", "replace").strip().splitlines() if r][1:]
     last, prev = rows[-1].split(","), rows[-2].split(",")
     nav, pnav = float(last[1]), float(prev[1])
-    return {"nav": nav, "chg": nav - pnav, "chgp": (nav - pnav) / pnav * 100, "date": last[0]}
+    spark = []
+    for r in rows[-30:]:
+        try:
+            spark.append(float(r.split(",")[1]))
+        except Exception:
+            pass
+    return {"nav": nav, "chg": nav - pnav, "chgp": (nav - pnav) / pnav * 100, "date": last[0], "spark": spark}
 
 
 def update_market():
