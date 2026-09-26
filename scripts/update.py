@@ -124,7 +124,7 @@ def update_notion():
         print("notion: NOTION_TOKEN なし → スキップ")
         return
     blocks = notion_children(NOTION_PAGE, token)
-    done, today, section, week = None, 0, "", []
+    done, today, section, week, focus = None, 0, "", [], []
     ITEM = ("bulleted_list_item", "to_do", "numbered_list_item")
     for b in blocks:
         t = b.get("type", "")
@@ -137,7 +137,11 @@ def update_notion():
             section = ""
             continue
         if t in ITEM and text.strip():
-            if "今日やること" in section:
+            if "今日の1" in section or "今日の１" in section:      # 🎯 今日の1〜3
+                v = text.strip()
+                if not v.startswith("（") and not v.startswith("("):
+                    focus.append(v)
+            elif "今日やること" in section:
                 today += 1
             elif "今週中に終わらせる" in section:
                 week.append(text.strip())
@@ -151,10 +155,20 @@ def update_notion():
     # 「今週中に終わらせる」の件数は常に出す。中身（案件名）は公開サイトに載るので
     # 既定では出さない。載せてよいと決めたら、リポジトリ変数 PUBLISH_WEEK=1 を立てる。
     publish = str(os.environ.get("PUBLISH_WEEK", "")).lower() in ("1", "true", "yes", "on")
+    # 「今日の1〜3」は持ち越し日数も見せたいので、初めて見た日を覚えておく
+    seen = {k: v for k, v in (prev.get("focus_seen") or {}).items() if k in focus}
+    tstr = NOW.strftime("%Y-%m-%d")
+    for v in focus:
+        seen.setdefault(v, tstr)
+    items = []
+    for v in focus[:3]:
+        d = (NOW.date() - datetime.strptime(seen[v], "%Y-%m-%d").date()).days + 1
+        items.append({"t": v, "days": d, "since": seen[v]})
     save("notion.json", {"updated": NOW.isoformat(), "done": done, "today": today,
+                         "focus": items, "focus_seen": seen,
                          "week_count": len(week), "week": week if publish else [],
                          "history": hist, "url": prev.get("url")})
-    print("notion: done", done, "today", today, "week", len(week), "published" if publish else "(count only)")
+    print("notion: done", done, "today", today, "focus", len(items), "week", len(week))
 
 
 
