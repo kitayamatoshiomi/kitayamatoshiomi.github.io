@@ -1,6 +1,18 @@
 {
- "updated": "2026-09-27T02:04:49.513951+09:00",
+ "updated": "2026-09-27T04:48:32.764326+09:00",
  "edu": [
+  {
+   "title": "NGコンテンツ例示 文科省 デジタル教科書巡り",
+   "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE5ST3J0LVRXNzhnaHRnZ3F6RzZlTnBaV2lzTE8tSGdtU2w0dU5aWXpueUIyUnJzeERydUtqOUhDZ0FSSGt1VGV2elJvM2lITnZTdzNIX3BncGxtRUx0Z0E?oc=5",
+   "source": "沖縄タイムス社",
+   "time": "2026-09-27T03:58:00+09:00"
+  },
+  {
+   "title": "小学校教員に「専科免許」案 文科省 多様な人材確保",
+   "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9melZkdGI4cy1fb19tRVQwTTR3blZ2aWdKdUowdHN0THR2c1A5R3NoV3BDTmd0SkpKNGs4bDVJYTFlTkRES2lma09zek4zSlljV1JOVFJPNmVoQmlRMVE?oc=5",
+   "source": "沖縄タイムス社",
+   "time": "2026-09-27T03:57:00+09:00"
+  },
   {
    "title": "岡山大学 ／岡山大学 2027年度医学部医学科の入学定員増等について（予告）",
    "url": "https://news.google.com/rss/articles/CBMiRkFVX3lxTFBzYjBqcWlHbWZKWkoydjRyNmtFc3ljeDZ0enNhYUMtNDJ0VkJ0bUpkVjNxUHBIS2lFcmxiVkNjWTlNNVZWZmc?oc=5",
@@ -10,7 +22,7 @@
   {
    "title": "熊本地震で被災した宇土高校の女子生徒３人、建物の揺れ探る…文部科学省イベントで発表「研究を役立てたい」",
    "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFBpMGI1RVdINEtiaFJ2WjUwM002ZmR4RkNKY2Q2ZS1reU9QMjBVdm5JUExidllVYjlvY3pncGVNODd3bzljVGxqWGIwRVF2MWNMNThhRFBkR3BJZE9STnM5TGdqaWxRS3FTVzJudS1Ydy1OUQ?oc=5",
-   "source": "読売新聞",
+   "source": "yomiuri.co.jp",
    "time": "2026-09-26T15:58:00+09:00"
   },
   {
@@ -58,13 +70,13 @@
   {
    "title": "ＡＩ活用、留意点示す",
    "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE05c2pJUVNRMzFndGNEb20weG9RWVhtX0s4amppeDNJclVuenNEUkhMcTdKYThyVWo4TkQ5d20xWGZEejRzeTI4TmhfaWZBd09iWXZGcmk4YnFzMnc?oc=5",
-   "source": "下野新聞社",
+   "source": "shimotsuke.co.jp",
    "time": "2026-09-26T05:00:00+09:00"
   },
   {
    "title": "ＡＩ対応教育 リスク言及 中教審 指導要領まとめ案了承",
    "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE9SN1lEN2tDLTFwVzRYX1dhOHQxb0w4aHU4c0J3NERlWnpEWTU1Tlh6bWN3aWhJWWl0c1NPZm5LT1BSU1QtUjBkWkU0RDBJRTlRUkZSeHJlTHdtOWZrNzNKTkV3aw?oc=5",
-   "source": "読売新聞",
+   "source": "yomiuri.co.jp",
    "time": "2026-09-26T05:00:00+09:00"
   },
   {
@@ -72,12 +84,6 @@
    "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFB6cXZ4d1A0Ykk1ZTduQllyMDUtUlNXN3V1VWJsUVNEQ3hiVzlQd0NwQ2pYSHlCRkQ5SzRZMlJYR0hMQkhSemZ2UDBVVHF1dnBrY25vQ2gwWDBVMTlEQ20yc29n?oc=5",
    "source": "琉球新報デジタル",
    "time": "2026-09-26T05:00:00+09:00"
-  },
-  {
-   "title": "発達障がいの子 不登校率3倍超 小中13％ 支援課題",
-   "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE5hX3FvT0Fob3QzSmw2WTJDckpzTXlXV2g1ZV94ZjJJMDByelk1RFQyOFktNW4zOUdLcVRJXy1Ua2E2cE5LYnc1blNjV0RHUFZIZVpzek05bTlqWDk2cGc?oc=5",
-   "source": "沖縄タイムス社",
-   "time": "2026-09-26T03:58:00+09:00"
   },
   {
    "title": "精神疾患で休職した教職員への支援体制 管理職に負担偏る",
@@ -102,12 +108,6 @@
    "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9RQ25YekxZQVM2bktiY1BUdUk4eHExa2Z3VHE3YzVFcUctRVJFMWJnakhlWXFKOXBVWV9fTml5WVVLWG5iSzhGbkdEb25Fby00RjlNY1N3?oc=5",
    "source": "教育新聞",
    "time": "2026-09-25T20:55:00+09:00"
-  },
-  {
-   "title": "学校安全に生成AIやCSの活用可能性 中教審の部会で議論",
-   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE85a0Z1WmZIRlBRZUNVT1BwU09xY2VmRVAzZENYSlliM1RWS2lZZVdBTWhFYnFGdFE3UjNYNERGbWpWZlM3ZTFLckZndHBGUjZsZ0pXbGlR?oc=5",
-   "source": "教育新聞",
-   "time": "2026-09-25T20:55:00+09:00"
   }
  ],
  "pub": [
@@ -128,6 +128,12 @@
    "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1MMk45SVphUVVTWkZiY0pVMHoxXzU2THR2dXJLck9qRmk0Nm81ZGQ3czRzdWdET0lkWTNVcm5TZnNnTWZsTGszYWY2cXFaSkR3UUQycWhlejJ3emFUWFk3UHRBQlRjREQ4cDVLTTVWQnhlTTQ?oc=5",
    "source": "超！アニメディア",
    "time": "2026-09-26T19:07:30+09:00"
+  },
+  {
+   "title": "イベント情報★10月7日(水)～本気でこの世を変える！智と武の両輪で「力」を制する、異色の近未来戦記『日本三國』のPOP UP STOREを精文館書店本店で開催！",
+   "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE9aaDdNcGZlWTRnSVduRzlwQzNWRmZNNWZKZmdDa2s4U01aR2o2dm56ZXVudWY0NnNZdFdkVEtIelprc3JIZ3gzakJRMk9rZS1PSzRCbkJqQVYtM1VXTm4yTHhKSEt5aEMxdWVnWFhyanhzVGVUY3Q3TXV3?oc=5",
+   "source": "毎日キレイ",
+   "time": "2026-09-26T18:48:36+09:00"
   },
   {
    "title": "広島県内初！大型書店売場の24時間営業を開始",
@@ -166,15 +172,9 @@
    "time": "2026-09-26T14:30:00+09:00"
   },
   {
-   "title": "【銀座 蔦屋書店】Glass Studio TooS・細見博子・田中MANの「大好きが止まらない」～鶴は千年、亀はMAN年～を10月1日（木）より開催。ガラス、錫合金、絵画が融合したコラボ作品を発表。",
-   "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQYmFlRUV0WnE3N1NJeEJwSjhUSXFEc2lnbTJ1cDU3NWNsUlcydGdDNkQyM1dEZ3JDWktER0s0M0NqTks0S2VIcEV4TnhQRUlRaUJCd080VmdZc29DZDdZTUgyamt4em1vMmpSMUdNcXRqN2JYNVExcXBOSERGZHZGTFRWeUJCVVNM?oc=5",
-   "source": "mantan-web.jp",
-   "time": "2026-09-26T13:34:19+09:00"
-  },
-  {
    "title": "SNSの熱量はリアル書店を動かした！ 1,372万インプレッション、ノミネート作品の売上が前月比187.6％を記録した書店も。「SNS推し本大賞2026」最終投票結果を発表",
    "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9OY0h5Zm56ZHFqRXJSSVhwaGRlNTZ3MXp0NGR3V2JZRkdnZi1TS1hwMHIyaFB5WnVqZkJFeTQ0cEdiOXdNZi1KVzhLNFhQR2RFaVJuUzZwZm1oQVBaVXc?oc=5",
-   "source": "Koubo",
+   "source": "公募ガイド",
    "time": "2026-09-26T12:46:54+09:00"
   },
   {
@@ -182,12 +182,6 @@
    "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFA0MS1kQVY4c21pSHJpb3dQTU1HRUkxTUZxejZtcV9tTkg3QXFOUmRkWW5NQlU2czZBRkZGU3NMbnlZNzN0MkZRMGFLVWxnUTRfUWthSWR4dVVKY1lQUkROLUVkRmI3YVVCeXc?oc=5",
    "source": "PR TIMES",
    "time": "2026-09-26T12:20:06+09:00"
-  },
-  {
-   "title": "神戸発祥「ジュンク堂」が歩んだ50年 ずぶぬれの本を拾ったあの日 店員が語る書籍愛と使命感（神戸新聞NEXT）",
-   "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9XTTBQQ3VaN081Q25IamNfZWVQY2d0TnBaSXd2Z2dRSUlpWUxBU2E1WHRMNDkxTExDN29BSkNBZnMwT0NnTFBka1R2U182NW96Znh6YnNLYnJ5R3JfaldSa0FXQ3htN3pMOEtiZmpSbHBJWXpGY0I0cWRnN2lMVjQ?oc=5",
-   "source": "Yahoo!ニュース",
-   "time": "2026-09-26T11:05:39+09:00"
   },
   {
    "title": "pixivFANBOXで決済事業者による表現規制など 日刊出版ニュースまとめ 2026.09.26",
@@ -218,6 +212,12 @@
    "url": "https://news.google.com/rss/articles/CBMiRkFVX3lxTE0zSW9Ed21MY3BsOGJjamFKSlFYTm9WbWNqOWdMZjY0N1g2bWZFTF9taEtVajRGSVpra045RnQ3X29meC1YRUE?oc=5",
    "source": "HON.jp",
    "time": "2026-09-25T10:41:11+09:00"
+  },
+  {
+   "title": "第17回「山田風太郎賞」の候補作決まる",
+   "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE1RWXpqWUFTX0psMDFKY3o1M3BaWUhLZW1yQlhWU3czZ280ZDBQZVBwOGNTOFlCeGYwemtERG8zNlhqQ2hmNEFtS0FKTjZfSElKT3kxaA?oc=5",
+   "source": "新文化オンライン",
+   "time": "2026-09-25T10:36:08+09:00"
   }
  ]
 }
