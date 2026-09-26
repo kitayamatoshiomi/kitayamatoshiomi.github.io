@@ -1,31 +1,31 @@
 {
- "updated": "2026-09-25T21:47:25.339423+09:00",
- "total": 52,
- "total_diff": null,
+ "updated": "2026-09-26T10:51:45.831364+09:00",
+ "total": 50,
+ "total_diff": -2,
  "items": [
   {
    "name": "執筆",
    "col": "#5cb6b3",
    "count": 9,
-   "diff": null
+   "diff": 0
   },
   {
    "name": "ふりかえり",
    "col": "#b48ead",
-   "count": 24,
-   "diff": null
+   "count": 26,
+   "diff": 2
   },
   {
    "name": "読書メモ",
    "col": "#d9a441",
    "count": 1,
-   "diff": null
+   "diff": 0
   },
   {
    "name": "日常メモ",
    "col": "#8fbf72",
-   "count": 13,
-   "diff": null
+   "count": 9,
+   "diff": -4
   }
  ],
  "history": {
@@ -35,6 +35,13 @@
    "読書メモ": 1,
    "日常メモ": 13,
    "total": 52
+  },
+  "2026-09-26": {
+   "執筆": 9,
+   "ふりかえり": 26,
+   "読書メモ": 1,
+   "日常メモ": 9,
+   "total": 50
   }
  },
  "vault": "Obisidian用フォルダ"
