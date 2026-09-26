@@ -118,8 +118,9 @@
   .news a { display: block; padding: 8px 9px; border-radius: 9px; transition: background .15s; }
   .news a:hover, .news a:focus-visible { background: rgba(255,255,255,.045); outline: none; }
   .news .h { color: #e5e9f2; font-size: .8rem; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-  .news .m { margin-top: 4px; font-size: .7rem; color: #a8b1c6; display: flex; gap: 7px; }
-  .news .m span:first-of-type { color: #b9c2d6; }
+  .news .m { margin-top: 5px; font-size: .78rem; color: #b3bbcd; display: flex; gap: 8px; align-items: baseline; }
+  .news .m .src { color: #dae0ec; font-weight: 500; }
+  .news .m .ago { color: #a7b0c4; }
   .news .m .new { color: var(--gold); }
   .empty { padding: 18px 10px; color: var(--faint); font-size: .76rem; line-height: 1.7; }
 
@@ -1058,7 +1059,7 @@ try {
     box.innerHTML = items.map(function (x) {
       var fresh = x.time && (Date.now() - new Date(x.time).getTime()) < 3 * 3600e3;
       return "<a href='" + esc(x.url) + "' target='_blank' rel='noopener'><div class='h'>" + esc(x.title) + "</div>" +
-        "<div class='m'>" + (fresh ? "<span class='new'>●</span>" : "") + "<span>" + esc(x.source) + "</span><span>" + ago(x.time) + "</span></div></a>";
+        "<div class='m'>" + (fresh ? "<span class='new'>●</span>" : "") + "<span class='src'>" + esc(x.source) + "</span><span class='ago'>" + ago(x.time) + "</span></div></a>";
     }).join("");
     box.scrollTop = 0;
     document.getElementById("newsAt").textContent = news.updated ? "更新 " + fmtTime(news.updated) : "";
