@@ -191,15 +191,21 @@ WMO = {0: "晴れ", 1: "おおむね晴れ", 2: "晴れ時々くもり", 3: "く
 
 
 def quote(sym):
+    """直近1か月の終値（スパークライン用）と前日比。
+    range=1mo の meta.chartPreviousClose は「1か月前の終値」なので前日比には使えない。
+    系列の最後が当日のバー（＝現在値と同じ）なので、前日終値は最後から2本目を使う。"""
     j = json.loads(fetch(YF + sym + "?range=1mo&interval=1d"))
     r = j["chart"]["result"][0]
     m = r["meta"]
-    now = m.get("regularMarketPrice")
-    prev = m.get("chartPreviousClose") or m.get("previousClose")
-    chg = (now - prev) if (now is not None and prev) else None
     closes = [c for c in (r.get("indicators", {}).get("quote", [{}])[0].get("close") or []) if c]
-    if now is not None:
-        closes = closes[-29:] + [now]
+    now = m.get("regularMarketPrice")
+    if now is None:
+        now = closes[-1] if closes else None
+    same_day = bool(closes) and now is not None and abs(closes[-1] - now) < max(1e-6, abs(now) * 1e-6)
+    if not same_day and now is not None:
+        closes = closes + [now]
+    prev = closes[-2] if len(closes) >= 2 else None
+    chg = (now - prev) if (now is not None and prev) else None
     return {"price": now, "chg": chg, "chgp": (chg / prev * 100) if chg is not None and prev else None,
             "spark": [round(c, 2) for c in closes[-30:]]}
 
