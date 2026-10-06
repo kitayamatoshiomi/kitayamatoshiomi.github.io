@@ -22,18 +22,19 @@ NOW = datetime.now(JST)
 
 # ---------------------------------------------------------------- news
 NEWS_QUERIES = {
-    # 教育：専門媒体を軸に、一般紙の文科省まわりで補う
-    "edu": ["site:kyobun.co.jp when:5d", "site:resemom.jp when:2d",
-            "site:kyoiku-press.com when:7d", "文部科学省 OR 中教審 when:1d"],
+    # 教育：専門媒体を軸に（期間を長めにして本数を確保）、文科省まわりで補う
+    "edu": ["site:kyobun.co.jp when:14d", "site:resemom.jp when:5d",
+            "site:kyoiku-press.com when:14d", "site:edtechzine.jp when:14d",
+            "文部科学省 OR 中教審 OR 学習指導要領 when:3d"],
     # 出版：業界紙（新文化・文化通信・HON.jp）＋一般ニュース
-    "pub": ["site:shinbunka.co.jp when:7d", "site:bunkanews.jp when:7d",
-            "site:hon.jp when:7d", "出版社 OR 書店 OR 出版業界 when:2d"],
+    "pub": ["site:shinbunka.co.jp when:14d", "site:bunkanews.jp when:14d",
+            "site:hon.jp when:14d", "出版社 OR 書店 OR 出版業界 when:3d"],
 }
 BLOCK_SOURCES = ("Vietnam.vn", "TVer", "YouTube", "Межа", "選挙ドットコム", "ニコニコニュース", "fujitv",
-                 "食品新聞", "ねとらぼ", "企業調査", "蔦屋書店ポータル", "ラノベニュース")
+                 "食品新聞", "ねとらぼ", "企業調査", "蔦屋書店", "ラノベニュース", "ナタリー", "PR TIMES")
 BLOCK_TITLE = re.compile(r"^\d{4}年\d{1,2}月\d{1,2}日$|Archives|お休みします|^画像")
-PER_SOURCE = 7
-NEWS_MAX = 18
+PER_SOURCE = 10
+NEWS_MAX = 36
 
 
 def fetch(url, headers=None, data=None, method=None):
@@ -65,7 +66,7 @@ def news_for(q):
         out.append({"title": title, "url": (it.findtext("link") or "").strip(),
                     "source": source, "time": ts})
     out.sort(key=lambda x: x["time"] or "", reverse=True)
-    return out[:NEWS_MAX]
+    return out[:40]
 
 
 def update_news():
