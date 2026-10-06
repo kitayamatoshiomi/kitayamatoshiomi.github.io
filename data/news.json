@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-07T01:05:17.927251+09:00",
+ "updated": "2026-10-07T01:06:23.864363+09:00",
  "edu": [
   {
    "title": "未経験者の「育成枠」創設を 教員不足の解消に向け提言",
@@ -70,12 +70,6 @@
   {
    "title": "3都市で宇宙イベント「スペースラボ 2026」小3-6無料招待",
    "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE9oMHBlMjVPMVZxT0RKRHQtV3pqS2NTYzcyR2lWRktoUk1WMXVmcGZPUkNRUWdfUUlWM1NPUVlyVXQ0djZmR2JzS19xR0dkMnFiRXJRNHVJLXZVaktL?oc=5",
-   "source": "リセマム",
-   "time": "2026-10-06T17:15:03+09:00"
-  },
-  {
-   "title": "【AI時代の教育】生成AIが「答え」を出す時代、なぜ探究が重要なのか",
-   "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5FWExYUnhRclNYRHZvMVBmUlo0MEgtdDh1ZXFhSmpZYUNSZ2FCVHBGd2xNcEE1Rl9TNDJJVmFSRUF6cktFZGhaN1B1QnNQeXFjYzB6ODk0THVYNWlueXhhdEowMUtIUQ?oc=5",
    "source": "リセマム",
    "time": "2026-10-06T17:15:03+09:00"
   },
@@ -170,6 +164,12 @@
    "time": "2026-10-06T14:30:00+09:00"
   },
   {
+   "title": "2040年の学校の姿とは…安田教育研究所の特別セミナー10/27",
+   "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBPZURCRWpDYVZmUW9hRjA2UVo0MThBREpXMmVWcVdqYmJIVWgyY3lXYlNuNFROallISUlFYU9jcVFDX1oyb3dOelgzQ3lKT0tXQnZha3gxeEhTOF9fWFFCU0w5UXlVQQ?oc=5",
+   "source": "リセマム",
+   "time": "2026-10-06T14:15:02+09:00"
+  },
+  {
    "title": "中教審、次期学習指導要領に向けた審議まとめ 小中学校の情報教育を拡充",
    "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1OMmRKdWdnS1FaMElKX2szVjU2bVZ1T1F4bDBXNkQwRnpSVjV0MmR3cGlGcFIzZndSczJEVlVYcE52RnFlUW5memR0eE83djd0NkE?oc=5",
    "source": "月刊私塾界",
@@ -234,7 +234,7 @@
   {
    "title": "日販、米ＡＩ企業に書籍販売 出版社側は反発",
    "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE0yS2NrZjJWc0J6NTloNmZ3ekNhZGlrMGs2Mm9aOERPTGZTNE9FUWZ6NTZBT2l3V2daT21sR3k0ZFhIUV9xa2hBWmNVbWhpUmpH?oc=5",
-   "source": "日本海新聞",
+   "source": "nnn.co.jp",
    "time": "2026-10-06T23:30:44+09:00"
   },
   {
@@ -242,12 +242,6 @@
    "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE40MlQ4Qy1McVZEYXcyNE1pWURhWW0tQV9MODlETE9MODllREl5cGJzTUFWNXZ0LUN3YzFBbXlMNnlqV1ZRVmdQZngya19Nakg0UndnOVFaNWQ2MldDNm01RUhpNVNPM3BmSnVFUVV3?oc=5",
    "source": "au Webポータル",
    "time": "2026-10-06T22:31:00+09:00"
-  },
-  {
-   "title": "Google、AIコンテンツ使用に関する出版社の訴訟で勝利",
-   "url": "https://news.google.com/rss/articles/CBMiSkFVX3lxTE9MbzBIemppejhKRXU3V1VZcnNTQ0lGaV93a0t0dDFNeTh6azRfTXhYLU5wVnA2RTdjWGpwU2JGX2pwemYzQnE5cGxB0gFCQVVfeXFMTzNtbUJ0cUU4TXR4T3JuUFZqZmdkbU5HZnNjZnBKaEdCNHdfU2ZJS3FFdnpMYkJPY2RpQWlIemRibjNR?oc=5",
-   "source": "VOI.ID",
-   "time": "2026-10-06T22:04:35+09:00"
   },
   {
    "title": "出版取次の日販、米AI企業への書籍販売を認める 業界団体に回答 [AIの時代]",
@@ -258,7 +252,7 @@
   {
    "title": "“本離れ”やネット販売の台頭で苦境も…2年連続の黒字 福井の「勝木書店」 手書きPOPや書店員セレクション、独自の成長戦略",
    "url": "https://news.google.com/rss/articles/CBMitgJBVV95cUxPRE1FdF9PYW50a3JaVHVQZXpkRG5qUk1mMXdVaTJiZVMtZ2ppZFE0MkNmaGNBNWhSN2tiU1VQd2lEQlFvY3RQY0ZiaFFxWUU3eUFMQWxYb1ZiUWMyczFZOEE4eElaX2pKcFRtUGxPUzBhZlBybXFrbEx0ZjNVell4bmRyalZwXzRpRmtKZnhvcVZfam5PNzBLODRHV1JSVDRjRHZ5dzF1VjRGbUNFRng1bWZjdGxUbHhmTGx3Mzc3VVBINDRjeWc4cEpTeWxTaE83QXRFamJlZ2t2ZGxrNE5wZUJpMzN4eGp0YWpVb1FZYUl6XzVGRFVGR3RYWW9ncFAyRVdzTjc5MWdOdGljem1uam04bG54V3NwY2dMTVJmbldFM3B6N19BLUttMXV0U3Y1OU9ySFVB?oc=5",
-   "source": "福井テレビ",
+   "source": "fukui-tv.co.jp",
    "time": "2026-10-06T20:39:00+09:00"
   },
   {
@@ -288,7 +282,7 @@
   {
    "title": "EXPO 2027 オフィシャルストア MARUZEN & ジュンク堂書店 新静岡店 2026年10月9日(金)オープン",
    "url": "https://news.google.com/rss/articles/CBMiRkFVX3lxTE44RW12cy11WE9pTzFPRW5yY1dsMXdsVS1jQXFfeklFRGJyeDlqN1REaXJ3RnR0akJIR1djWk51Z2J0Y2NNaHc?oc=5",
-   "source": "https://expo2027mlo.jp/",
+   "source": "expo2027mlo.jp",
    "time": "2026-10-06T18:45:41+09:00"
   },
   {
@@ -336,7 +330,7 @@
   {
    "title": "函館 蔦屋書店にて「『ラファエルの羅針』朗読＆GLAY ニューアルバム『旅する理由を待ちながら』トークショー」開催決定！",
    "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTFBra1FfeDN4Q3JnUXNmRTJEQWVCSzR3RmRlTFJ0MUxpRzVqdnUwWGViZmh2QTMtZTBrZWpfemQ4UjVRZE5wMlJsRzc3ckh6LTFnRUE?oc=5",
-   "source": "GLAY公式サイト",
+   "source": "glay.co.jp",
    "time": "2026-10-06T12:04:35+09:00"
   },
   {
@@ -364,18 +358,6 @@
    "time": "2026-10-06T09:41:28+09:00"
   },
   {
-   "title": "【最後の日】映画や小説にも･･･伝説の書店｢コバショ｣ 10坪の店を守り抜いた名物店主 72年の歴史に幕 兵庫・尼崎市【newsおかえり特集】 Guy Fieri (HvBYy3gTDD)",
-   "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPSVFXbm4xWlFHWFhoSmg2dk5USFlaU0NwNXpoYm00czFxTGx2eFdYMElrVlk0RjR3cTNLYWQ5SWRDQzNOX1VnTEJ1RC03cDVVb0FtU3IxQnRueVAxQjJvUE1CWjFTVXhCOUFKUFV3YWt5MVVCXzNHaFFSbVA1M0dJcVl3?oc=5",
-   "source": "Unisba Media",
-   "time": "2026-10-06T09:14:11+09:00"
-  },
-  {
-   "title": "生命保険会社元社長のアクチュアリーが執筆!【忖度なし】誰も教えてくれなかった職場としての保険業界の真実新刊『保険会社という職場のリアル』本日10月5日発売！",
-   "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5ENE01WjJqcldtNU1CWDZUd09JU1pzT3pfdEFISDBtaGxyMFpTei1rT3VNSE9QdG9MNUs5TDM3LTNIQjh5alRGVDNKdnppS0dUUi1V?oc=5",
-   "source": "仙台経済新聞",
-   "time": "2026-10-06T06:22:30+09:00"
-  },
-  {
    "title": "日経新聞がサイバー攻撃で情報漏洩など 日刊出版ニュースまとめ 2026.10.06",
    "url": "https://news.google.com/rss/articles/CBMiRkFVX3lxTE9LSU5YMjRpWlNUaEdYQUo5MkZrRmNuTlpyampiNjk2TC1GOGJoM3NGelVZazBSaVdrQVlZRk84eFF3dmJHM2c?oc=5",
    "source": "HON.jp",
@@ -392,6 +374,12 @@
    "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE8weDBtZzZIZ3RsYXg0TWpidDJEM3VFRXVlU1l2UWtYVURSY3o1YlRpTnBtMEFab1g3b21wbzF3ZUFxYldrOElSTDlkWEpuRUZLVUREY1BGb3Q3c2xSOEJITWR6TUpNY00tMThveA?oc=5",
    "source": "日本経済新聞",
    "time": "2026-10-06T05:00:00+09:00"
+  },
+  {
+   "title": "『ホタルの嫁入り』書店キャンペーン開始、限定あぶらとり紙",
+   "url": "https://news.google.com/rss/articles/CBMiRkFVX3lxTFAya3h0UXhvWVNDLWRtZ1dkTHUtUHozSTladm1majFJNVJ6QVlwNkdGUnpvN05KSGRoWW1wakNCVFRXM0d2R3c?oc=5",
+   "source": "Koubo",
+   "time": "2026-10-05T21:05:47+09:00"
   },
   {
    "title": "「家庭画報」、松屋銀座とコラボ 銀座名店の味を2セットにして発売",
@@ -434,6 +422,18 @@
    "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE9DMnRIamt4amxlaU9DWjVzUWhKenJrNGpIdnpRUW5TZVc5YUI0TzMyampZUXk3VGFVSGlXa0h0ZXQtZlg5a3NodDFjWXJhU1hUdWc?oc=5",
    "source": "bunkanews.jp",
    "time": "2026-10-03T05:36:07+09:00"
+  },
+  {
+   "title": "書協、AI対応の出版契約書ヒナ型公開など 日刊出版ニュースまとめ 2026.10.03",
+   "url": "https://news.google.com/rss/articles/CBMiRkFVX3lxTE1SRHh5SWh2ZWxRNUFFT1NQbVUtZ3UwV0t3SDNXTjlwT0ZqM29McC1NN0w5Ml9uTzIybG9ZbmlmY1NKOWdvcGc?oc=5",
+   "source": "HON.jp",
+   "time": "2026-10-03T00:04:30+09:00"
+  },
+  {
+   "title": "トラック新法適正原価 新聞協会が柔軟な算定と段階導入要望 国交省検討会で山口理事が新聞輸送の実態説明",
+   "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTFBjUzE5Vm92bHozSWw3N3luUW1CUzZGbE9rQktrZHEzVHpBNE1tVXRvcFVfSjhxRzhkRUQzQjcyTzFPMDRrbG9fOXRiNGFmdjNoaVE?oc=5",
+   "source": "bunkanews.jp",
+   "time": "2026-10-02T17:32:05+09:00"
   }
  ]
 }
