@@ -948,12 +948,16 @@ try {
     box.innerHTML = v.items.map(function (x) {
       var d = x.diff, df = d == null ? "<span class='df flat'>—</span>"
         : "<span class='df " + (d > 0 ? "up" : d < 0 ? "down" : "flat") + "'>" + (d > 0 ? "+" + d : d === 0 ? "±0" : d) + "</span>";
-      return "<a href='#' data-v='" + esc(x.name) + "' title='" + esc(x.name) + "（前日比 ／ クリックで Obsidian）'>" +
+      return "<a href='#' data-v='" + esc(x.name) + "' title='" + esc(x.name) + "（増減 ／ クリックで Obsidian）'>" +
         "<span class='n' style='color:" + (x.col || "#dfe2ec") + "'>" + x.count + "</span>" +
         "<span class='l'>" + esc(x.name) + "</span>" + df + "</a>";
     }).join("");
+    var bd = v.base_date ? v.base_date.slice(5).replace("-", "/") : null;   // 差分の基準日
+    var yd = new Date(Date.now() - 86400e3), ys = (yd.getMonth() + 1) + "/" + yd.getDate();
+    var label = bd ? (bd.replace(/^0/, "") === ys ? "前日比" : bd.replace(/^0/, "") + " 比") : "";
     document.getElementById("vtAt").textContent = "全 " + v.total +
-      (v.total_diff == null ? "" : (v.total_diff > 0 ? "（+" + v.total_diff + "）" : v.total_diff < 0 ? "（" + v.total_diff + "）" : ""));
+      (v.total_diff == null ? "" : (v.total_diff > 0 ? "（+" + v.total_diff + "）" : v.total_diff < 0 ? "（" + v.total_diff + "）" : "")) +
+      (label ? "　" + label : "");
     box.querySelectorAll("a[data-v]").forEach(function (a) {
       a.addEventListener("click", function (e) {
         e.preventDefault();

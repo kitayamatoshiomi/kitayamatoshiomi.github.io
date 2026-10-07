@@ -49,10 +49,10 @@ def main():
     now = datetime.now(JST)
     today = now.strftime("%Y-%m-%d")
     hist = prev.get("history", {})
-    base = None                                  # 今日より前の、いちばん新しい記録
+    base, base_date = None, None                 # 今日より前の、いちばん新しい記録
     for d in sorted(hist):
         if d < today:
-            base = hist[d]
+            base, base_date = hist[d], d
     hist[today] = dict(counts, total=total)
     hist = dict(sorted(hist.items())[-90:])
     items = []
@@ -61,6 +61,7 @@ def main():
         items.append({"name": h, "col": c, "count": counts[h], "diff": diff})
     out = {"updated": now.isoformat(), "total": total,
            "total_diff": None if not base else total - base.get("total", total),
+           "base_date": base_date,                # 差分の基準日（毎日動かせば前日になる）
            "items": items, "history": hist, "vault": os.path.basename(VAULT)}
     with open(dst, "w", encoding="utf-8") as f:
         json.dump(out, f, ensure_ascii=False, indent=1)
