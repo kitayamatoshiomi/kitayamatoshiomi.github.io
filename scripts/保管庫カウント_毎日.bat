@@ -5,6 +5,6 @@ cd /d "%~dp0.."
 py scripts\obsidian_count.py || exit /b 1
 git add data/obsidian.json
 git diff --cached --quiet && exit /b 0
-git commit -m "data: 保管庫のノート数" || exit /b 1
+git commit -m "data: vault note counts" || exit /b 1
 git pull --rebase -q
 git push -q
