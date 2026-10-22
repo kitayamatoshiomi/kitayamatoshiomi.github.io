@@ -1,6 +1,12 @@
 {
- "updated": "2026-10-23T04:21:20.079918+09:00",
+ "updated": "2026-10-23T07:34:18.250040+09:00",
  "edu": [
+  {
+   "title": "デジタル教科書は紙との併用を基本とする文科省素案。小学4年以下は完全デジタル化を認めない方針｜Infoseekニュース",
+   "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5VOTBuMmVSQm5oWk9GMVhCWjVsbjNMRDNLOHY5Tm0taGw0TU4zelNSUzYxSUF3bDBVZjBTMUc5NVpNdU1SaGhRVnh2UmFvQTZaY3h0bEJJbzlydWJza1NJMQ?oc=5",
+   "source": "Infoseek",
+   "time": "2026-10-23T07:11:00+09:00"
+  },
   {
    "title": "最短1年で教員免許取得へ 文科省が大学院に新カリキュラム導入方針 来年の通常国会での法改正目指す",
    "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE93SUprYXZDX0lZS1V3bjVUcnpCeW9oMjZfMzFTUFdSaXB5Yl92UGY2U21Lajh6bjI3ZTlVYzhkRlhyMEdtQWk5aFQzTG1iU3hRNERRVUF0TQ?oc=5",
@@ -14,12 +20,6 @@
    "time": "2026-10-22T23:27:00+09:00"
   },
   {
-   "title": "松久 眞実",
-   "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE1vb2xKbFBpekpiV3RtWEpBSlNGb21TaFl4T190RUhseGYxT2hhbHFIeEJKajhxZW0yU01Ba3BNZENHQW53cVpmOG5hb1ZjSFo5a2RGamNSYnNhVHQ2?oc=5",
-   "source": "教育新聞",
-   "time": "2026-10-22T21:30:35+09:00"
-  },
-  {
    "title": "（鉄筆）手書き",
    "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE16enVmU002MmtYTGY4ZzdnNGRCbENWZlRLLVFRcGNlMk0tZzFnaHphMUFRWjJCMGlaRmttVzJCaEN3Smc4MXViVVNMSWpHOFBrc0FOUFBB?oc=5",
    "source": "教育新聞",
@@ -28,6 +28,12 @@
   {
    "title": "学校で働き大学院で教員免許取得 新教育課程の具体像示す",
    "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE93WWdDX2lVSkNiMXdtR3h0YmRYQ0VNMzFMajI3MksxUVhLTnY1RzBKNkJ6bGpfQ1JrS29oRHBndjhJQVFDel9PbDFZSXpSM0N0TVhiR25B?oc=5",
+   "source": "教育新聞",
+   "time": "2026-10-22T20:55:00+09:00"
+  },
+  {
+   "title": "新教科書はハイブリッド中心で 文科省の検討会議が素案",
+   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBsNk5hVVJXRzlWMVZDT1lzbWJEazZSbjdHSEloYzVPLVRTdTJNWTFRUlk4ZWF2QXgtQUNEcDBNb1NTaEphQUh1VEcxTTVxSFI5ZEtWdG93?oc=5",
    "source": "教育新聞",
    "time": "2026-10-22T20:55:00+09:00"
   },
@@ -46,12 +52,6 @@
   {
    "title": "第1回 「北風か太陽か」または「学級が秩序をなくした理由」",
    "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBWTlZPTU9NN0kzWnU0cHo0WkM0ZEIwZ0xIVk9tM01hX2xDSm1sb1A2QjJIZGZ2RDYzdjJHcmRyZVRzRVFFLVBIaTNIMlVxU0E2VlBHeGtB?oc=5",
-   "source": "教育新聞",
-   "time": "2026-10-22T20:55:00+09:00"
-  },
-  {
-   "title": "新教科書はハイブリッド中心で 文科省の検討会議が素案",
-   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBsNk5hVVJXRzlWMVZDT1lzbWJEazZSbjdHSEloYzVPLVRTdTJNWTFRUlk4ZWF2QXgtQUNEcDBNb1NTaEphQUh1VEcxTTVxSFI5ZEtWdG93?oc=5",
    "source": "教育新聞",
    "time": "2026-10-22T20:55:00+09:00"
   },
@@ -92,16 +92,28 @@
    "time": "2026-10-22T18:30:00+09:00"
   },
   {
+   "title": "教員の奨学金返済免除案「慎重な分析を」 文科省要求に財制審けん制",
+   "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5ldTl5dXI2NldydkZGTkNGS3V1VEt6X0xNaXN4dFBoNVhObUZqLUM2NVhUVkFFdFFPbFRwMU5CaXVQQTdMMFpnM19jU1Zid2ZPV3F6cUVRVmxkV2JRSnVJc1YtX0s5RkpmWGtGYQ?oc=5",
+   "source": "日本経済新聞",
+   "time": "2026-10-22T18:15:39+09:00"
+  },
+  {
    "title": "「紙中心」の“ハイブリッド型”を基本に 2030年度以降導入のデジタル教科書めぐり 小4以下は“完全デジタル”認めず 文科省の「大臣指針」素案",
    "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTFBTb2RqdnNvbzg3M2xVYldQdFFWaE05TlpWV3ZFYmN0Z2dnZHZ2UFZvSlR0c2ZGMEVxZ3FkbGFydFZ0djcwVl9USmZSUzJ3WFVLUlRDaVlWRklpaFoyS3hzVnotRklWS3h4SHpQaDhkUEFoQjA?oc=5",
    "source": "Excite エキサイト",
    "time": "2026-10-22T18:13:13+09:00"
   },
   {
-   "title": "12年度からの教科書、「紙」と「デジタル」組み合わせ　文科相指針案",
-   "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOQ1BCem5DYnZPRG5WUHppblMtcTBzQ1Y3VUIweW04LV9nUlJ2OGdyUU5MNUU5bThha0tUdDBJSlJtVUNQLXN0dWs4Zk1SakNQUXMwZGxvd0Z3T3pMc0Y4VkdnT09uX2pKZE13NHozV3hZM1ZtT1RMaXE4a1NOUTVWU2s1UmtIV08wQjFzSlBBWFlVdjJlLUHSAZYBQVVfeXFMTkNQQnpuQ2J2T0RuVlB6aW5TLXEwc0NWN1VCMHltOC1fZ1JSdjhnclFOTDVFOW04YWtLVHQwSUpSbVVDUC1zdHVrOGZNUmpDUFFzMGRsb3dGd096THNGOFZHZ09Pbl9qSmRNdzR6M1d4WTNWbU9UTGlxOGtTTlE1VlNrNVJrSFdPMEIxc0pQQVhZVXYyZS1B?oc=5",
-   "source": "Infoseek",
-   "time": "2026-10-22T17:29:02+09:00"
+   "title": "【教員採用】福岡県、早期退職した教職員の再任用制度を公表 3枚目の写真・画像",
+   "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTFBHbGNLbVFsbVVMaF84ZzY5VkE5eXpLcXhNSEtTcWl2T3MwX1N3Z1JscVFPMklqWjd0bzNHSlp6UkN4OVljNG5fdmR5MjRDWUg2ZDFLamhKTzI1enE1eXAyNUZoem53Nk5vNGZJQ2x2UEh0MVU?oc=5",
+   "source": "リセマム",
+   "time": "2026-10-22T17:45:02+09:00"
+  },
+  {
+   "title": "12年度からの教科書、「紙」と「デジタル」組み合わせ 文科相指針案 (産経新聞)",
+   "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNV2RUa0hGZGMwQ2d4bVFMeWo4ZFlZSWxLVE9YVmdGOUNGZkl2c2xPUFhmc3JraWloOTFJN0ZWaV9KeWd3XzRkZWJFTVBqR2FnbFVheVV5TEVXRVdBNEZnR3o3QlJ4cUZyR2Z5cWl3X3BDMHNxanROb2ZhYVpwRXpWc1ppckNvcmpQVFVLNjJB?oc=5",
+   "source": "Yahoo!ニュース",
+   "time": "2026-10-22T17:32:13+09:00"
   },
   {
    "title": "高校サッカー全国選手権、12/28開幕…組合せ抽選11/16",
@@ -176,6 +188,12 @@
    "time": "2026-10-22T15:15:03+09:00"
   },
   {
+   "title": "MetaMoJi、次期学習指導要領を見据えた教育AI「SHUUSAI（シュウサイ）」を発表、2027年3月より「MetaMoJi ClassRoom 3」へ標準搭載",
+   "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE9rV2M2eFVSMmsyeU9PRzVZYXh3WTBPVkNXNkJnVnNMT2xoVFhTVXBFdVU1eElReDdHSnBvdXUyWkFNZGtodVVBWFRHYkpGeG9jZGwzMll5MFYteDlfMTd6WkNmeHI4S2lUdF9abE51UmZMMGs?oc=5",
+   "source": "Excite エキサイト",
+   "time": "2026-10-22T15:15:00+09:00"
+  },
+  {
    "title": "文科省“社会人に1年で教員免許” なり手不足が深刻化で方針",
    "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1xc3NNQ3VwMzlteWNBdkRpMjBoME9oRTd0aTJSTVNZalBtUGlsdWxUMnYzYWMtb1BjOGlTVHdHRkwxUkVrU1UyYjU0SG9HREt4a0dvNU5EVzFPOFZhVHZtbGt3clJXb1JIUWd3d3RR?oc=5",
    "source": "au Webポータル",
@@ -198,32 +216,32 @@
    "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBWbzJqa1hEYnRtUGxYZW5TS2hsY2xXUlM1UUx0UTJ6V29mRzhqX1E2OHBBYjFTSU1CV052TjlMVmpNZm82WWlqUkJWNWF6X19obFNGa1QyWVRZWUZQQnNKaTdOWDVZUQ?oc=5",
    "source": "リセマム",
    "time": "2026-10-22T14:45:03+09:00"
-  },
-  {
-   "title": "【中学受験】来月行ける中高一貫「学校見学」11月…桜蔭、豊島岡など女子10校 1枚目の写真・画像",
-   "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9GZzJpci14MjRuVDNkWTZCdTJyODlMOHZrYXNtTEFnQWhybjU5bC1KVEVrZ08yZlU0b1FOSGxZdjJNQ2d6aG5lRF85YVNEUDIxV0tud2N6Zy1hQXN4eUZVcUx4Ui0zN2ppdUdnMi1R?oc=5",
-   "source": "リセマム",
-   "time": "2026-10-22T14:31:19+09:00"
-  },
-  {
-   "title": "健康診断、不登校の子に配慮を＝文科省などに対策要請―総務省",
-   "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTFBYbklIYW42TUpIR09IMHhLRXh1c1dOS2lRWTNGTmdfOVJKUHowcmh4VEsyR2xvcmdmdDN5dS1pVjRPVzVZcEp2WS1UZw?oc=5",
-   "source": "時事メディカル",
-   "time": "2026-10-22T14:30:03+09:00"
-  },
-  {
-   "title": "文科省関連では4サイトがメンテナンス 国立大や全国の教育委員会に注意喚起も実施 (産経新聞)",
-   "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOWTRkX3U1MTYxRjRjdjVkU2RjUmctOTAzVkNTVXNDUDJHSmJHMGlwbWR4UzhXLUo4QUlZS1Q3S2lhVmFXemtsMEtsUk42VGE2QXpOQW44OHZ2OEN0eC11VWE4TDNweWtuZUlxWDNtRXdrM3FFZWhZM3hPQW5QQ1VqbW1qeVQ1WTBlLXFQajhB?oc=5",
-   "source": "Yahoo!ニュース",
-   "time": "2026-10-22T14:10:21+09:00"
   }
  ],
  "pub": [
+  {
+   "title": "話題の本 書店別・週間ランキング（2026年10月第2週）",
+   "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1MbmdZeGt0aTYtaGoxbVJYeGhJV0RxOWR2RmQwME44QVlmM3lQMGFRczJfUDZ3Y0d5ZmFjZUVKMVNwZFZ1V2R2aUxoc2Y3TlAtQjh2QjY2RDFINV9xZUM4eWtUUlVzMDZFQVJqUA?oc=5",
+   "source": "日経BOOKプラス",
+   "time": "2026-10-23T05:00:00+09:00"
+  },
+  {
+   "title": "横浜「本は港」３会場に拡大 書店や出版社、個人作家が集結",
+   "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1wUG5GQVZNMXExLV9HTGx4Tm9GZEhPc2NNSEpuRnNmSm41NWg3NHN1VUUtV2FNV2dfdGhwQWdRdkRRNEJfVEhzR2NHM3dzMlR2eXB6U1VCNS1Gc0RJeGhoZnNCbXhtMXFJWVIzNWEwU1c?oc=5",
+   "source": "カナロコ",
+   "time": "2026-10-23T05:00:00+09:00"
+  },
   {
    "title": "「弊社は関係ない」出版社のPHP研究所 サイトはメンテ済み",
    "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE13eXVmYUItTW1jTTRaZU9PSEtpS0ZGWFZyc1NERDRuaTV3RUJJcG13MThla0Vmcy16U3VicGR2aHhaMDVGcFRZOVNBSm9kZDY2NGhjc3l5TVhfZDB1SHc?oc=5",
    "source": "沖縄タイムス社",
    "time": "2026-10-23T03:58:00+09:00"
+  },
+  {
+   "title": "県内書籍普及へ 出版担当者視察 「OSP」協賛各社",
+   "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTFBISmtmNExMTUUwWmtBbjZ6OS1hdkNMTnpJeFR5NWxnOElwd01yeHZUcUFPYmJ1Q0xkSEZXcmo3LU9QZ3NPbTc2Skx1RVpCRmNKejktckZlMUVEZlJTQkE?oc=5",
+   "source": "沖縄タイムス社",
+   "time": "2026-10-23T03:57:00+09:00"
   },
   {
    "title": "マンガ海外配信の共通基盤構想、財務制度分科会で方針が示されるなど 日刊出版ニュースまとめ 2026.10.23",
@@ -280,22 +298,16 @@
    "time": "2026-10-22T16:53:43+09:00"
   },
   {
+   "title": "日米でコミカライズ決定の大反響作！最凶魔王による勘違い系無双ファンタジー続編『ド天然魔王、「魔王」を倒しにいく 2』2026年10月27日（水）発売",
+   "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5QT3hNaWw2Y2lqdnRkVHFiY0lNMUxZbDJ6ZlFheGxuYlYzWUJHbkg2dHdhYUhfSVBTblp0SzRpN2oxVFlfX0NxQUt0VWlFZjA?oc=5",
+   "source": "AGARA 紀伊民報",
+   "time": "2026-10-22T16:50:20+09:00"
+  },
+  {
    "title": "【告知：11月28日に岡田真理さんトーク＆サイン会】本日10月22日発売の新刊『喫茶エスペランサ』（（河出書房新社）について、いろいろ聞きます",
    "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBNdG1STWZMRlVaY3JIakpQVEpwZk03cUh3WThSZEFNdVNwekVJaU94dk1nbGZUcllsSU12UlRJaTdORDU5cWc1LWFhbGRBMVRVUXFRbXR4TVhDZVNWaXdv?oc=5",
    "source": "アットエス",
    "time": "2026-10-22T16:50:00+09:00"
-  },
-  {
-   "title": "復刊「女の本屋の物語」を次代へ 日本初の女性専門書店店主の歩みつづった著書",
-   "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE9UeXgySy1uNEQyc0FBY21nQktfeU54aVdkRlZkVVBGeW9BYnByeTZzNlo4akFfT092TktnMWhvX1ZWeWx0aGkzYU5vakF3cXpWazhBVg?oc=5",
-   "source": "中日新聞Web",
-   "time": "2026-10-22T16:00:00+09:00"
-  },
-  {
-   "title": "日米でコミカライズ決定の大反響作！最凶魔王による勘違い系無双ファンタジー続編『ド天然魔王、「魔王」を倒しにいく 2』2026年10月27日（水）発売",
-   "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5QT3hNaWw2Y2lqdnRkVHFiY0lNMUxZbDJ6ZlFheGxuYlYzWUJHbkg2dHdhYUhfSVBTblp0SzRpN2oxVFlfX0NxQUt0VWlFZjA?oc=5",
-   "source": "AGARA 紀伊民報",
-   "time": "2026-10-22T16:00:00+09:00"
   },
   {
    "title": "カナダの出版社がハイチ系カナダ人作家のテリソン·オレリアンが小説執筆過程で人工知能(AI)を使用した痕跡を確認したとし、契約関係を終了したと明らかにした。 21日（現地時間）、ロイター通信によると、カ..",
@@ -322,12 +334,6 @@
    "time": "2026-10-22T14:46:52+09:00"
   },
   {
-   "title": "『ファイナルファンタジー レゾナンス』本日発売！",
-   "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1kcDl6b1RJV25JdUJ6b2tDVmZyUW9kUHdrbFFrNGtXTTY4RTl6Szg3U0dvYTRaSk1iNmVpSnRzYXk1R2NBbjYtdFhyem9YMEVLMHpLMEpyNnMwRE1qbks0?oc=5",
-   "source": "Square Enix, Ltd.",
-   "time": "2026-10-22T14:13:49+09:00"
-  },
-  {
    "title": "「弊社なんと全然関係ありません…」出版社のＰＨＰ研究所が異例の投稿 プログラミング言語の欠陥騒動に想定外の余波 玉川徹氏も「雑誌か？」とツッコミ（スポーツ報知）",
    "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5RMEJZbnBMQlJONVkyN0pRMl9paU1qWUlFMDNKLUh4TmtrR0xya3doU0dxU1JwTzdubkl5WGJTWWVHQVJxZ1VsWDFDV1YyalI4Q0gwOWx4RXdwM2JJTmVXY3VYbTNwNk5WOUNpSGpZamM4VFc3cjZXTW1JM1FXTFk?oc=5",
    "source": "Yahoo!ニュース",
@@ -352,10 +358,16 @@
    "time": "2026-10-22T12:52:19+09:00"
   },
   {
-   "title": "書店にカフェ、自在に展開 銀座商店街に複合シェアスペース - まちの中庭Spring.",
-   "url": "https://news.google.com/rss/articles/CBMiOkFVX3lxTFAxSFBnNDFQbTdpaDh1ZG9KYkltNW1lb0d3bVNHOTFPbmd6UWUzcWx2Q3p6NmJkYUp4cVE?oc=5",
-   "source": "ライナーウェブ",
-   "time": "2026-10-22T11:45:24+09:00"
+   "title": "『異世界の沙汰は社畜次第』⑧巻 書店特典画像公開！",
+   "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE9YbWxHMm9VTFlGOVctbHBWUWJoSXZueWZKR01rRlJFbGVqMW4yMHBjeFF5SE9ra3AxYXoyWktHTWdZX3N0aWt6ZVpuY21LblRHUlE?oc=5",
+   "source": "KADOKAWAオフィシャルサイト",
+   "time": "2026-10-22T12:40:13+09:00"
+  },
+  {
+   "title": "『雨の巫女は龍王の初恋に舞う』①巻 書店特典画像公開！",
+   "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE80YjVOU2d6NFFvX3FPcUpfV3lFZU9MeE1iYlEtX0FWMEU3UzM2U2hlazJDV0l0VjZrMVZvQVFDYTNUWHAzM0xCR1FKRElkay1DWFE?oc=5",
+   "source": "KADOKAWAオフィシャルサイト",
+   "time": "2026-10-22T12:08:01+09:00"
   },
   {
    "title": "【ＰＨＰ脆弱性問題】出版社のＰＨＰ研究所「全然関係ありません」とＸに投稿",
@@ -376,28 +388,22 @@
    "time": "2026-10-22T11:17:39+09:00"
   },
   {
+   "title": "アイスタイルリテール、11月13日、「@cosme STORE 函館 蔦屋書店」をリニューアルオープン",
+   "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9xejcxMXI4UVpMQjYzai1NWEQtRmw2U3h0RlM1ZXFmcDJjUC1WUDF6TU15WmRPdlo3NVZXdnloSDVLQzlYVm1mdTdNR09OaXc0SW13?oc=5",
+   "source": "ダイヤモンド・チェーンストアオンライン",
+   "time": "2026-10-22T11:03:58+09:00"
+  },
+  {
    "title": "調布・仙川で絵本・児童書フェア 地元の書店・大学と老舗出版社が連携 (みんなの経済新聞ネットワーク)",
    "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPdUMtckxPZW9kREZMRFJvMUdndmdtRFBHRVpyT21wcDF5UnlWeVdna1E0b1ZnTWpsU2xEMV9GY0Z0TmE0M1pidndjQkdock5uYlJON3FSd010UDVrdlpITHVVZGhQTjlLTkdRN29Ka09qWExSZzB5OUN4ZmlzWG5Ia25hZ2t0OFZrcFplMHNR?oc=5",
    "source": "Yahoo!ニュース",
    "time": "2026-10-22T11:03:25+09:00"
   },
   {
-   "title": "書店主ら集まりブックフェス、トークや製本体験も 秋田で31、1日 (朝日新聞)",
-   "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPMG1PMTZzS183M3pWekVXN0MyQmoxTGhnVUFKMXJoMEtTblZsQ1lFRXVCRWJ4Y2pJUVBHVXg2TU83SnluQkNab19YSm1lVnhMU2NTbktKcUMyeHhMeVlndVQ3VmtHVHJQdkpQMlRLclA1MWNvd21jMTZBYlBxcjFleFNxbVc3WmMzZW9oVmRn?oc=5",
-   "source": "Yahoo!ニュース",
-   "time": "2026-10-22T11:01:22+09:00"
-  },
-  {
    "title": "月刊JKFan 2026年12月号 10月22日発売！全国の書店でも購入できます",
    "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE9FUzdmOXhOeVcxaEpva2tMcmZTcjZtLTk2alpFVm9mUmg2Y2s4YmhxQUtxS1BQX19sUU9WeDExZ0o5bUpmRlhjdkRWSlA1VllDeUpuQUtnc19vMFB4anhSREtIbw?oc=5",
    "source": "JKFan NEWS International",
    "time": "2026-10-22T11:01:08+09:00"
-  },
-  {
-   "title": "木次で無人古書店をチャレンジ出店 空き家に新たな役割、一日で40冊販売（みんなの経済新聞ネットワーク）",
-   "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBRRVRSTmpDYnBJY0JVSWRfdU5CSHpfaWE3N1pOWWh2TVA0UENVbjB0Q0lEZWhLWl9iRGZuYU1qZGpQT213RVZENFFESDN6RHhxcUpBUE83alJoQmFBOEpjVkVNQ05QX0VpMGI4Zk9Pa1ZQVi1EVVJOakw4SURmVms?oc=5",
-   "source": "Yahoo!ニュース",
-   "time": "2026-10-22T10:36:34+09:00"
   },
   {
    "title": "千葉日報デジタル 「ちば経済産業新聞」のWebメディアと会員制コミュニティ開設 - The Bunka News デジタル",
@@ -428,12 +434,6 @@
    "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE5XM2JPWlJSeVZiRk9BQmQyb2hwZm5SMEhRUFJTcm5WdjEzX00tdFk1dDVXOE56cm1aSklROUJGSmJyU0NXYnpfaDQ4RFNCOTRtYXc?oc=5",
    "source": "文化通信",
    "time": "2026-10-21T09:53:46+09:00"
-  },
-  {
-   "title": "朝日新聞社 2027年の休刊日を決定 今年同様12回",
-   "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE9KQkVKdkh1V1RQZXVHamwzRktnMWZxUEJmZXpKOE1XS3V6QlhQaWg5bHB4ZlF2M0ZtTTRIWFRvMEJqMnN3SXVmd2FmSUJRV1p0YWc?oc=5",
-   "source": "文化通信",
-   "time": "2026-10-21T08:42:36+09:00"
   }
  ]
 }
