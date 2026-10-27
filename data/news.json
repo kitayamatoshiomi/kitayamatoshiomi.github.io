@@ -1,6 +1,24 @@
 {
- "updated": "2026-10-27T22:27:50.818717+09:00",
+ "updated": "2026-10-28T03:51:15.729143+09:00",
  "edu": [
+  {
+   "title": "PHP問題がデジタル教科書にも波及 東京書籍がサービスを緊急停止",
+   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5BajVRbHY0M0FkZmlWTlN1MERpM1VWTUdCQ0MxTnRYZEVUQXR4SGdDbkRsNkdyUVhEdldiM216U3pQYWo4TzI4LWpKSXdkWXBMbWgzWGd3?oc=5",
+   "source": "教育新聞",
+   "time": "2026-10-27T20:55:00+09:00"
+  },
+  {
+   "title": "不登校の健診未受診、文科相が対応方針明かす 学校外の受診促進など",
+   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1qYnZHNDJJTzFkZEUzT0NGUmNFR3cyMS04RElpUENteWFZSnNxVGE1Mi1RX1FhOGF2VXRZdWQxWFdaVWpObFVtVjdDVmhtUWhjRVdkOXJR?oc=5",
+   "source": "教育新聞",
+   "time": "2026-10-27T20:55:00+09:00"
+  },
+  {
+   "title": "こども性暴力防止法、全校の準備状況を調査 全国集計を公表へ",
+   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5hSWI3eGpMc3VoRlJxYWZfSVNwdVlXcHZtd09XckZKOFB2cnBnZHJYWUw1SzRSYkFuejNyTHZ1c0NnS3hTZENaSlZGQWNXQUo3aG9VNzZR?oc=5",
+   "source": "教育新聞",
+   "time": "2026-10-27T20:55:00+09:00"
+  },
   {
    "title": "第2回 「なめられている」と思い込んでいた私",
    "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE13X0lpVmhBdm1XQjVmLVVtNkRtMDl6bGxIUU1sRVpGLWV4dF9ETkJ0M1NONENuNE5yTXUtcVFIWVFKQ3hQZ185dFB5QkNKamhndGhiWGpR?oc=5",
@@ -16,24 +34,6 @@
   {
    "title": "教育関係23団体が全国集会 高校の教員定数改善など要望",
    "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBvN1dwcE96bl9USlluZTZvbDNPRk45eDNXVjV4UEtoVlowbENaeUFmR2NnREpiaER1dHdxZ2FUSGhMVzl5Ym1hOUI3ZjNJSFR2dXJRa1Fn?oc=5",
-   "source": "教育新聞",
-   "time": "2026-10-27T20:55:00+09:00"
-  },
-  {
-   "title": "こども性暴力防止法、全校の準備状況を調査 全国集計を公表へ",
-   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5hSWI3eGpMc3VoRlJxYWZfSVNwdVlXcHZtd09XckZKOFB2cnBnZHJYWUw1SzRSYkFuejNyTHZ1c0NnS3hTZENaSlZGQWNXQUo3aG9VNzZR?oc=5",
-   "source": "教育新聞",
-   "time": "2026-10-27T20:55:00+09:00"
-  },
-  {
-   "title": "PHP問題がデジタル教科書にも波及 東京書籍がサービスを緊急停止",
-   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5BajVRbHY0M0FkZmlWTlN1MERpM1VWTUdCQ0MxTnRYZEVUQXR4SGdDbkRsNkdyUVhEdldiM216U3pQYWo4TzI4LWpKSXdkWXBMbWgzWGd3?oc=5",
-   "source": "教育新聞",
-   "time": "2026-10-27T20:55:00+09:00"
-  },
-  {
-   "title": "不登校の健診未受診、文科相が対応方針明かす 学校外の受診促進など",
-   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1qYnZHNDJJTzFkZEUzT0NGUmNFR3cyMS04RElpUENteWFZSnNxVGE1Mi1RX1FhOGF2VXRZdWQxWFdaVWpObFVtVjdDVmhtUWhjRVdkOXJR?oc=5",
    "source": "教育新聞",
    "time": "2026-10-27T20:55:00+09:00"
   },
@@ -62,8 +62,14 @@
    "time": "2026-10-27T19:00:00+09:00"
   },
   {
-   "title": "【高校受験2027】香川県公立高、34人減の5,645人を募集 3枚目の写真・画像",
-   "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9NZFBQeTdiWVFIQ1hmaG1vZ2lTYW9GaTJjTVFWS3Jla3NBOUdVRzF4ODBaVXd3S2lxaEtGQTFBVHNTQ0V2Yl8xYWVMQXoxdGhkS3BKc3hnTnNZeTVkWjE4QlBqcWZUT2ptdjRqYmRR?oc=5",
+   "title": "【高校受験2027】香川県公立高、34人減の5,645人を募集 2枚目の写真・画像",
+   "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBuQlVfbFdrWjR3X1dpbjZJTk13d084QVFqOWdfR2FvMVVfVGtHTG84VVBla3Fpamt5aHBycUl1bW1lV2swMU1nMjhuODNUTENtRXJTb1JoZlJjcWcyeXdMeThESEVUNzAtZTkxUFZ3?oc=5",
+   "source": "リセマム",
+   "time": "2026-10-27T18:45:03+09:00"
+  },
+  {
+   "title": "情報科全教科書用語リスト第2版を公開…情報処理学会",
+   "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5PcGRPUmVWV21mTm5KWk9IbTgyTGwydVNtT01PZm9WWkl4ZWhza1BrU2tWbUhRZG5RWU5OLTdIQV9KcHEzVDBpWUlsUS1vWTQwVHVhdUE3bXpyTk9hM2R2U2M0NDY2dw?oc=5",
    "source": "リセマム",
    "time": "2026-10-27T18:45:03+09:00"
   },
@@ -74,14 +80,20 @@
    "time": "2026-10-27T18:30:03+09:00"
   },
   {
-   "title": "小学校高学年と中学生の6割強、授業で情報機器を週2～3回以上利用 3枚目の写真・画像",
-   "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9Dd2RIUmRybDFJZ2tLZnp5Nlo5YmszUmR4VjdldFFuMUFxNHd1U19raEFfZEJHenpPdTNoTG8yb3JnNTdncEc4RHJuYnExeWV3MGNLbnlRTURadDg4d01sSl82bWhjejVrUEsxcVln?oc=5",
+   "title": "技術士試験の合格率低下 「実務経験重視」に試験見直し 文科省",
+   "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQSnFXbzFwSnZXa0R4OWtUQzRaWlRBWTRhM1VfZlRVb1UySUNaM2VBWnRCakNVbmZqcFZONUV4MkZ5YkxKSkRUekdWdm9DdmU4Q2p3S2s2U3N5TU5yeHl0Wjc4QWY3b0lFUG9CVVBJaV9Gc2NsT1BqNUxpX0RHOVVPSQ?oc=5",
+   "source": "建通新聞",
+   "time": "2026-10-27T18:19:00+09:00"
+  },
+  {
+   "title": "【高校再編】富山県立高3校を2029年度募集停止…富山西・伏木・大門",
+   "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBfVzlmdDVybmZfb0E4WHhjQ2Q4d1A1MEQxSk5DNEVXckJIRDYyNmlYZEF1OEo4REUweDhSd2ZGSVd5R0g0YnRtUHlrZ0J2N3h1ZWliTThSWERNanR2N3dxOTd3WXgxZw?oc=5",
    "source": "リセマム",
    "time": "2026-10-27T18:15:03+09:00"
   },
   {
-   "title": "【高校再編】富山県立高3校を2029年度募集停止…富山西・伏木・大門 3枚目の写真・画像",
-   "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1YZ05jTG41MWR1MTUxdnMyWWl3Qi1JZFZmeDVScWV5VXI4QzYxREZwUkNObEhybWpFUHF4czJWTUdseWhpMkowZW1PSUVMdXVjZTQ3RXFLLXpoVU54aFpqbWI3ZjFlXzFwUEpjT3BsVkRnbW8?oc=5",
+   "title": "小学校高学年と中学生の6割強、授業で情報機器を週2～3回以上利用 3枚目の写真・画像",
+   "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9Dd2RIUmRybDFJZ2tLZnp5Nlo5YmszUmR4VjdldFFuMUFxNHd1U19raEFfZEJHenpPdTNoTG8yb3JnNTdncEc4RHJuYnExeWV3MGNLbnlRTURadDg4d01sSl82bWhjejVrUEsxcVln?oc=5",
    "source": "リセマム",
    "time": "2026-10-27T18:15:03+09:00"
   },
@@ -89,7 +101,7 @@
    "title": "関芳弘文部科学大臣記者会見録（令和8年10月27日）",
    "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE5PanJOaXU3R3JJUG53UE1tZTNMcU9kRFh4OXhQSjVhdGkxRU1WdmdaaDAwc2w2RHFfZkdabE5HUGJNNWJmS3NaN3hXTVg1UlFXZjVveGRIdklVcnR6SGxPdzNuQzBrSFp4WHFB?oc=5",
    "source": "文部科学省",
-   "time": "2026-10-27T18:03:32+09:00"
+   "time": "2026-10-27T18:03:40+09:00"
   },
   {
    "title": "教師の「みえ」と「観」を考える、水曜サロン11/11 2枚目の写真・画像",
@@ -134,12 +146,6 @@
    "time": "2026-10-27T16:52:36+09:00"
   },
   {
-   "title": "【高校受験2027】新潟県立高、新潟南など全日制は15校が定員減 5枚目の写真・画像",
-   "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE12SzJuRWdfbFFxNGRCalFMZFRuanBHOGxIa1NuV1dqQmVSQzBQUmtpWER2azd0V0tuMFFsTmVCSzVfNGk4aXlmeWMxRFJ4SE5sOXFYcDJGNEUyM2dKanVVcVBJYkhUalA5Q1dCOVd3?oc=5",
-   "source": "リセマム",
-   "time": "2026-10-27T16:45:03+09:00"
-  },
-  {
    "title": "火災時の避難経路に課題、熊本市立学校園・80施設に",
    "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1ZanoyTUlWZ05vanVNREk5VWpDcGZiWi1rcGhxYndjQTQwNlpnalF1MTJyWG1sR09ySkJfdWN3ZWtJRWYtT3BSV3pFdjQweFlQSzJn?oc=5",
    "source": "日本教育新聞電子版 NIKKYOWEB",
@@ -156,12 +162,6 @@
    "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE9NT2Y2dTk5aDBxYXhVcEN1aVB1cGhHZUxIN0xTTHVvV1psOTJ5ekE5dnR3MEdnMTVoMWpOSnQ3Y3ZGYkNET29mUUVIS3dCNktXd0E?oc=5",
    "source": "月刊私塾界",
    "time": "2026-10-27T15:47:00+09:00"
-  },
-  {
-   "title": "【次期学習指導要領を見据え、教育の未来をともに考える】教育関係者向けイベント「Edu NEXT」を11月に3都市で開催",
-   "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE1pLVYteW1tVS0tZC1kUEN5Uk9SNHVzUHlQN3hzOGlLc1U0Z1BhelVKZVNYdk5TbFF2U0RUZ2htWk44TjYzSjlwQzA2MUp6RVlIV1dRUWR0aW5JOUtiNi14bmowb25DN1VSWmpxT2ZSTGtLQQ?oc=5",
-   "source": "Infoseek",
-   "time": "2026-10-27T15:15:28+09:00"
   },
   {
    "title": "理科教育の再構築へ 令和９年度概算要求が示す新たな科学教育像",
@@ -200,12 +200,6 @@
    "time": "2026-10-27T12:02:27+09:00"
   },
   {
-   "title": "【岡山大学】文部科学省「産業・科学革新人材事業（INSIGHT）」に採択～アカデミアラインとインダストリアルラインの「ツインピークス」で知・人材・資金の循環を実現～",
-   "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1wWGZrdVhHRnpNdHRGb0pfTlhYQlhKdk1vWV9Ud2tCTjlodWxNb3JwUl9PVVpoMkVQZ3BaVVZDN1NhdmlUNEdURDFWbWtVYlBKWHc?oc=5",
-   "source": "山陽新聞",
-   "time": "2026-10-27T11:10:43+09:00"
-  },
-  {
    "title": "「自分の考えを伝え、他者の声を聞き、折り合う力を」 学校現場で民主主義を重視する意義は",
    "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE45QjA0TWo5QnExNVNZYTh4ZjNTc21aMnN5ZTFnc2NtcU4zSnpzM0oyYWdkY25RY3pQR3dTYTVZVDVKYkliTFU1Z0Fxc29uQlRYZWY4?oc=5",
    "source": "東京新聞",
@@ -216,14 +210,44 @@
    "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1hQWZfZmlxby1iV3R0M01RYV9jVDlEblgzdU05M09McnFLR0JNUGVkblFONnh0X0VvYjNPVmJCUFBuZ1lnd1RyMEZkcEgzaEw2cVlwYTln?oc=5",
    "source": "教育新聞",
    "time": "2026-10-26T21:00:00+09:00"
+  },
+  {
+   "title": "【徹底図解】3分で分かる新学習指導要領どう変わる？ 情報・技術",
+   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5QVThpYXRKVHVCYVA5SG1vTEV4M0hXVVh3SXZEelVvbHhxWG5BU01yOWdDbTdXNGV1OTl0OC1YOUhJOVpGdzU3OWhnRjcwLS1kdnJDRnZn?oc=5",
+   "source": "教育新聞",
+   "time": "2026-10-26T20:55:00+09:00"
   }
  ],
  "pub": [
   {
-   "title": "憤る店主「工事業者に賠償を求めたい」歩道舗装工事のバーナーの火が燃え移り書店火災か 実況見分で可能性高まる 札幌市中央区",
-   "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9oenpYMS1fakN6akFvdS0wTUwwMGpGUUZMV0xzNGs0RzFQWHZYWGNiWk5nemxsdXRSNExoZmkxckg2amdSSGhJSzFiTS02MVRNbUpyN2pxR1l3YkxMWTV3?oc=5",
-   "source": "TBS NEWS DIG",
-   "time": "2026-10-27T18:56:01+09:00"
+   "title": "『サンリオキャラクターズと歩く366日暮らしの歳時記』ネット書店で予約開始",
+   "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE5TYXJ2b0E2dmJBU0o0RFpLTFVxdXg1MkRhTXFRTnJOVUZSdUtJd3FOT0JnTmMwa3hDWlJNZXk1Uk4tTmYwdEVXYmJ3SU16SE1sN21ydmF5bzNYVWJJcVZ6UmtUOURpSnNQbXNGTDJVRFVuZw?oc=5",
+   "source": "Infoseek",
+   "time": "2026-10-28T02:40:00+09:00"
+  },
+  {
+   "title": "学校読書調査で漫画の不読率が小学生28.2％、中学生40.2％、高校生50.8％など 日刊出版ニュースまとめ 2026.10.28",
+   "url": "https://news.google.com/rss/articles/CBMiRkFVX3lxTFA2eWhDNExkTXI3TWlNb3V5amlCWGVqUEdSVzNQSlZBNTVhTi1nT2JtVjR0LXhrWTNkMlZIMUtGM0VwaDNESHc?oc=5",
+   "source": "HON.jp",
+   "time": "2026-10-28T00:04:57+09:00"
+  },
+  {
+   "title": "12月31日閉店、「三省堂書店池袋本店」にまつわる4のこと",
+   "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPT2lIQ3FvbXJtS2RPeEN5dHNIQmcyZUUwX3MxY1dEUTNnSldpVklHeWhXck1CS1Z4cW9GQUItclJTY0hERG1IbmxZeXZUZi1teEpYQTZwTjRfZ3U4dmw0LTRMYlNvUmRGM2VwQkd0S1hpeWdEN1d4WnNDdzF3NkJ3bkxkckRKeGFDOXdjM2RBX0hTQ0pv?oc=5",
+   "source": "Time Out Tokyo",
+   "time": "2026-10-27T23:53:31+09:00"
+  },
+  {
+   "title": "IP、コミュニティ、読者理解——出版社の資産がマーケティングを動かす。講談社メディアアワード2026 審査会レポート",
+   "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE5WOHByS0RfMlgwNVpfLUQwRmRXTnd4SHVQb1pvVmpOV1hBRVlZNUd2V3Jab1lSRXNEbjJScEZ0UkhLc1BkTm54N0pnMlFXTmRCeFpTUzFlQTI?oc=5",
+   "source": "講談社Cステーション",
+   "time": "2026-10-27T21:30:00+09:00"
+  },
+  {
+   "title": "「写らナイんです POP UP SHOP in 紀伊國屋書店」が開催決定！",
+   "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE1IMEFtdGpJbjRIbW9iM3REdU5lTUpzQVhxMW1INFRhVWxDcnlXeExWX0xIczhXbkx1SHNFQnVudk84N25iRm5XQjF2S2hhWEVmSk5QZ0g0QjI2M2dGVnpSaHBDakxROFNJOGtkV2hIRGY4ZXowYWc?oc=5",
+   "source": "Mantan Web",
+   "time": "2026-10-27T21:15:00+09:00"
   },
   {
    "title": "歩道工事の火で書店火災か 憤り",
@@ -238,10 +262,10 @@
    "time": "2026-10-27T18:35:15+09:00"
   },
   {
-   "title": "IP、コミュニティ、読者理解——出版社の資産がマーケティングを動かす。講談社メディアアワード2026 審査会レポート",
-   "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE5WOHByS0RfMlgwNVpfLUQwRmRXTnd4SHVQb1pvVmpOV1hBRVlZNUd2V3Jab1lSRXNEbjJScEZ0UkhLc1BkTm54N0pnMlFXTmRCeFpTUzFlQTI?oc=5",
-   "source": "講談社Cステーション",
-   "time": "2026-10-27T18:34:39+09:00"
+   "title": "憤る店主「工事業者に賠償を求めたい」歩道舗装工事のバーナーの火が燃え移り書店火災か 実況見分で可能性高まる 札幌市中央区（HBCニュース北海道）",
+   "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1TZEN5QmUxbEF3NkM4RlJ4UGxDTjZ3WlNvZU5NdjNPY3l1Wnh1elVMMTJyYUNSUFo0ek50VmZ1NjMxb1c4Y014VUtqSmE2cUZoaE8wWS1icUZPZ3BHZUtUNnFjZTY4VEk1ZTFKLWpyaUdocXpKZlRmQ2x2R1h3N3c?oc=5",
+   "source": "Yahoo!ニュース",
+   "time": "2026-10-27T18:15:25+09:00"
   },
   {
    "title": "シーホース三河公認ブック BOOSTER’S 2025-26 発売のお知らせ",
@@ -251,7 +275,7 @@
   },
   {
    "title": "「におい、ほこり、虫」無人書店のオーナーがこだわったバーチャルではない「リアルな世界」 昭和レトロな雰囲気と古書とレコード",
-   "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE43WHVCaThBOTJobnpPUXlvVU9SaWVqVDE4UlVWNHVZWENjdXFOSnkxbml4dTRFRWw5U1RZODhnX0NQZXVqcDJEWEdhdGtadXBsei1Cazducw?oc=5",
+   "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTFBIc21FSi1nQ3B0VWRzX2hPcHRxOEh0RXlPeVFfR1U0OW9DWWZpYXBhT1ZjNWpzRFU4WjEzeGozamo5am45Vlo0anVFc2dMelpWV1J0VDdlZVgydDA4NUY4bXdUZUo?oc=5",
    "source": "TBS NEWS DIG",
    "time": "2026-10-27T18:01:00+09:00"
   },
@@ -268,16 +292,10 @@
    "time": "2026-10-27T17:43:00+09:00"
   },
   {
-   "title": "写らナイんです POP UP in 紀伊國屋書店 新宿 11月18日より開催!",
-   "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxOZ3VVck5DNTRhdjFOcGVVcUJHZnpNbnhJaXFaYjhGNllFUlpidEJNTVNQeUxyZHdGVmtqcnFrRTF6YXRHVTNDLVVGclh6c2dUNnhnS2c4bnZZYzcwTTdWNjdIQlRwOVpRZGpIbkdNbUxYdHRBWTlnZGU2RGJxQ01NZUZOWEtHRHhpUzNDNkJQcHNleERPeUVlR3AxVXpqUQ?oc=5",
-   "source": "コラボカフェ",
-   "time": "2026-10-27T17:32:23+09:00"
-  },
-  {
-   "title": "書店を楽しむ祭典『BOOK MEETS NEXT 2026』が今年も開催！ 「本との出会い」語る又吉直樹や宇垣美里ら登壇イベントも実施",
-   "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFAtUGowNWRSakFkaVNrczh1N0V3eTg1TnQ3THNCaGRSaDVaNl83ME16YlN5VHRjUDl4d1JweUFvVDFPQXJyZnMwYTVCanYyQTBJ?oc=5",
+   "title": "コメント | ちばてつやさん死去 漫画家仲間・出版社が追悼 マガジン＆ジャンプ作家「人生の目標が消えてしまった」",
+   "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1obTJUOGoyV1RPYjRVN3JfYk9mZEpzdmY4UXh2c0JoeHZ0QVVXOWdUd0cyVFIxQXF6WW9KSW5NN3NiWTFGRTJzZmZrX21RUHNvTFpUdGl4RVJ6dw?oc=5",
    "source": "オリコンニュース",
-   "time": "2026-10-27T17:01:02+09:00"
+   "time": "2026-10-27T16:56:40+09:00"
   },
   {
    "title": "絵本館が「選ぶ」大切さ、リーフレットに",
@@ -298,16 +316,28 @@
    "time": "2026-10-27T16:00:09+09:00"
   },
   {
+   "title": "電子マンガ「ピッコマ」が11月よりBLに特化した電子書店「ルルミル」をローンチ！",
+   "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE9OMHY4Q2xtcHBwOC1DUVVlNmNkTlUxUlZ0RWpFekV3WkhOcDc0ckhpM0U0dTJVSUFhY3hNcjRvTGZyX0N5REh3alNsVQ?oc=5",
+   "source": "エンタのおはなし",
+   "time": "2026-10-27T15:58:34+09:00"
+  },
+  {
+   "title": "「BL純度100%」電子書籍店・ルルミルが11月5日オープン！ 「攻め・受け」検索で理想のカップルに出会える＜BL専門電子書店「ルルミル」ローンチ直前 体験会＞",
+   "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPWHdoc0J6SmdwN2tvc3V3Nk1lc21XWm9CcGowOTBUT1JWX2pfTkYxQ3hCNFZQNWpYRWlFaHRCR1gwRnhNZi1zVlQ0dTIxclJ6WUdqMWNTSGpHclpsc0p4azExM3lobl9ZRk1QcEZ5TmlSUjBWNHpvLVBoOE5uQ0J2dnhVYjNlZERWcFhiUmNYTdIBjwFBVV95cUxPWHdoc0J6SmdwN2tvc3V3Nk1lc21XWm9CcGowOTBUT1JWX2pfTkYxQ3hCNFZQNWpYRWlFaHRCR1gwRnhNZi1zVlQ0dTIxclJ6WUdqMWNTSGpHclpsc0p4azExM3lobl9ZRk1QcEZ5TmlSUjBWNHpvLVBoOE5uQ0J2dnhVYjNlZERWcFhiUmNYTQ?oc=5",
+   "source": "ｄメニューニュース",
+   "time": "2026-10-27T15:56:00+09:00"
+  },
+  {
+   "title": "Ethical&SEA+m 梅田 蔦屋書店 国産モリンガを楽しむPOPUP(大阪府)の情報",
+   "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5zbEpjOFJQYU5RY1Z5SEh3bzlqeS1rVEJHUzg4ZHZFR1gtYjdZT0hzRXdVTWpUQmpXeWo1eTFMQWpINVhNdEZ0bXYzNjRKZDdaY2QzLUQydEUtaVU?oc=5",
+   "source": "ウォーカープラス",
+   "time": "2026-10-27T15:17:00+09:00"
+  },
+  {
    "title": "「写らナイんです」POP UPが紀伊國屋書店新宿本店で開催",
    "url": "https://news.google.com/rss/articles/CBMiRkFVX3lxTE1femhDUk16NGxoemo0Sk5BaW9jSWsyS1NSdUxqalo3Y0l1bE5fLVdjOU1fUC01Mm9pVHlmbHVZc2JsNzhlUFE?oc=5",
    "source": "Koubo",
    "time": "2026-10-27T15:05:38+09:00"
-  },
-  {
-   "title": "電子マンガ「ピッコマ」が11月よりBLに特化した電子書店「ルルミル」をローンチ！",
-   "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE9OMHY4Q2xtcHBwOC1DUVVlNmNkTlUxUlZ0RWpFekV3WkhOcDc0ckhpM0U0dTJVSUFhY3hNcjRvTGZyX0N5REh3alNsVQ?oc=5",
-   "source": "エンタのおはなし",
-   "time": "2026-10-27T14:58:34+09:00"
   },
   {
    "title": "翻訳家の柴田元幸と岸本佐知子、『河出書店』で海外文学の楽しみ方を語る「本との出会いは偶然が多い」",
@@ -322,28 +352,16 @@
    "time": "2026-10-27T14:27:44+09:00"
   },
   {
-   "title": "誕生日記念のハロウィン描き下ろしグッズ全6品目！SHIBUYA TSUTAYA 6階 IP書店『ハセシン』POP UP SHOP",
-   "url": "https://news.google.com/rss/articles/CBMiRkFVX3lxTFBudC0zOGdXb2NVLXdENzVpWkppZXVTS1NNa1lJUjNSM1k5X244NFltX3ZmOUxfWXNISGNCNEs4YlBMY0tPcmc?oc=5",
-   "source": "Dtimes",
-   "time": "2026-10-27T14:27:13+09:00"
-  },
-  {
    "title": "【訃報】ちばてつや氏（本名＝千葉徹弥、漫画家）",
    "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTFBjTmh5QmtoaWNlUmkzNlFXRV9pY2JRTlotdlFkTWpVaFNnZ3BiNUtrdndjeE50b1dtcTRhUDZvTHRuUWpybHVESE1wZjRUZjFFU05UYw?oc=5",
    "source": "新文化オンライン",
    "time": "2026-10-27T14:17:57+09:00"
   },
   {
-   "title": "「ガクチカに書けることがない」大学生へ。自分の強みを見つける「ガクチカワークショップ」を三省堂書店 神田神保町本店で10月28日（水）に開催",
-   "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1aMUl0UF9lNjNoeVNhdkRvZlhvMXowbGZ4aDdySWp3NEs2bWZHcVBkMVlCdkI2Rzk2Uk5FVUxfTWdFYUItYTdLVDN4VlpIV3llV1BMc3J4ZWlYVnRoUVB3NTRBckVvOGVxTnV1OFlKRDFqakF3?oc=5",
-   "source": "Excite エキサイト",
-   "time": "2026-10-27T14:15:00+09:00"
-  },
-  {
-   "title": "関連動画 | ちばてつやさん死去 漫画家仲間・出版社が追悼 マガジン＆ジャンプ作家「人生の目標が消えてしまった」",
-   "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBZUFZKbnZTT3gtMHNrVnluUF81aDJ6Vm8tSkJyUnI3Z0FXUl96TXNpOFgxSXQ5bXVRbTEtNFVhR0lKcjZLWTZuSEh6YkJxREttdmUyaW1SeVVraWk2cFFuTUpoVmhzS0hkU1E?oc=5",
-   "source": "オリコンニュース",
-   "time": "2026-10-27T14:05:28+09:00"
+   "title": "ちばてつや氏 （C）ORICON NewS inc.",
+   "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOUHBUbnlhU1pyYUFucVFNLUdXd1hFR05IaUlSeTNoTVdSZG50V3BYeUQyRFBEZUd1QVFYcEFzQTlSRnZ3T3Y2dEhNZWlNSjJ0b0hhSk84UXZ1dUdKdG1hQWVHZlFnT0JlZ0dMcFZBbXJQdUQ1TU5MNUU3QUhVTW1reDFmZ2dGQXpJMy0wX2ZIRnJrZ2htdnlkRUYwbG02UHlkSUE?oc=5",
+   "source": "産経ニュース",
+   "time": "2026-10-27T13:31:09+09:00"
   },
   {
    "title": "徳間書店「GoodsPress Web」のテスト環境に不正アクセス 管理者アカウントを不正作成・ページ改ざん、取引先情報103件に影響の可能性|セキュリティニュースのセキュリティ対策Lab",
@@ -358,14 +376,32 @@
    "time": "2026-10-27T12:50:39+09:00"
   },
   {
-   "title": "ちばてつやさん死去 出版社が追悼で功績称える 講談社・小学館「漫画という創作物に対する限りない愛と信頼を」「心からの敬意と感謝」（オリコン）",
-   "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5fS04yZ2duaTBMamIzT1FLX0FkeFVhaEZ1N19UbW9ETnM4QVNkTWUzeWtfa1VRNEUxZUc0cGI2dDdDeUdTZ0ZwQnplYWVvN1k1WEUzTXFVbW04U1VNbmlXbzJtak5Uc3pJdklWbmtwVV9uVTNDb2lmazUxTFJqSjA?oc=5",
+   "title": "ちばてつやさん死去 出版社が追悼で功績称える 講談社・小学館「漫画という創作物に対する限りない愛と信頼を」「心からの敬意と感謝」 (オリコン)",
+   "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOYlhDUXh3ODBFcU9ydkhieHhHc3hkbmctOWVmdXNyQkEya1Z0VnRnb25hUDJXTVl2NlB5TFF0cFg4T1V5WkU3YTJLbVYtWkFDOGd2ZmU2OUNhWkVfRThFdklOT0RyZTZHOXZNcDczRUp4NklsYk81NHRuNmFrZTRpT21SVGw2VTgwLXU3SU1n?oc=5",
    "source": "Yahoo!ニュース",
    "time": "2026-10-27T12:39:08+09:00"
   },
   {
-   "title": "ちばてつやさん死去 漫画家仲間・出版社が追悼 マガジン&ジャンプ作家「人生の目標が消えてしまった」",
-   "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBYamswR1VnNEJxX0FlTWw4SG4yZXQ2aXBjQWM5c3JJNDBTZFdMUk5RWU03VGpMalR5Nm80VFBfTGVoYUlvbjY3dnVOOUsxSGI3VU5jU2Jn?oc=5",
+   "title": "ちばてつやさん死去　出版社が追悼　講談社・小学館「漫画という創作物に対する限りない愛と信頼を」「心からの敬意と感謝」",
+   "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPUldYQ24zMjdfcTJLY2pyMnRNV3EwTk5vZVRzNHZ2R0laemJiNVk2eW1sdUhmSnpqSlY3Zk9hQkttakpUZ0hHRWJ3OHpxak1xb3AtdTZIdUxmR2ZPYngzYkpoSkhHdl85MS04by1BSDRIYU8wN0pKZ25oWDZZR2Nwb0tGd2tLUdIBhgFBVV95cUxPUldYQ24zMjdfcTJLY2pyMnRNV3EwTk5vZVRzNHZ2R0laemJiNVk2eW1sdUhmSnpqSlY3Zk9hQkttakpUZ0hHRWJ3OHpxak1xb3AtdTZIdUxmR2ZPYngzYkpoSkhHdl85MS04by1BSDRIYU8wN0pKZ25oWDZZR2Nwb0tGd2tLUQ?oc=5",
+   "source": "ｄメニューニュース",
+   "time": "2026-10-27T12:39:00+09:00"
+  },
+  {
+   "title": "ちばてつやさん死去 漫画家仲間・出版社が追悼 マガジン＆ジャンプ作家「人生の目標が消えてしまった」 (オリコン)",
+   "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPa2d5cVlSYW5JZkY2UkJIMkhNbGxvRktWdFhyV1RKcDV0LXZoeV85eXlXV29QcGlzQXJZT0h3S2pYTy1JNTJqQnkwcy03akxNU0NiUnVsY201Rk1OQmtEaGJhNGRST2FHdmRRWFlxeDNPN3FaUDRtU1M2TkJfRWN2UUJMeUZPUkRKMXV5akJR?oc=5",
+   "source": "Yahoo!ニュース",
+   "time": "2026-10-27T12:31:47+09:00"
+  },
+  {
+   "title": "関連動画 | ちばてつやさん死去 漫画家仲間・出版社が追悼 マガジン＆ジャンプ作家「人生の目標が消えてしまった」",
+   "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBZUFZKbnZTT3gtMHNrVnluUF81aDJ6Vm8tSkJyUnI3Z0FXUl96TXNpOFgxSXQ5bXVRbTEtNFVhR0lKcjZLWTZuSEh6YkJxREttdmUyaW1SeVVraWk2cFFuTUpoVmhzS0hkU1E?oc=5",
+   "source": "オリコンニュース",
+   "time": "2026-10-27T12:31:00+09:00"
+  },
+  {
+   "title": "関連写真 | ちばてつやさん死去 漫画家仲間・出版社が追悼 マガジン＆ジャンプ作家「人生の目標が消えてしまった」",
+   "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1DajhQMU5IbnhUckxxLWFyZnhmd2JrTC02Mjl4M3NSazc3YmpkTmp2WlFkbnMxbmpsNS1pRm9uS1l6MzhRMzZEX2RCY0Q2LTIxUndpX1pDemk4Mjl2eWdqT2x3OTBBQ0xKdGc?oc=5",
    "source": "オリコンニュース",
    "time": "2026-10-27T12:31:00+09:00"
   },
@@ -394,46 +430,10 @@
    "time": "2026-10-27T12:07:33+09:00"
   },
   {
-   "title": "本だけではない出逢いと刺激を｜「透明書店」の長期ポップアップが阪急メンズ東京でスタート",
-   "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFB6dkdsSncyRm1HVnUxYXh1WjZCeFN2bG53UXRUZG94WVk2T3VXWTFuR201T1YteV9wVTRPNVQtck13ZEdnYTc2LXhfVkZyN242R2RiMlBZSV85azVnNFRKNE5qWWxGc3c?oc=5",
-   "source": "https://qui.tokyo/",
-   "time": "2026-10-27T12:00:16+09:00"
-  },
-  {
-   "title": "「写らナイんです POP UP SHOP in 紀伊國屋書店」が開催決定！",
-   "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE1TSmU5SEJpekZIdG1aVkFwMXQwb3Vkc2xKblQySVhyMkFuMUlSTzc0dWY4aXQzOHlXZG9PbDVxQjJEOHVSelNWcG93UnQ4X1NHdHdqSkN4cC02Mmc2dzR6RDNzMS1wdFdmVVBaNUNhUllHdw?oc=5",
-   "source": "Infoseek",
-   "time": "2026-10-27T12:00:00+09:00"
-  },
-  {
    "title": "【訃報】栗原哲也氏（くりはら・てつや＝日本経済評論社前社長）",
    "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5iQThUS0d4U2lRRDVJbFQ4T2lPdjBDSjNTQkRTZTFIMm5ReE1wem83UlN1UkZOSnhfdm9YV1lPUjNzRUlCMXR5bUlfWkF6cnVtWm04Qw?oc=5",
    "source": "新文化オンライン",
    "time": "2026-10-27T11:55:11+09:00"
-  },
-  {
-   "title": "「ひとりで立つこと」を写真に。工藤司の個展「so alone」が代官山 蔦屋書店で開催（IMA ONLINE）",
-   "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBXMUdIVHBnYk1DQTJvMElfYzVaZzFoYjhCWUJEaE1VUFNSVXhCVFVLRXFTSTNzbm51THotelhzT3REQzlnRlRzOWp2OHYzcXRtcFRSSnd4Z0ZkdGVxMFlJWGVyLTdNem82V0NTZUN4ZVh0bVlaY0VqUjl6a0FMZDA?oc=5",
-   "source": "Yahoo!ニュース",
-   "time": "2026-10-27T11:52:33+09:00"
-  },
-  {
-   "title": "札幌・白石区でストーブから住宅火災 中央区で舗装工事バーナーから書店兼住宅延焼か",
-   "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBvNWVTTEN6QXZLckpac1ZzTFcwMEZLSENINXNVanlMaTVWY3dTTWh0REN5SkJRMWZWV2NxakN2WGdncHpxM3RrRVYya2hXcHdQMDBzdU1HNV93QQ?oc=5",
-   "source": "HTB 北海道テレビ",
-   "time": "2026-10-27T11:51:00+09:00"
-  },
-  {
-   "title": "本の総合情報アプリ「本コレ」、紀伊國屋書店と在庫連携開始",
-   "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTFBrTllqVG5zRDM0R2dYOUpDb1c5ekJSMnBzd00xWmVMUnJrbmJiZWhaNGtCREhldHJWVlZ0NnpGem9kMzQ1YzZiR1pTT0w3bWUzQkZqeg?oc=5",
-   "source": "新文化オンライン",
-   "time": "2026-10-27T11:19:48+09:00"
-  },
-  {
-   "title": "【湘南 蔦屋書店】毎日が楽しくなる文具が勢ぞろい。「文具市」を11/10(火)より初開催",
-   "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE4xRmxwVXlDYmtYU3VVekFXUmpjaHd5N0tKQmJhdWJYbzJUQmJjSWczUjNxbzR6cUFQdTA4U180b0NpMDZ6a2lZczVKTHFBckQ5eVdqQzlCTWRvRG9xbVJSai1fMFRjcTdEODhEZEh2WkZ5VUVF?oc=5",
-   "source": "Excite エキサイト",
-   "time": "2026-10-27T11:15:00+09:00"
   }
  ]
 }
