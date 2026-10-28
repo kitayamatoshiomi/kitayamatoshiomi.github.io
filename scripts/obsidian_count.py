@@ -9,7 +9,7 @@ import os
 from datetime import datetime, timedelta, timezone
 
 VAULT = os.environ.get("VAULT", r"C:\Users\nakam\Desktop\Obisidian用フォルダ")
-HUBS = [("執筆", "#5cb6b3"), ("ふりかえり", "#b48ead"), ("読書メモ", "#d9a441"), ("日常メモ", "#8fbf72")]
+HUBS = [("執筆", "#5cb6b3"), ("ふりかえり", "#b48ead"), ("読書メモ", "#d9a441"), ("学び", "#8fbf72"), ("編集", "#d98a6a")]  # 2026-10-27 日常メモ→学び、編集を追加
 SKIP = (".git", ".obsidian", ".trash")
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 JST = timezone(timedelta(hours=9))
